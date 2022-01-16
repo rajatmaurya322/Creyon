@@ -11,7 +11,7 @@ namespace Creyon_linearTransform {
 	void rotateaboutXaxis(Creyon::vector3d& vec, const float angle) {
 		
 		//Matrix to rotate about X axis
-		Creyon::matrix_3x3 mat{ 1.0f,	0.0f,			0.0f,
+		Creyon::matrix_3x3 mat{	   1.0f,	0.0f,			0.0f,
 								   0.0f,	cos(angle),		sin(angle),
 								   0.0f,   -sin(angle),		cos(angle) };
 		vec = vec * mat;
@@ -20,7 +20,7 @@ namespace Creyon_linearTransform {
 	void rotateaboutYaxis(Creyon::vector3d& vec, const float angle) {
 		
 		//Matrix to rotate about Y axis
-		Creyon::matrix_3x3 mat{ cos(angle),	0.0f,	-sin(angle),
+		Creyon::matrix_3x3 mat{    cos(angle),	0.0f,	-sin(angle),
 								   0.0f,		1.0f,	0.0f,
 								   sin(angle),	0.0f,	cos(angle) };
 		vec = vec * mat;
@@ -29,7 +29,7 @@ namespace Creyon_linearTransform {
 	void rotateaboutZaxis(Creyon::vector3d& vec, const float angle) {
 		
 		//Matrix to rotate about Z axis
-		Creyon::matrix_3x3 mat{ cos(angle),	sin(angle),	0.0f,
+		Creyon::matrix_3x3 mat{    cos(angle),	sin(angle),	0.0f,
 								  -sin(angle),	cos(angle),	0.0f,
 								   0.0f		,	0.0f	  ,	1.0f };
 		vec = vec * mat;
@@ -38,7 +38,7 @@ namespace Creyon_linearTransform {
 	void scalealongAllaxis(Creyon::vector3d& vec, const float scaleX, const float scaleY, const float scaleZ) {
 		
 		//Scaling matrix to scale along all axis at once
-		Creyon::matrix_3x3 mat{ scaleX,	0.0f,	0.0f,
+		Creyon::matrix_3x3 mat{   scaleX,	0.0f,	0.0f,
 								  0.0f,		scaleY, 0.0f,
 								  0.0f,		0.0f,	scaleZ };
 
