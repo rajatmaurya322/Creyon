@@ -5,8 +5,8 @@
 /*Transformations are then read (general vector v) as: vABC as first A is applied on v then B and then C like a sentence
 	therefore vABC is equivalent to (((vA)B)C) */
 
-	//Namespace is Creyon_linearTransform
-namespace Creyon_linearTransform {
+//Namespace is Creyon_linearTransform
+namespace Creyon_Transform {
 	
 	void rotateaboutXaxis(Creyon::vector3d& vec, const float angle) {
 		

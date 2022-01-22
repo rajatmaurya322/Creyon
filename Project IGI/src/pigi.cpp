@@ -18,7 +18,7 @@ int main() {
 
 	cout << "Z axis :" << vec;
 	
-	Creyon_linearTransform::rotateaboutYaxis(vec, Creyon::pi);
+	Creyon_Transform::rotateaboutYaxis(vec, Creyon::pi);
 	
 	cout << "\n\nScaled vector:" << vec;
 	cin.get();

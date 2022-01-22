@@ -3,7 +3,7 @@
 #include "matrix.h"
 #include "vector3d.h"
 
-namespace Creyon_linearTransform {
+namespace Creyon_Transform {
 
 	//Rotates an input vector about X axis by given angle
 	void rotateaboutXaxis(Creyon::vector3d& vec, const float angle);
