@@ -1,6 +1,5 @@
 #include "matrix.h"
 
-
 //2x2
 namespace Creyon {
 
@@ -102,8 +101,6 @@ namespace Creyon {
     }
 
 }
-
-
 
 
 
@@ -246,7 +243,7 @@ namespace Creyon {
     matrix_4x4::matrix_4x4(float a0, float b0, float c0, float d0, float a1, float b1, float c1, float d1, float a2, float b2, float c2, float d2, float a3, float b3, float c3, float d3)
         :m_a{a0, a1, a2, a3}, m_b{b0, b1, b2, b3}, m_c{c0, c1, c2, c3}, m_d{d0, d1, d2, d3}
     {}
-
+        
     //Methods
     matrix_4x4 matrix_4x4::transpose() {
         //changes rows to columns and columns to rows

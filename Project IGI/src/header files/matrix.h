@@ -7,7 +7,7 @@
 
 //Matrix representation general scheme:
 
-/*         a   b   c    ---Columns
+/*  Rows   a   b   c    ---Columns
     Row 0 |1   2   3|
     Row 1 |4   5   6|
     Row 2 |7   8   9|     */
@@ -53,8 +53,6 @@ namespace Creyon {
 
     //Non-member functions
     float det(const matrix_2x2& mat);
-
-    
     
     class matrix_3x3 {
     
@@ -97,8 +95,6 @@ namespace Creyon {
     float det(const matrix_3x3& mat);
 
     
-    
-    
     class matrix_4x4 {
     
     public:                             //All data members begin with m_ prefix
@@ -110,10 +106,10 @@ namespace Creyon {
         
         matrix_4x4(std::vector<float>& vec); //creates a 3x3 matrix initialised with values in vector
 
-
         //overloaded constructor, initialises 4x4 matrix with given values
         matrix_4x4(float a0, float b0, float c0, float d0, float a1, float b1, float c1, float d1, float a2, float b2, float c2, float d2, float a3, float b3, float c3, float d3);
 
+        //overloaded constructor
         //Methods
         matrix_4x4 transpose();  //transposes the 3x3 matrix; row-column interchange
 

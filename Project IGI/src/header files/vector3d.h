@@ -15,7 +15,7 @@ namespace Creyon {
 
         //Constructors
         //Default constructor ;Creates a null vector
-        vector3d() :m_x{ 0.0 }, m_y{ 0.0 }, m_z{ 0.0 }
+        vector3d() :m_x{ 0.0f }, m_y{ 0.0f }, m_z{ 0.0f }
         {}
 
         //Creates a vector based on given component values
@@ -26,7 +26,6 @@ namespace Creyon {
         vector3d(const vector3d& v) :m_x{ v.m_x }, m_y{ v.m_y }, m_z{ v.m_z }
         {}
 
-
         //Methods  
         //Overloaded Operators 
         vector3d operator+(const vector3d& v)const;   //Add two vectors(respective x,y,z components)
@@ -34,7 +33,7 @@ namespace Creyon {
         float operator*(const vector3d& v)const;       //Dot product of two vectors
         
         //Overloaded multiplication operator * for vector-matrix multiplication; only v*mat form
-        vector3d operator*(Creyon::matrix_3x3 &mat)const;
+        vector3d operator*(const Creyon::matrix_3x3 &mat)const;
 
         //unary minus, returns a vector with negated components(reverses direction of vector)
         vector3d operator-()const;

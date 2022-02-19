@@ -153,14 +153,18 @@
   <ItemGroup>
     <ClCompile Include="src\header files\linearTransform.cpp" />
     <ClCompile Include="src\header files\matrixdefine.cpp" />
+    <ClCompile Include="src\header files\Miscellaneous\Misc.cpp" />
     <ClCompile Include="src\header files\vectordefine.cpp" />
     <ClCompile Include="src\pigi.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\header files\Constants\constants.h" />
+    <ClInclude Include="src\header files\Miscellaneous\Misc.h" />
+    <ClInclude Include="src\header files\vector2d.h" />
     <ClInclude Include="src\header files\vector3d.h" />
     <ClInclude Include="src\header files\matrix.h" />
     <ClInclude Include="src\header files\linearTransform.h" />
+    <ClInclude Include="src\header files\vector4d.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
