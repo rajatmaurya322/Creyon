@@ -49,9 +49,9 @@ namespace Creyon {
     //Performs vector-matrix multiplication
     vector3d vector3d::operator*(const Creyon::matrix_3x3 &mat)const{
         
-        return vector3d(m_x * mat.m_a[0] + m_y * mat.m_a[1] + m_z * mat.m_a[2],
-                        m_x * mat.m_b[0] + m_y * mat.m_b[1] + m_z * mat.m_b[2],
-                        m_x * mat.m_c[0] + m_y * mat.m_c[1] + m_z * mat.m_c[2]);
+        return vector3d(m_x * mat.m_elements[0] + m_y * mat.m_elements[3] + m_z * mat.m_elements[6],
+                        m_x * mat.m_elements[1] + m_y * mat.m_elements[4] + m_z * mat.m_elements[7],
+                        m_x * mat.m_elements[2] + m_y * mat.m_elements[5] + m_z * mat.m_elements[8]);
     }
 
     //Friend Functions
@@ -88,15 +88,15 @@ namespace Creyon {
     //Overloaded operators
     //Vector matrix multiplication; v*mat form
     vector4d vector4d::operator*(const Creyon::matrix_4x4& mat) {
-        return vector4d(m_v.m_x * mat.m_a[0] + m_v.m_y * mat.m_a[1] + m_v.m_z * mat.m_a[2] + m_w * mat.m_a[3],
-                        m_v.m_x * mat.m_b[0] + m_v.m_y * mat.m_b[1] + m_v.m_z * mat.m_b[2] + m_w * mat.m_b[3], 
-                        m_v.m_x * mat.m_c[0] + m_v.m_y * mat.m_c[1] + m_v.m_z * mat.m_c[2] + m_w * mat.m_c[3], 
-                        m_v.m_x * mat.m_d[0] + m_v.m_y * mat.m_d[1] + m_v.m_z * mat.m_d[2] + m_w * mat.m_d[3]);
+        return vector4d(m_x * mat.m_a[0] + m_y * mat.m_a[1] + m_z * mat.m_a[2] + m_w * mat.m_a[3],
+                        m_x * mat.m_b[0] + m_y * mat.m_b[1] + m_z * mat.m_b[2] + m_w * mat.m_b[3], 
+                        m_x * mat.m_c[0] + m_y * mat.m_c[1] + m_z * mat.m_c[2] + m_w * mat.m_c[3], 
+                        m_x * mat.m_d[0] + m_y * mat.m_d[1] + m_z * mat.m_d[2] + m_w * mat.m_d[3]);
     }
 
     //overloaded << operator to display vector directly with cout
     std::ostream& operator<<(std::ostream& os, const vector4d& vec) {
-        os << "X:" << vec.m_v.m_x << "\nY:" << vec.m_v.m_y << "\nZ:" << vec.m_v.m_z << "\nW:" << vec.m_w;
+        os << "X:" << vec.m_x << "\nY:" << vec.m_y << "\nZ:" << vec.m_z << "\nW:" << vec.m_w;
         return os;
     }
 }

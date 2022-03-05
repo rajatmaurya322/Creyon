@@ -1,6 +1,7 @@
 #pragma once
+
 #include "matrix.h"
-#include "vector4d.h"
+#include "vector3d.h"
 
 namespace Creyon {
 
@@ -12,9 +13,10 @@ namespace Creyon {
 	//Relative epsilon comparison
 	bool relcompare(float a, float b, float rel_epsilon);
 
-	//Coversion functions
-	//function which returns a 4x4 matrix with given 3x3 matrix and 4d vector
-	matrix_4x4 convert_mat4(const matrix_3x3& mat3, const vector4d& vec4);
-
-
+	//Square function
+	inline float square(const float value) {
+		return value * value;
+	}
+	
+	matrix_4x4 convert_mat4(const matrix_3x3& mat3, const vector3d& vec3);
 }

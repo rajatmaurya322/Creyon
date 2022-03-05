@@ -4,8 +4,14 @@
 namespace Creyon {
 
     //Constructors
-    //default constructor, creates a 2x2 null matrix
-    matrix_2x2::matrix_2x2():m_a{ 0,0 },m_b{ 0,0 }
+    
+    //default constructor, creates a 2x2 identity matrix
+    matrix_2x2::matrix_2x2() :m_a{ 1.0f, 0.0f }, m_b{ 0.0f, 1.0f }
+    {}
+    
+    //overloaded constructor, initialises 2x2 matrix with given values
+    matrix_2x2::matrix_2x2(float a0, float b0, float a1, float b1)
+        : m_a{ a0, a1 }, m_b{ b0, b1 }
     {}
 
     //overloaded constructor, initialises 2x2 matrix with given vector values
@@ -17,11 +23,6 @@ namespace Creyon {
             exit(EXIT_FAILURE);
         }
     }
-
-    //overloaded constructor, initialises 2x2 matrix with given values
-    matrix_2x2::matrix_2x2(float a0, float b0, float a1, float b1)
-        :m_a{a0, a1}, m_b{b0, b1}
-    {}
 
     //Methods
     matrix_2x2 matrix_2x2::transpose() {
@@ -108,25 +109,13 @@ namespace Creyon {
 namespace Creyon {
     //Constructors
     
-    //default constructor, creates a 3x3 null matrix
-    matrix_3x3::matrix_3x3() :m_a{ 0,0,0 }, m_b{ 0,0,0 }, m_c{ 0,0,0 }
+    //default constructor, creates a 3x3 identity matrix
+    matrix_3x3::matrix_3x3() :m_elements{ 1.0f,0.0f,0.0f, 0.0f,1.0f,0.0f, 0.0f,0.0f,1.0f }
     {}
 
-    //overloaded constructor, initialises 3x3 matrix with given vector values
-    matrix_3x3::matrix_3x3(std::vector <float>& vec)
-      : m_a{ vec[0], vec[3], vec[6] },
-        m_b{ vec[1], vec[4], vec[7] },
-        m_c{ vec[2], vec[5], vec[8] }
-    {
-        if (vec.size() != 9) {
-            std::cout << "\nIncompatible vector size! Size:" << vec.size();
-            exit(EXIT_FAILURE);
-        }
-    }
-
-    //Overloaded constructor, initialises 2x2 matrix with given values
+    //Overloaded constructor, initialises 3x3 matrix with given values
     matrix_3x3::matrix_3x3(float a0, float b0, float c0, float a1, float b1, float c1, float a2, float b2, float c2)
-        :m_a{a0, a1, a2} , m_b{b0, b1, b2}, m_c{c0, c1, c2}
+        :m_elements{ a0,b0,c0,  a1,b1,c1, a2,b2,c2 }
     {}
 
     //Methods
@@ -134,9 +123,9 @@ namespace Creyon {
     matrix_3x3 matrix_3x3::transpose() {
         
         //changes rows to columns and columns to rows
-        std::swap(m_a[1], m_b[0]);
-        std::swap(m_a[2], m_c[0]);
-        std::swap(m_b[2], m_c[1]);
+        std::swap(m_elements[1], m_elements[3]);
+        std::swap(m_elements[2], m_elements[6]);
+        std::swap(m_elements[5], m_elements[7]);
         return *this;
     }
 
@@ -145,39 +134,45 @@ namespace Creyon {
     //adds two 3x3 matrices elementwise
     matrix_3x3 matrix_3x3::operator+(const matrix_3x3& mat)const {
         
-        return matrix_3x3(m_a[0] + mat.m_a[0], m_b[0] + mat.m_b[0], m_c[0] + mat.m_c[0],
-                          m_a[1] + mat.m_a[1], m_b[1] + mat.m_b[1], m_c[1] + mat.m_c[1],
-                          m_a[2] + mat.m_a[2], m_b[2] + mat.m_b[2], m_c[2] + mat.m_c[2] );
+        return matrix_3x3(m_elements[0] + mat.m_elements[0], m_elements[1] + mat.m_elements[1], m_elements[2] + mat.m_elements[2],
+                          m_elements[3] + mat.m_elements[3], m_elements[4] + mat.m_elements[4], m_elements[5] + mat.m_elements[5],
+                          m_elements[6] + mat.m_elements[6], m_elements[7] + mat.m_elements[7], m_elements[8] + mat.m_elements[8] );
     }
 
     //subtracts two 3x3 matrices elementwise
     matrix_3x3 matrix_3x3::operator-(const matrix_3x3& mat)const {
-        
-        return matrix_3x3(m_a[0] - mat.m_a[0], m_b[0] - mat.m_b[0], m_c[0] - mat.m_c[0],
-                          m_a[1] - mat.m_a[1], m_b[1] - mat.m_b[1], m_c[1] - mat.m_c[1],
-                          m_a[2] - mat.m_a[2], m_b[2] - mat.m_b[2], m_c[2] - mat.m_c[2]);
+
+        return matrix_3x3(m_elements[0] - mat.m_elements[0], m_elements[1] - mat.m_elements[1], m_elements[2] - mat.m_elements[2],
+                          m_elements[3] - mat.m_elements[3], m_elements[4] - mat.m_elements[4], m_elements[5] - mat.m_elements[5],
+                          m_elements[6] - mat.m_elements[6], m_elements[7] - mat.m_elements[7], m_elements[8] - mat.m_elements[8]);
     }
 
     //multiplies two 3x3 matrices
     matrix_3x3 matrix_3x3::operator*(const matrix_3x3& mat)const {
         
-        std::vector <float> vec;
+        float a[9];
+
+        a[0] = m_elements[0] * mat.m_elements[0] + m_elements[1] * mat.m_elements[3] + m_elements[2] * mat.m_elements[6];
+        a[1] = m_elements[0] * mat.m_elements[1] + m_elements[1] * mat.m_elements[4] + m_elements[2] * mat.m_elements[7];
+        a[2] = m_elements[0] * mat.m_elements[2] + m_elements[1] * mat.m_elements[5] + m_elements[2] * mat.m_elements[8];
+
+        a[3] = m_elements[3] * mat.m_elements[0] + m_elements[4] * mat.m_elements[3] + m_elements[5] * mat.m_elements[6];
+        a[4] = m_elements[3] * mat.m_elements[1] + m_elements[4] * mat.m_elements[4] + m_elements[5] * mat.m_elements[7];
+        a[5] = m_elements[3] * mat.m_elements[2] + m_elements[4] * mat.m_elements[5] + m_elements[5] * mat.m_elements[8];
+
+        a[6] = m_elements[6] * mat.m_elements[0] + m_elements[7] * mat.m_elements[3] + m_elements[8] * mat.m_elements[6];
+        a[7] = m_elements[6] * mat.m_elements[1] + m_elements[7] * mat.m_elements[4] + m_elements[8] * mat.m_elements[7];
+        a[8] = m_elements[6] * mat.m_elements[2] + m_elements[7] * mat.m_elements[5] + m_elements[8] * mat.m_elements[8];
         
-        for (int i = 0; i < 3; ++i) { //i represents row number
-            vec.push_back(m_a[i] * mat.m_a[0] + m_b[i] * mat.m_a[1] + m_c[i] * mat.m_a[2]); //row*column1 
-            vec.push_back(m_a[i] * mat.m_b[0] + m_b[i] * mat.m_b[1] + m_c[i] * mat.m_b[2]); //row*column2
-            vec.push_back(m_a[i] * mat.m_c[0] + m_b[i] * mat.m_c[1] + m_c[i] * mat.m_c[2]); //row*column3
-        }
-        
-        return matrix_3x3(vec);
+        return matrix_3x3(a[0],a[1],a[2],  a[3],a[4],a[5],  a[6],a[7],a[8]);
     }
 
     //scalar multiplication of a 3x3 matrix
     matrix_3x3 matrix_3x3::operator*(float f)const {
         
-        return matrix_3x3(m_a[0] * f, m_b[0] * f, m_c[0] * f,
-                          m_a[1] * f, m_b[1] * f, m_c[1] * f,
-                          m_a[2] * f, m_b[2] * f, m_c[2] * f) ;
+        return matrix_3x3(m_elements[0] * f, m_elements[1] * f, m_elements[2] * f,
+                          m_elements[3] * f, m_elements[4] * f, m_elements[5] * f,
+                          m_elements[6] * f, m_elements[7] * f, m_elements[8] * f);
     }
 
     //scalar division of a 3x3 matrix
@@ -187,9 +182,9 @@ namespace Creyon {
             std::cout << "Matrix division by zero!";
             exit(EXIT_FAILURE);
         }
-        return matrix_3x3(m_a[0] / f, m_b[0] / f, m_c[0] / f,
-                          m_a[1] / f, m_b[1] / f, m_c[1] / f,
-                          m_a[2] / f, m_b[2] / f, m_c[2] / f);
+        return matrix_3x3(m_elements[0] / f, m_elements[1] / f, m_elements[2] / f,
+                          m_elements[3] / f, m_elements[4] / f, m_elements[5] / f,
+                          m_elements[6] / f, m_elements[7] / f, m_elements[8] / f);
     }
 
     //Friend functions
@@ -202,8 +197,8 @@ namespace Creyon {
     //Overloaded friend operator << for printing matrix directly with cout object
     std::ostream& operator<<(std::ostream& os, const matrix_3x3& mat) {
         
-        for (int i = 0; i < 3; ++i) { //i represents row number
-            os << mat.m_a[i] << " " << mat.m_b[i] << " " << mat.m_c[i] << "\n";
+        for (int i = 0; i < 9; i+=3) { //i represents row number
+            os << mat.m_elements[i] << " " << mat.m_elements[i+1] << " " << mat.m_elements[i+2] << "\n";
         }
         
         return os;
@@ -211,9 +206,9 @@ namespace Creyon {
 
     float det(const matrix_3x3& mat) {
         //returns determinant of a 3x3 matrix
-        return mat.m_a[0] * (mat.m_b[1] * mat.m_c[2] - mat.m_b[2] * mat.m_c[1]) 
-            - mat.m_b[0] * (mat.m_a[1] * mat.m_c[2] - mat.m_a[2] * mat.m_c[1]) 
-            + mat.m_c[0] * (mat.m_a[1] * mat.m_b[2] - mat.m_a[2] * mat.m_b[1]);
+        return mat.m_elements[0] * (mat.m_elements[4] * mat.m_elements[8] - mat.m_elements[5] * mat.m_elements[7])
+            - mat.m_elements[1] * (mat.m_elements[3] * mat.m_elements[8] - mat.m_elements[6] * mat.m_elements[5])
+            + mat.m_elements[2] * (mat.m_elements[3] * mat.m_elements[7] - mat.m_elements[6] * mat.m_elements[4]);
     }
 }
 
@@ -222,8 +217,8 @@ namespace Creyon {
 namespace Creyon {
     //Constructors
     
-    //default constructor, creates a 4x4 null matrix
-    matrix_4x4::matrix_4x4() :m_a{ 0,0,0,0 }, m_b{ 0,0,0,0 }, m_c{ 0,0,0,0 }, m_d{ 0,0,0,0 }
+    //default constructor, creates a 4x4 identity matrix
+    matrix_4x4::matrix_4x4() :m_a{ 1.0f,0.0f,0.0f,0.0f }, m_b{ 0.0f,1.0f,0.0f,0.0f }, m_c{ 0.0f,0.0f,1.0f,0.0f }, m_d{ 0.0f,0.0f,0.0f,1.0f }
     {}
 
     //overloaded constructor, initialises 4x4 matrix with given vector values

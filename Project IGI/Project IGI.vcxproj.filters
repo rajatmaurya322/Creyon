@@ -24,7 +24,7 @@
     <ClCompile Include="src\header files\vectordefine.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\header files\linearTransform.cpp">
+    <ClCompile Include="src\header files\transforms.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="src\header files\Miscellaneous\Misc.cpp">
@@ -38,7 +38,7 @@
     <ClInclude Include="src\header files\vector3d.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\header files\linearTransform.h">
+    <ClInclude Include="src\header files\transforms.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="src\header files\Constants\constants.h">

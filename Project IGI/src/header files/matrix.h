@@ -14,20 +14,19 @@
 
 
 namespace Creyon {
-
+    
     class matrix_2x2 {
     
     public:                             //All data members begin with m_ prefix
-        
+
         float m_a[2], m_b[2];         //2x2 matrix; a,b represent columns
 
         //Constructors
-        
-        matrix_2x2();                          //creates a 2X2 null matrix
-        
-        matrix_2x2(std::vector <float>& vec);  //creates a 2x2 matrix initialised with values in vector
+        matrix_2x2();   //creates a 2x2 identity matrix
 
         matrix_2x2(float a0, float b0, float a1, float b1); //creates a 2x2 matrix with given values
+        
+        matrix_2x2(std::vector <float>& vec);  //creates a 2x2 matrix initialised with values in vector
 
         //Methods
         matrix_2x2 transpose();  //transposes the original 2x2 matrix; row-column interchange
@@ -58,13 +57,10 @@ namespace Creyon {
     
     public:                             //All data members begin with m_ prefix
      
-        float m_a[3], m_b[3], m_c[3];     //3x3 matrix; a,b,c represent columns
+        float m_elements[9];     //3x3 matrix elements;
 
         //Constructors
-        matrix_3x3();                        //creates a 3X3 null matrix
-        
-        matrix_3x3(std::vector<float>& vec); //creates a 3x3 matrix initialised with values in vector
-
+        matrix_3x3();                        //creates a 3X3 identity matrix
 
         //overloaded constructor, initialises 3x3 matrix with given values
         matrix_3x3(float a0, float b0, float c0, float a1, float b1, float c1, float a2, float b2, float c2);
@@ -102,7 +98,7 @@ namespace Creyon {
         float m_a[4], m_b[4], m_c[4], m_d[4];     //4x4 matrix; a,b,c,d represent columns
 
         //Constructors
-        matrix_4x4();                        //creates a 3X3 null matrix
+        matrix_4x4();                        //creates a 4x4 identity matrix
         
         matrix_4x4(std::vector<float>& vec); //creates a 3x3 matrix initialised with values in vector
 

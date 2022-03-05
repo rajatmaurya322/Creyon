@@ -13,11 +13,11 @@ namespace Creyon {
 		return ( std::fabs(a - b) <= std::fmax( std::fabs(a), std::fabs(b) ) * rel_epsilon );
 	}
 
-	matrix_4x4 convert_mat4(const matrix_3x3& mat3, const vector4d& vec4) {
-		return matrix_4x4{ mat3.m_a[0], mat3.m_b[0], mat3.m_c[0],   0.0f,
-						   mat3.m_a[1], mat3.m_b[1], mat3.m_c[1],   0.0f,
-						   mat3.m_a[2], mat3.m_b[2], mat3.m_c[2],   0.0f,
-						   vec4.m_v.m_z,vec4.m_v.m_x, vec4.m_v.m_y  ,vec4.m_w };
+	matrix_4x4 convert_mat4(const matrix_3x3& mat3, const vector3d& vec3) {
+		return matrix_4x4(mat3.m_elements[0], mat3.m_elements[1], mat3.m_elements[2], 0.0f,
+						  mat3.m_elements[3], mat3.m_elements[4], mat3.m_elements[5], 0.0f,
+						  mat3.m_elements[6], mat3.m_elements[7], mat3.m_elements[8], 0.0f,
+						  vec3.m_x			, vec3.m_y			, vec3.m_z			, 1.0f);
 	}
 
 }
