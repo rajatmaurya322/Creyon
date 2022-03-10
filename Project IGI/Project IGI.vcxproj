@@ -151,18 +151,22 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="src\header files\def_matrix3x3.cpp" />
+    <ClCompile Include="src\header files\def_matrix4x4.cpp" />
     <ClCompile Include="src\header files\transforms.cpp" />
-    <ClCompile Include="src\header files\matrixdefine.cpp" />
+    <ClCompile Include="src\header files\def_matrix2x2.cpp" />
     <ClCompile Include="src\header files\Miscellaneous\Misc.cpp" />
     <ClCompile Include="src\header files\vectordefine.cpp" />
     <ClCompile Include="src\pigi.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\header files\Constants\constants.h" />
+    <ClInclude Include="src\header files\matrix2x2.h" />
+    <ClInclude Include="src\header files\matrix4x4.h" />
     <ClInclude Include="src\header files\Miscellaneous\Misc.h" />
     <ClInclude Include="src\header files\vector2d.h" />
     <ClInclude Include="src\header files\vector3d.h" />
-    <ClInclude Include="src\header files\matrix.h" />
+    <ClInclude Include="src\header files\matrix3x3.h" />
     <ClInclude Include="src\header files\transforms.h" />
     <ClInclude Include="src\header files\vector4d.h" />
   </ItemGroup>

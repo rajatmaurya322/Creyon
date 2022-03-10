@@ -1,6 +1,7 @@
 #pragma once
 
-#include "matrix.h"
+#include "matrix3x3.h"
+#include "matrix4x4.h"
 #include "vector3d.h"
 
 namespace Creyon {

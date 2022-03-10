@@ -4,7 +4,7 @@
 
 #include <iostream>
 #include <cmath>
-#include "matrix.h"
+#include "matrix3x3.h"
 
 //All vectors are treated as row vectors(or row major) and so vectors are pre-multiplied before in matrix transformation
 namespace Creyon {

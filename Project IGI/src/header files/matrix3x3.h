@@ -1,0 +1,55 @@
+#pragma once
+
+#include <iostream>
+#include <vector>
+
+//Namespace is Creyon
+
+//Matrix general notations(row_major ordering is used):
+
+/*  Rows   a   b   c    ---Columns
+    Row 0 |0   1   2|
+    Row 1 |3   4   5|
+    Row 2 |6   7   8| so element[0] is same as a0 and element[5] is same as c1 */
+
+
+namespace Creyon {
+    
+    class matrix_3x3 {
+    
+    public:                             //All data members begin with m_ prefix
+     
+        float m_elements[9];     //3x3 matrix elements;
+
+        //Constructors
+        matrix_3x3();                        //creates a 3X3 identity matrix
+
+        //overloaded constructor, initialises 3x3 matrix with given values
+        matrix_3x3(float a0, float b0, float c0, float a1, float b1, float c1, float a2, float b2, float c2);
+
+        //Methods
+        matrix_3x3 transpose();  //transposes the 3x3 matrix; row-column interchange
+
+        //Overloaded Operators
+        matrix_3x3 operator+(const matrix_3x3& mat)const;    //adds two 3x3 matrices
+        
+        matrix_3x3 operator-(const matrix_3x3& mat)const;    //subtracts two 3x3 matrices
+        
+        matrix_3x3 operator*(const matrix_3x3& mat)const;    //multiplication of two 3x3 matrices
+        
+        matrix_3x3 operator*(float f)const;           //scalar multiplication of matrix: mat*f
+        
+        matrix_3x3 operator/(float f)const;           //scalar division of 3x3 matrix: mat/f
+
+        //Friend functions
+        //same scalar multiplication: f * mat
+        friend matrix_3x3 operator*(float f, matrix_3x3& mat);
+        
+        //overloaded friend operator << for printing matrix directly with cout object
+        friend std::ostream& operator<<(std::ostream& os, const matrix_3x3& mat);
+    };
+
+    //Non member functions
+    float det(const matrix_3x3& mat);
+
+}

@@ -1,4 +1,3 @@
-#include "matrix.h"
 #include "vector3d.h"
 #include "vector4d.h"
 #include "vector2d.h"
@@ -88,10 +87,10 @@ namespace Creyon {
     //Overloaded operators
     //Vector matrix multiplication; v*mat form
     vector4d vector4d::operator*(const Creyon::matrix_4x4& mat) {
-        return vector4d(m_x * mat.m_a[0] + m_y * mat.m_a[1] + m_z * mat.m_a[2] + m_w * mat.m_a[3],
-                        m_x * mat.m_b[0] + m_y * mat.m_b[1] + m_z * mat.m_b[2] + m_w * mat.m_b[3], 
-                        m_x * mat.m_c[0] + m_y * mat.m_c[1] + m_z * mat.m_c[2] + m_w * mat.m_c[3], 
-                        m_x * mat.m_d[0] + m_y * mat.m_d[1] + m_z * mat.m_d[2] + m_w * mat.m_d[3]);
+        return vector4d(m_x * mat.m_elements[0] + m_y * mat.m_elements[4] + m_z * mat.m_elements[8] + m_w * mat.m_elements[12],
+                        m_x * mat.m_elements[1] + m_y * mat.m_elements[5] + m_z * mat.m_elements[9] + m_w * mat.m_elements[13],
+                        m_x * mat.m_elements[2] + m_y * mat.m_elements[6] + m_z * mat.m_elements[10]+ m_w * mat.m_elements[14],
+                        m_x * mat.m_elements[3] + m_y * mat.m_elements[7] + m_z * mat.m_elements[11]+ m_w * mat.m_elements[15]);
     }
 
     //overloaded << operator to display vector directly with cout

@@ -18,7 +18,7 @@
     <ClCompile Include="src\pigi.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\header files\matrixdefine.cpp">
+    <ClCompile Include="src\header files\def_matrix2x2.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="src\header files\vectordefine.cpp">
@@ -30,9 +30,15 @@
     <ClCompile Include="src\header files\Miscellaneous\Misc.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="src\header files\def_matrix3x3.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\header files\def_matrix4x4.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="src\header files\matrix.h">
+    <ClInclude Include="src\header files\matrix3x3.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="src\header files\vector3d.h">
@@ -51,6 +57,12 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="src\header files\vector2d.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\header files\matrix4x4.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\header files\matrix2x2.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
