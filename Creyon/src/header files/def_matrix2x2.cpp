@@ -6,20 +6,32 @@ namespace Creyon {
     //Constructors
     
     //default constructor, creates a 2x2 identity matrix
-    matrix_2x2::matrix_2x2() :m_elements{ 1.0f,0.0f, 0.0f,1.0f }
+    matrix_2x2::matrix_2x2() :m_elems{ 1.0f,0.0f, 0.0f,1.0f }
     {}
     
     //overloaded constructor, initialises 2x2 matrix with given values
     matrix_2x2::matrix_2x2(float a0, float b0, float a1, float b1)
-        : m_elements{ a0,b0, 
-                      a1,b1 }
+        : m_elems{ a0,b0, 
+                   a1,b1 }
     {}
+
+    //overloaded constructor, initialises 2x2 matrix with array values
+    matrix_2x2::matrix_2x2(const float *p_array)
+        :m_elems{p_array[0], p_array[1], 
+                 p_array[2], p_array[3]}
+    {}
+
+    //Copy constructor
+    matrix_2x2::matrix_2x2(const matrix_2x2& mat2) {
+        *this = mat2;
+    }
+
 
     //Methods
     matrix_2x2 matrix_2x2::transpose() {
         
         //changes rows to columns and columns to rows
-        std::swap(m_elements[1], m_elements[2]);
+        std::swap(m_elems[1], m_elems[2]);
         return *this;
     }
 
@@ -27,15 +39,15 @@ namespace Creyon {
     //adds two 2x2 matrices elementwise
     matrix_2x2 matrix_2x2::operator+(const matrix_2x2& mat)const {
         
-        return matrix_2x2(m_elements[0] + mat.m_elements[0], m_elements[1] + mat.m_elements[1],
-                          m_elements[2] + mat.m_elements[2], m_elements[3] + mat.m_elements[3]);
+        return matrix_2x2(m_elems[0] + mat.m_elems[0], m_elems[1] + mat.m_elems[1],
+                          m_elems[2] + mat.m_elems[2], m_elems[3] + mat.m_elems[3]);
     }
 
     //subtracts two 2x2 matrices elementwise
     matrix_2x2 matrix_2x2::operator-(const matrix_2x2& mat)const {
 
-        return matrix_2x2(m_elements[0] - mat.m_elements[0], m_elements[1] - mat.m_elements[1],
-                          m_elements[2] - mat.m_elements[2], m_elements[3] - mat.m_elements[3]);
+        return matrix_2x2(m_elems[0] - mat.m_elems[0], m_elems[1] - mat.m_elems[1],
+                          m_elems[2] - mat.m_elems[2], m_elems[3] - mat.m_elems[3]);
         
     }
 
@@ -43,11 +55,11 @@ namespace Creyon {
     matrix_2x2 matrix_2x2::operator*(const matrix_2x2& mat)const {
         float a[4];
 
-        a[0] = m_elements[0] * mat.m_elements[0] + m_elements[1] * mat.m_elements[2];
-        a[1] = m_elements[0] * mat.m_elements[1] + m_elements[1] * mat.m_elements[3];
+        a[0] = m_elems[0] * mat.m_elems[0] + m_elems[1] * mat.m_elems[2];
+        a[1] = m_elems[0] * mat.m_elems[1] + m_elems[1] * mat.m_elems[3];
 
-        a[2] = m_elements[2] * mat.m_elements[0] + m_elements[3] * mat.m_elements[2];
-        a[3] = m_elements[2] * mat.m_elements[1] + m_elements[3] * mat.m_elements[3];
+        a[2] = m_elems[2] * mat.m_elems[0] + m_elems[3] * mat.m_elems[2];
+        a[3] = m_elems[2] * mat.m_elems[1] + m_elems[3] * mat.m_elems[3];
 
         return matrix_2x2{ a[0],a[1],  a[2],a[3] };
     }
@@ -55,8 +67,8 @@ namespace Creyon {
     //scalar multiplication of a 2x2 matrix
     matrix_2x2 matrix_2x2::operator*(float f)const {
         
-        return matrix_2x2(m_elements[0] * f, m_elements[1] * f,
-                          m_elements[2] * f, m_elements[3] * f);
+        return matrix_2x2(m_elems[0] * f, m_elems[1] * f,
+                          m_elems[2] * f, m_elems[3] * f);
     }
 
     //scalar division of a 2x2 matrix
@@ -65,8 +77,8 @@ namespace Creyon {
             std::cout << "Matrix division by zero!";
             exit(EXIT_FAILURE);
         }
-        return matrix_2x2(m_elements[0] / f, m_elements[1] / f,
-                          m_elements[2] / f, m_elements[3] / f);
+        return matrix_2x2(m_elems[0] / f, m_elems[1] / f,
+                          m_elems[2] / f, m_elems[3] / f);
         
     }
 
@@ -80,7 +92,7 @@ namespace Creyon {
     std::ostream& operator<<(std::ostream& os, const matrix_2x2& mat) {
         
         for (int i = 0; i < 4; i+=2) {
-            os << mat.m_elements[i] << " " << mat.m_elements[i+1] << "\n";
+            os << mat.m_elems[i] << " " << mat.m_elems[i+1] << "\n";
         }
         
         return os;
@@ -89,6 +101,6 @@ namespace Creyon {
     float det(const matrix_2x2& mat) {
         
         //returns determinant of a 2x2 matrix
-        return mat.m_elements[0] * mat.m_elements[3] - mat.m_elements[1] * mat.m_elements[2];
+        return mat.m_elems[0] * mat.m_elems[3] - mat.m_elems[1] * mat.m_elems[2];
     }
 }

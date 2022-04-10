@@ -19,13 +19,17 @@ namespace Creyon {
     
     public:                             //All data members begin with m_ prefix
      
-        float m_elements[9];     //3x3 matrix elements;
+        float m_elems[9];     //3x3 matrix elements;
 
         //Constructors
         matrix_3x3();                        //creates a 3X3 identity matrix
 
         //overloaded constructor, initialises 3x3 matrix with given values
         matrix_3x3(float a0, float b0, float c0, float a1, float b1, float c1, float a2, float b2, float c2);
+
+        matrix_3x3(const float *p_array);
+
+        matrix_3x3(const matrix_3x3& mat3);
 
         //Methods
         matrix_3x3 transpose();  //transposes the 3x3 matrix; row-column interchange

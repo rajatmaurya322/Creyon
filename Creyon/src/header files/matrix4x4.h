@@ -7,10 +7,14 @@
 
 //Matrix general notations(row_major ordering is used):
 
-/*  Rows   a   b   c    ---Columns
-    Row 0 |0   1   2|
-    Row 1 |3   4   5|
-    Row 2 |6   7   8| so element[0] is same as a0 and element[5] is same as c1 */
+/*         a    b   c    d    ---Columns
+    Row 0 |0    1   2    3| Given  inside are indices of each element
+    Row 1 |4    5   6    7|
+    Row 2 |8    9   10  11|
+    Row 3 |12   13  14  15|
+
+    so element[0] is same as a0(column a and row 0) and element[6] is same as c1(Column c and row 1) 
+*/
 
 
 namespace Creyon {
@@ -19,7 +23,7 @@ namespace Creyon {
 
     public:                             //All data members begin with m_ prefix
 
-        float m_elements[16];     //4x4 matrix elements;
+        float m_elems[16];     //4x4 matrix elements;
 
         //Constructors
         matrix_4x4();                        //creates a 4x4 identity matrix
@@ -27,6 +31,10 @@ namespace Creyon {
         //overloaded constructor, initialises 4x4 matrix with given values
         matrix_4x4(float a0, float b0, float c0, float d0, float a1, float b1, float c1, float d1, float a2, float b2, float c2, float d2, float a3, float b3, float c3, float d3);
 
+        matrix_4x4(const float *p_array);
+
+        matrix_4x4(const matrix_4x4& mat4);
+        
         //overloaded constructor
         //Methods
         matrix_4x4 transpose();  //transposes the 3x3 matrix; row-column interchange

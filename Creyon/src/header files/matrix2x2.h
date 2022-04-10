@@ -19,12 +19,16 @@ namespace Creyon {
 
     public:                             //All data members begin with m_ prefix
 
-        float m_elements[4];         //2x2 matrix elements
+        float m_elems[4];         //2x2 matrix elements
 
         //Constructors
         matrix_2x2();   //creates a 2x2 identity matrix
 
         matrix_2x2(float a0, float b0, float a1, float b1); //creates a 2x2 matrix with given values
+
+        matrix_2x2(const float *p_array); //Creates 2x2 matrix with given array
+
+        matrix_2x2(const matrix_2x2& mat2);
 
         //Methods
         matrix_2x2 transpose();  //transposes the original 2x2 matrix; row-column interchange

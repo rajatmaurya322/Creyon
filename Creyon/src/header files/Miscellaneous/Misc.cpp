@@ -14,10 +14,10 @@ namespace Creyon {
 	}
 
 	matrix_4x4 convert_mat4(const matrix_3x3& mat3, const vector3d& vec3) {
-		return matrix_4x4(mat3.m_elements[0], mat3.m_elements[1], mat3.m_elements[2], 0.0f,
-						  mat3.m_elements[3], mat3.m_elements[4], mat3.m_elements[5], 0.0f,
-						  mat3.m_elements[6], mat3.m_elements[7], mat3.m_elements[8], 0.0f,
-						  vec3.m_x			, vec3.m_y			, vec3.m_z			, 1.0f);
+		return matrix_4x4(mat3.m_elems[0], mat3.m_elems[1], mat3.m_elems[2], 0.0f,
+						  mat3.m_elems[3], mat3.m_elems[4], mat3.m_elems[5], 0.0f,
+						  mat3.m_elems[6], mat3.m_elems[7], mat3.m_elems[8], 0.0f,
+						  vec3.m_x		 , vec3.m_y		  , vec3.m_z	   , 1.0f);
 	}
 
 }

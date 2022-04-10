@@ -48,9 +48,9 @@ namespace Creyon {
     //Performs vector-matrix multiplication
     vector3d vector3d::operator*(const Creyon::matrix_3x3 &mat)const{
         
-        return vector3d(m_x * mat.m_elements[0] + m_y * mat.m_elements[3] + m_z * mat.m_elements[6],
-                        m_x * mat.m_elements[1] + m_y * mat.m_elements[4] + m_z * mat.m_elements[7],
-                        m_x * mat.m_elements[2] + m_y * mat.m_elements[5] + m_z * mat.m_elements[8]);
+        return vector3d(m_x * mat.m_elems[0] + m_y * mat.m_elems[3] + m_z * mat.m_elems[6],
+                        m_x * mat.m_elems[1] + m_y * mat.m_elems[4] + m_z * mat.m_elems[7],
+                        m_x * mat.m_elems[2] + m_y * mat.m_elems[5] + m_z * mat.m_elems[8]);
     }
 
     //Friend Functions
@@ -87,10 +87,10 @@ namespace Creyon {
     //Overloaded operators
     //Vector matrix multiplication; v*mat form
     vector4d vector4d::operator*(const Creyon::matrix_4x4& mat) {
-        return vector4d(m_x * mat.m_elements[0] + m_y * mat.m_elements[4] + m_z * mat.m_elements[8] + m_w * mat.m_elements[12],
-                        m_x * mat.m_elements[1] + m_y * mat.m_elements[5] + m_z * mat.m_elements[9] + m_w * mat.m_elements[13],
-                        m_x * mat.m_elements[2] + m_y * mat.m_elements[6] + m_z * mat.m_elements[10]+ m_w * mat.m_elements[14],
-                        m_x * mat.m_elements[3] + m_y * mat.m_elements[7] + m_z * mat.m_elements[11]+ m_w * mat.m_elements[15]);
+        return vector4d(m_x * mat.m_elems[0] + m_y * mat.m_elems[4] + m_z * mat.m_elems[8] + m_w * mat.m_elems[12],
+                        m_x * mat.m_elems[1] + m_y * mat.m_elems[5] + m_z * mat.m_elems[9] + m_w * mat.m_elems[13],
+                        m_x * mat.m_elems[2] + m_y * mat.m_elems[6] + m_z * mat.m_elems[10]+ m_w * mat.m_elems[14],
+                        m_x * mat.m_elems[3] + m_y * mat.m_elems[7] + m_z * mat.m_elems[11]+ m_w * mat.m_elems[15]);
     }
 
     //overloaded << operator to display vector directly with cout
