@@ -8,10 +8,10 @@
 namespace Creyon{
 	
 	matrix_4x4 translate(const float dX, const float dY, const float dZ) {
-		matrix_4x4 trans{  1.0f,    0.0f,   0.0f,   0.0f,
-                           0.0f,    1.0f,   0.0f,   0.0f,
-                           0.0f,    0.0f,   1.0f,   0.0f,
-                           dX,      dY,     dZ,     1.0f };
+		matrix_4x4 trans{   1.0f,    0.0f,    0.0f,    0.0f,
+                            0.0f,    1.0f,    0.0f,    0.0f,
+                            0.0f,    0.0f,    1.0f,    0.0f,
+                            dX,      dY,     dZ,       1.0f };
 
 		return trans;
 	}
