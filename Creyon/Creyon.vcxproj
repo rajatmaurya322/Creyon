@@ -59,6 +59,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>$(SolutionDir)Creyon\src;$(SolutionDir)thirdparty\include</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -73,6 +74,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>$(SolutionDir)Creyon\src;$(SolutionDir)thirdparty\include</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -82,6 +84,24 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="src\MathEngine\Constants\constants.h" />
+    <ClInclude Include="src\MathEngine\matrix2x2.h" />
+    <ClInclude Include="src\MathEngine\matrix3x3.h" />
+    <ClInclude Include="src\MathEngine\matrix4x4.h" />
+    <ClInclude Include="src\MathEngine\Miscellaneous\Misc.h" />
+    <ClInclude Include="src\MathEngine\transforms.h" />
+    <ClInclude Include="src\MathEngine\vector2d.h" />
+    <ClInclude Include="src\MathEngine\vector3d.h" />
+    <ClInclude Include="src\MathEngine\vector4d.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="src\glad.c" />
+    <ClCompile Include="src\MathEngine\def_matrix2x2.cpp" />
+    <ClCompile Include="src\MathEngine\def_matrix3x3.cpp" />
+    <ClCompile Include="src\MathEngine\def_matrix4x4.cpp" />
+    <ClCompile Include="src\MathEngine\Miscellaneous\Misc.cpp" />
+    <ClCompile Include="src\MathEngine\transforms.cpp" />
+    <ClCompile Include="src\MathEngine\vectordefine.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

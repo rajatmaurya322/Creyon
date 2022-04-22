@@ -1,9 +1,9 @@
 #pragma once
 
-#include "matrix3x3.h"
-#include "matrix4x4.h"
-#include "vector3d.h"
-#include "vector2d.h"
+#include "MathEngine/matrix3x3.h"
+#include "MathEngine/matrix4x4.h"
+#include "MathEngine/vector3d.h"
+#include "MathEngine/vector2d.h"
 
 namespace Creyon {
 

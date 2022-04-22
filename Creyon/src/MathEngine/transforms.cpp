@@ -6,12 +6,12 @@
 
 //Namespace is Creyon
 namespace Creyon{
-
+	
 	matrix_4x4 translate(const float dX, const float dY, const float dZ) {
-		matrix_4x4 trans{  1.0f,	0.0f,	0.0f,	0.0f,
-						   0.0f,	1.0f,	0.0f,	0.0f,
-						   0.0f,    0.0f,	1.0f,	0.0f,
-						   dX,		dY,		dZ,		1.0f };
+		matrix_4x4 trans{  1.0f,    0.0f,   0.0f,   0.0f,
+                           0.0f,    1.0f,   0.0f,   0.0f,   
+                           0.0f,    0.0f,   1.0f,   0.0f,
+                           dX,      dY,     dZ,     1.0f };
 
 		return trans;
 	}
@@ -19,10 +19,10 @@ namespace Creyon{
 	matrix_4x4 rotateX(const float angle) {
 		
 		//Matrix to rotate about X axis
-		matrix_4x4 rotateaboutX{1.0f,	0.0f,		    0.0f,		    0.0f,
-								0.0f,	cos(angle),		sin(angle),		0.0f,
-								0.0f,   -sin(angle),	cos(angle),		0.0f, 
-								0.0f,	0.0f,			0.0f,			1.0f};
+		matrix_4x4 rotateaboutX{1.0f,   0.0f,           0.0f,           0.0f,
+                                0.0f,   cos(angle),     sin(angle),     0.0f,
+                                0.0f,   -sin(angle),    cos(angle),     0.0f, 
+                                0.0f,   0.0f,           0.0f,           1.0f};
 		
 		return rotateaboutX ;
 	}
@@ -30,10 +30,10 @@ namespace Creyon{
 	matrix_4x4 rotateY(const float angle) {
 		
 		//Matrix to rotate about Y axis
-		matrix_4x4 rotateaboutY{cos(angle),	0.0f,   -sin(angle),	0.0f,
-								0.0f,		1.0f,	0.0f,			0.0f,
-								sin(angle),	0.0f,	cos(angle),		0.0f,
-								0.0f,	    0.0f,	0.0f,			1.0f};
+		matrix_4x4 rotateaboutY{cos(angle), 0.0f,   -sin(angle),    0.0f,
+                                0.0f,       1.0f,   0.0f,           0.0f,
+                                sin(angle), 0.0f,   cos(angle),     0.0f,
+                                0.0f,       0.0f,   0.0f,           1.0f};
 		
 		return rotateaboutY ;
 	}
@@ -41,10 +41,10 @@ namespace Creyon{
 	matrix_4x4 rotateZ(const float angle) {
 		
 		//Matrix to rotate about Z axis
-		matrix_4x4 rotateaboutZ{cos(angle),	sin(angle),	 0.0f,		0.0f,
-							   -sin(angle),	cos(angle),	 0.0f,		0.0f,
-								0.0f,	    0.0f,	     1.0f,		0.0f,
-								0.0f,    	0.0f,		 0.0f,		1.0f};
+		matrix_4x4 rotateaboutZ{cos(angle),     sin(angle),	 0.0f,      0.0f,
+                                -sin(angle),    cos(angle),	 0.0f,      0.0f,
+                                0.0f,           0.0f,        1.0f,      0.0f,
+                                0.0f,           0.0f,        0.0f,      1.0f};
 		
 		return rotateaboutZ ;
 	}
@@ -100,10 +100,10 @@ namespace Creyon{
 	matrix_4x4 scale(const float scaleX, const float scaleY, const float scaleZ) {
 		
 		//Scaling matrix to scale along all axis
-		matrix_4x4 scale{ scaleX,	0.0f,	0.0f,   0.0f,
-						  0.0f,		scaleY, 0.0f,   0.0f,
-						  0.0f,		0.0f,	scaleZ, 0.0f, 
-						  0.0f,     0.0f,   0.0f,   1.0f};
+		matrix_4x4 scale{ scaleX,   0.0f,   0.0f,   0.0f,
+                          0.0f,     scaleY, 0.0f,   0.0f,
+                          0.0f,     0.0f,   scaleZ, 0.0f, 
+                          0.0f,     0.0f,   0.0f,   1.0f};
 
 		return scale;
 	}
@@ -111,10 +111,10 @@ namespace Creyon{
 	matrix_4x4 scale(const float uni_scale) {
 		
 		//Scaling matrix for uniform scale
-		matrix_4x4 scale{ uni_scale,	0.0f,		0.0f,	   0.0f,
-						  0.0f,		   uni_scale,	0.0f,	   0.0f,
-						  0.0f,			0.0f,		uni_scale, 0.0f,
-						  0.0f,			0.0f,		0.0f,	   1.0f };
+		matrix_4x4 scale{ uni_scale,    0.0f,       0.0f,      0.0f,
+                          0.0f,         uni_scale,  0.0f,      0.0f,
+                          0.0f,         0.0f,       uni_scale, 0.0f,
+                          0.0f,         0.0f,       0.0f,      1.0f };
 
 		return scale;
 	}
