@@ -1,4 +1,5 @@
 #pragma once
+#include "SDL2/SDL.h"
 
 namespace Creyon {
 	
@@ -7,5 +8,4 @@ namespace Creyon {
 	const float pi_u2	=	1.570796326794896f;
 
 	const float pi_u4	=	0.785398163397448f;
-
 }
