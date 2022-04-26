@@ -45,6 +45,9 @@
     <ClInclude Include="src\sdlmanage\sdlmanage.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="src\Render\windowmanage.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\MathEngine\def_matrix2x2.cpp">
@@ -66,6 +69,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="src\glad.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Render\windowmanage.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
