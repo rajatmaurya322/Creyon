@@ -97,9 +97,6 @@
       <Project>{650d085f-57f2-4532-81b1-5253b35d7b5c}</Project>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="src\CreyonEng.h" />
-  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
