@@ -29,21 +29,21 @@ namespace Creyon {
 	{
 		CreyonWindow::CreyonWindowInit();
 		
-		CreyonWindow myWindow{ 800,600,"LearnOpengl" };
-		myWindow.setContextCurrent();
-
+		windowInstance = CreyonWindow{ 800,600,"LearnOpengl" };
+		windowInstance.setContextCurrent();
+		
 		if(!gladLoadGLLoader((GLADloadproc)glfwGetProcAddress)) {
 			cout << "Failed to initialize GLAD\n";
 		}
 
 		glViewport(0, 0, 800, 600);
 
-		myWindow.register_Callback();
+		windowInstance.register_Callback();
 
-		Run(myWindow);
+		Run();
 	}
 
-	void EngineApp::Run(CreyonWindow& windowInstance) {
+	void EngineApp::Run() {
 
 		//Build, compile and link shader here---------------------------------------
 		Shader vertexshader{ GL_VERTEX_SHADER };

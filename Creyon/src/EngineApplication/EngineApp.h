@@ -8,10 +8,12 @@ namespace Creyon {
 
 	class EngineApp
 	{	
+		private:
+			CreyonWindow windowInstance;
 		public:
 		EngineApp();
 
-		void Run(CreyonWindow& windowInstance);
+		void Run();
 
 	};
 
