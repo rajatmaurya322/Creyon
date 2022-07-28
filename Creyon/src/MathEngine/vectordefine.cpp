@@ -35,7 +35,6 @@ namespace Creyon {
 
     //Scalar division of vector by s, divides x,y,z components by s
     vector3d vector3d::operator/(float s)const {
-        
         if (s == 0) {
             std::cout << "Vector division by 0 error";
             exit(EXIT_FAILURE);
@@ -62,7 +61,6 @@ namespace Creyon {
 
     //Overloaded << operator to directly print the vector with cout 
     std::ostream& operator<<(std::ostream& os, const vector3d& v) {
-       
         os << "X:" << v.m_x << " Y:" << v.m_y << " Z:" << v.m_z << "\n";
         return os;
     }
