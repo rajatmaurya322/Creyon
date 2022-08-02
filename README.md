@@ -11,7 +11,7 @@ Currently the Engine is under development and so there are no working features i
 * Bug Fixing
 * Performance Improvement
 * Documentation
-* Scripting(Probably, idk)
+* Scripting
 * A whole lot of other things which even I don't know about for now.
 
 ## What to expect of the Engine?
