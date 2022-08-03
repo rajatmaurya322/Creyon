@@ -29,9 +29,8 @@ namespace Creyon {
 	{
 		CreyonWindow::CreyonWindowInit();
 		
-		windowInstance = CreyonWindow{ 800,600,"LearnOpengl" };
-		windowInstance.setContextCurrent();
-		
+		windowInstance = CreyonWindow(800,600, "Learnopengl");
+
 		if(!gladLoadGLLoader((GLADloadproc)glfwGetProcAddress)) {
 			cout << "Failed to initialize GLAD\n";
 		}
@@ -39,8 +38,6 @@ namespace Creyon {
 		glViewport(0, 0, 800, 600);
 
 		windowInstance.register_Callback();
-
-		Run();
 	}
 
 	void EngineApp::Run() {
@@ -48,15 +45,18 @@ namespace Creyon {
 		//Build, compile and link shader here---------------------------------------
 		Shader vertexshader{ GL_VERTEX_SHADER };
 		glShaderSource(vertexshader.getId(), 1, &vertexShaderSource, nullptr);
-		vertexshader.shadercompile();
+		vertexshader.shaderCompile();
 
 		//fragment shader
 		Shader fragmentshader{ GL_FRAGMENT_SHADER };
 		glShaderSource(fragmentshader.getId(), 1, &fragmentShaderSource, nullptr);
-		fragmentshader.shadercompile();
+		fragmentshader.shaderCompile();
 		//Create shader program and link
 		Shaderprogram programrect{ Creyon::Shader::getallIds() };
 		programrect.link();
+		
+		vertexshader.shaderDelete();
+		fragmentshader.shaderDelete();
 		//--------------------------------------------------------------------------
 
 		//Set the data for rendering------------------------------------------------
@@ -69,6 +69,18 @@ namespace Creyon {
 		unsigned int  indices[]{ 0, 1, 3,   //triangle 1
 								 1, 2, 3 }; //triangle 2
 
+		float texturecoords[]{
+			0.0f, 0.0f,  //bottom-left
+			1.0f, 0.0f,  //bottom-right
+			0.0f, 1.0f,  //top-left
+			1.0f, 1.0f  //top-right
+		};
+
+		//sampling texture colors
+		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_MIRRORED_REPEAT);
+		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_MIRRORED_REPEAT);
+		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
+		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
 
 		unsigned int VBO, VAO;
 		glGenVertexArrays(1, &VAO);
@@ -91,6 +103,8 @@ namespace Creyon {
 		glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, 6 * sizeof(float), (void*)(3 * sizeof(float)));
 		glEnableVertexAttribArray(1);
 
+		//unbind vao
+		glBindVertexArray(0);
 		//---------------------------------------------------------------------------
 
 		//Render loop
@@ -104,12 +118,14 @@ namespace Creyon {
 			glClear(GL_COLOR_BUFFER_BIT);
 
 			glUseProgram(programrect.getId());
+			glBindVertexArray(VAO);
 			glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
 
 			//---------------------------------------
 			windowInstance.swapBuffers();
 			windowInstance.pollWindowEvents();
+			//---------------------------------------
 		}
-		CreyonWindow::CreyonWindowTerminate();
+		CreyonWindow::CreyonWindowTerminate(windowInstance);
 	}
 }
