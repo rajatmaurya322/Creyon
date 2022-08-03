@@ -29,7 +29,6 @@ namespace Creyon {
 
     //Methods
     matrix_2x2 matrix_2x2::transpose() {
-        
         //changes rows to columns and columns to rows
         std::swap(m_elems[1], m_elems[2]);
         return *this;
