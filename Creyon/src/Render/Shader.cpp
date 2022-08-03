@@ -14,7 +14,7 @@ namespace Creyon {
 		return Shader::shaderIds;
 	}
 
-	void Shader::shadercompile() {
+	void Shader::shaderCompile() {
 		//Compiles the shader program
 		glCompileShader(shaderId);
 		//Check for errors and print them
@@ -28,7 +28,8 @@ namespace Creyon {
 		}
 	}
 
-	Shader::~Shader() {
+	void Shader::shaderDelete() {
 		glDeleteShader(shaderId);
 	}
+
 }

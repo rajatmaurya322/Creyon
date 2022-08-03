@@ -26,9 +26,9 @@ namespace Creyon {
 		static std::vector<unsigned int> getallIds();
 		
 		//Compiles the shader
-		void shadercompile();
+		void shaderCompile();
 
-		~Shader();
+		void shaderDelete();
 	};
 }
 
