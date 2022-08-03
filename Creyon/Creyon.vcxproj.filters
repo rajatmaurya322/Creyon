@@ -45,7 +45,7 @@
     <ClInclude Include="src\sdlmanage\sdlmanage.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\Render\windowmanage.h">
+    <ClInclude Include="src\Render\CreyonWindow.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="src\Render\Shader.h">
@@ -83,7 +83,7 @@
     <ClCompile Include="src\glad.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\Render\windowmanage.cpp">
+    <ClCompile Include="src\Render\CreyonWindow.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="src\Render\Shader.cpp">

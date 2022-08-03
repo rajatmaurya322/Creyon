@@ -121,7 +121,7 @@
     <ClInclude Include="src\MathEngine\vector2d.h" />
     <ClInclude Include="src\MathEngine\vector3d.h" />
     <ClInclude Include="src\MathEngine\vector4d.h" />
-    <ClInclude Include="src\Render\windowmanage.h" />
+    <ClInclude Include="src\Render\CreyonWindow.h" />
     <ClInclude Include="src\sdlmanage\sdlmanage.h" />
   </ItemGroup>
   <ItemGroup>
@@ -135,7 +135,7 @@
     <ClCompile Include="src\MathEngine\Miscellaneous\Misc.cpp" />
     <ClCompile Include="src\MathEngine\transforms.cpp" />
     <ClCompile Include="src\MathEngine\vectordefine.cpp" />
-    <ClCompile Include="src\Render\windowmanage.cpp" />
+    <ClCompile Include="src\Render\CreyonWindow.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
