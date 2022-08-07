@@ -13,7 +13,6 @@
 #include "MathEngine/Miscellaneous/Misc.h"
 #include "Render/CreyonWindow.h"
 #include "Render/Shaderprogram.h"
-#include "Render/Shader.h"
 #include "glad/glad.h"
 #include "GLFW/glfw3.h"
 #include <iostream>
@@ -26,5 +25,4 @@ using std::cin;
 using Creyon::CreyonWindow;
 using Creyon::vector3d;
 using Creyon::vector4d;
-using Creyon::Shader;
 using Creyon::Shaderprogram;
