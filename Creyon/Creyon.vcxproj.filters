@@ -48,9 +48,6 @@
     <ClInclude Include="src\Render\CreyonWindow.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\Render\Shader.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="src\Render\Shaderprogram.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -86,14 +83,15 @@
     <ClCompile Include="src\Render\CreyonWindow.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\Render\Shader.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="src\Render\Shaderprogram.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="src\EngineApplication\EngineApp.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="src\Render\VertexShader.glsl" />
+    <None Include="src\Render\FragmentShader.glsl" />
   </ItemGroup>
 </Project>

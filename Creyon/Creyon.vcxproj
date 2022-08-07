@@ -111,7 +111,6 @@
     <ClInclude Include="src\EngineApplication\CreyonEng.h" />
     <ClInclude Include="src\EngineApplication\EngineApp.h" />
     <ClInclude Include="src\Render\Shaderprogram.h" />
-    <ClInclude Include="src\Render\Shader.h" />
     <ClInclude Include="src\MathEngine\Constants\constants.h" />
     <ClInclude Include="src\MathEngine\matrix2x2.h" />
     <ClInclude Include="src\MathEngine\matrix3x3.h" />
@@ -127,7 +126,6 @@
   <ItemGroup>
     <ClCompile Include="src\EngineApplication\EngineApp.cpp" />
     <ClCompile Include="src\Render\Shaderprogram.cpp" />
-    <ClCompile Include="src\Render\Shader.cpp" />
     <ClCompile Include="src\glad.c" />
     <ClCompile Include="src\MathEngine\def_matrix2x2.cpp" />
     <ClCompile Include="src\MathEngine\def_matrix3x3.cpp" />
@@ -136,6 +134,10 @@
     <ClCompile Include="src\MathEngine\transforms.cpp" />
     <ClCompile Include="src\MathEngine\vectordefine.cpp" />
     <ClCompile Include="src\Render\CreyonWindow.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="src\Render\FragmentShader.glsl" />
+    <None Include="src\Render\VertexShader.glsl" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
