@@ -1,28 +1,5 @@
 #include "EngineApp.h"
 
-//Shader code here------------------------------------------------
-const char* vertexShaderSource =
-"#version 430 core\n"
-"layout (location = 0) in vec3 aPos;\n"
-"layout (location = 1) in vec3 acolor;\n"
-"out vec3 ourcolor;\n"
-"void main()\n"
-"{\n"
-"gl_Position= vec4(aPos, 1.0);\n"
-"ourcolor = acolor;\n"
-"}\0";
-
-const char* fragmentShaderSource =
-"#version 430 core\n"
-"out vec4 FragColor;\n"
-"in vec3 ourcolor;\n"
-"void main()\n"
-"{\n"
-"FragColor = vec4(ourcolor, 1.0);\n"
-"}\0";
-
-//----------------------------------------------------------------
-
 namespace Creyon {
 
 	EngineApp::EngineApp()
@@ -42,22 +19,14 @@ namespace Creyon {
 
 	void EngineApp::Run() {
 
-		//Build, compile and link shader here---------------------------------------
-		Shader vertexshader{ GL_VERTEX_SHADER };
-		glShaderSource(vertexshader.getId(), 1, &vertexShaderSource, nullptr);
-		vertexshader.shaderCompile();
-
-		//fragment shader
-		Shader fragmentshader{ GL_FRAGMENT_SHADER };
-		glShaderSource(fragmentshader.getId(), 1, &fragmentShaderSource, nullptr);
-		fragmentshader.shaderCompile();
-		//Create shader program and link
-		Shaderprogram programrect{ Creyon::Shader::getallIds() };
-		programrect.link();
+		Shaderprogram programrect;
 		
-		vertexshader.shaderDelete();
-		fragmentshader.shaderDelete();
-		//--------------------------------------------------------------------------
+		programrect.addShader(
+		"Render\\VertexShader.glsl", GL_VERTEX_SHADER);
+		programrect.addShader(
+		"Render\\FragmentShader.glsl",  GL_FRAGMENT_SHADER);
+		
+		programrect.link();
 
 		//Set the data for rendering------------------------------------------------
 		float vertices[]{ //position            //color
@@ -117,7 +86,7 @@ namespace Creyon {
 			glClearColor(0.2f, 0.3f, 0.3f, 1.0f);
 			glClear(GL_COLOR_BUFFER_BIT);
 
-			glUseProgram(programrect.getId());
+			programrect.useProgram();
 			glBindVertexArray(VAO);
 			glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
 

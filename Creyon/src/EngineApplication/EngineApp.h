@@ -1,7 +1,5 @@
 #pragma once
 
-
-
 #include "CreyonEng.h"
 
 namespace Creyon {
