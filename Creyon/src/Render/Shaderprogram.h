@@ -3,7 +3,8 @@
 #include "glad/glad.h"
 #include "GLFW/glfw3.h"
 #include <iostream>
-#include <vector>
+#include <sstream>
+#include <fstream>
 
 namespace Creyon {
 	
@@ -14,16 +15,22 @@ namespace Creyon {
 	public:
 		//Constructors
 		
-		//Creates a Shaderprogram object and attach all shaders
-		Shaderprogram(const std::vector<unsigned int>& shaderIds );
-		
+		//Creates a Shaderprogram object
+		Shaderprogram();
+
+		//Inline Methods
 		//returns the shaderid of the program object
 		inline unsigned int getId() {
 			return programId;
 		}
 
-		//Link the Shaderprogram
-		void link();
+		//Methods
+		// Add a Shader to program object
+		void addShader(const char* pathtoShader,GLenum Shadertype);
+		void link();//Link the Shaderprogram
+		inline void useProgram() { //Use the Shader Program
+			glUseProgram(programId);
+		}
 	};
 }
 
