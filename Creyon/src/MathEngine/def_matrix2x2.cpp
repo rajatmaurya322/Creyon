@@ -52,15 +52,15 @@ namespace Creyon {
 
     //multiplies two 2x2 matrices
     matrix_2x2 matrix_2x2::operator*(const matrix_2x2& mat)const {
-        float a[4];
+        matrix_2x2 a;
 
-        a[0] = m_elems[0] * mat.m_elems[0] + m_elems[1] * mat.m_elems[2];
-        a[1] = m_elems[0] * mat.m_elems[1] + m_elems[1] * mat.m_elems[3];
+        a.m_elems[0] = m_elems[0] * mat.m_elems[0] + m_elems[1] * mat.m_elems[2];
+        a.m_elems[1] = m_elems[0] * mat.m_elems[1] + m_elems[1] * mat.m_elems[3];
 
-        a[2] = m_elems[2] * mat.m_elems[0] + m_elems[3] * mat.m_elems[2];
-        a[3] = m_elems[2] * mat.m_elems[1] + m_elems[3] * mat.m_elems[3];
+        a.m_elems[2] = m_elems[2] * mat.m_elems[0] + m_elems[3] * mat.m_elems[2];
+        a.m_elems[3] = m_elems[2] * mat.m_elems[1] + m_elems[3] * mat.m_elems[3];
 
-        return matrix_2x2{ a[0],a[1],  a[2],a[3] };
+        return a;
     }
 
     //scalar multiplication of a 2x2 matrix
