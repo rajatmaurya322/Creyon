@@ -10,9 +10,10 @@
 #include "MathEngine/vector2d.h"
 #include "MathEngine/transforms.h"
 #include "MathEngine/Constants/constants.h"
-#include "MathEngine/Miscellaneous/Misc.h"
+#include "MathEngine/Utilities/Utility.h"
 #include "Render/CreyonWindow.h"
 #include "Render/Shaderprogram.h"
+#include "Render/stb_image.h"
 #include "glad/glad.h"
 #include "GLFW/glfw3.h"
 #include <iostream>
