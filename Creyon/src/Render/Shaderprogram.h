@@ -7,11 +7,12 @@
 #include <fstream>
 
 namespace Creyon {
-	
+
 	class Shaderprogram
 	{
 	private:
 		unsigned int programId;
+	
 	public:
 		//Constructors
 		
