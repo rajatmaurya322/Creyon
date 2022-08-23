@@ -72,7 +72,5 @@ namespace Creyon {
 		self->setHeight(height);
 
 		glViewport(0, 0, width, height);
-
-		std::cout << "\nheight:" << height << "width:" << width;
 	}
 }
