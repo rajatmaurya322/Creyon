@@ -17,7 +17,8 @@ Currently the Engine is under development and so there are no working features i
 ## What to expect of the Engine?
 * Not Unreal or Unity
 * Good features and Great many Bugs
-* Decent-looking UI
+* Simple To Use
+* Decent UI
 * Only supports a specific genre of games
 
 ## Platforms:
