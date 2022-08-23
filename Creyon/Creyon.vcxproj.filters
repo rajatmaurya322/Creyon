@@ -21,7 +21,7 @@
     <ClInclude Include="src\MathEngine\Constants\constants.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\MathEngine\Miscellaneous\Misc.h">
+    <ClInclude Include="src\MathEngine\Utilities\Utility.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="src\MathEngine\matrix3x3.h">
@@ -51,10 +51,10 @@
     <ClInclude Include="src\Render\Shaderprogram.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\EngineApplication\EngineApp.h">
+    <ClInclude Include="src\EngineApplication\CreyonEng.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\EngineApplication\CreyonEng.h">
+    <ClInclude Include="src\Render\stb_image.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -68,7 +68,7 @@
     <ClCompile Include="src\MathEngine\def_matrix4x4.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\MathEngine\Miscellaneous\Misc.cpp">
+    <ClCompile Include="src\MathEngine\Utilities\Utility.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="src\MathEngine\transforms.cpp">
@@ -86,7 +86,7 @@
     <ClCompile Include="src\Render\Shaderprogram.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\EngineApplication\EngineApp.cpp">
+    <ClCompile Include="src\Render\stb_image.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
