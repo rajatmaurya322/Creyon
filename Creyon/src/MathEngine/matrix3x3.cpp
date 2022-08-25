@@ -4,7 +4,7 @@
 namespace Creyon {
     //Constructors
 
-    //default constructor, creates a 3x3 identity matrix
+    //Default constructor, creates a 3x3 identity matrix
     matrix_3x3::matrix_3x3() :m_elems{ 1.0f,0.0f,0.0f, 0.0f,1.0f,0.0f, 0.0f,0.0f,1.0f }
     {}
 
