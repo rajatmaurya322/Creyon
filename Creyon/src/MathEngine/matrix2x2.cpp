@@ -5,7 +5,7 @@ namespace Creyon {
 
     //Constructors
     
-    //default constructor, creates a 2x2 identity matrix
+    //Default constructor, creates a 2x2 identity matrix
     matrix_2x2::matrix_2x2() :m_elems{ 1.0f,0.0f, 0.0f,1.0f }
     {}
     
