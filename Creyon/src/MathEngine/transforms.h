@@ -8,7 +8,9 @@
 
 namespace Creyon{
 
-	/*All functions assume radian values for angles*/
+	/*All functions assume degree values for angles.
+	Boolean convtorad can be used to turn off conversion to radians (default conversion set to true)
+	*/
 
 	//Translates the object by specified displacements
 	matrix_4x4 translate(const float dX, const float dY, const float dZ);

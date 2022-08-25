@@ -128,9 +128,9 @@
   <ItemGroup>
     <ClCompile Include="src\Render\Shaderprogram.cpp" />
     <ClCompile Include="src\glad.c" />
-    <ClCompile Include="src\MathEngine\def_matrix2x2.cpp" />
-    <ClCompile Include="src\MathEngine\def_matrix3x3.cpp" />
-    <ClCompile Include="src\MathEngine\def_matrix4x4.cpp" />
+    <ClCompile Include="src\MathEngine\matrix2x2.cpp" />
+    <ClCompile Include="src\MathEngine\matrix3x3.cpp" />
+    <ClCompile Include="src\MathEngine\matrix4x4.cpp" />
     <ClCompile Include="src\MathEngine\Utilities\Utility.cpp" />
     <ClCompile Include="src\MathEngine\transforms.cpp" />
     <ClCompile Include="src\MathEngine\vectordefine.cpp" />

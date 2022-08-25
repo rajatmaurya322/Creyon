@@ -2,9 +2,12 @@
 
 #include <iostream>
 #include "vector3d.h"
+
 //Namespace is Creyon
 
+//Row vectors are used
 namespace Creyon {
+
 	class vector2d {
 	public:	//All data members have m_ prefix
 		float m_x, m_y;

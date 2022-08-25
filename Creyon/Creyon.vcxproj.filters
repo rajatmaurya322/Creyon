@@ -59,13 +59,13 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="src\MathEngine\def_matrix2x2.cpp">
+    <ClCompile Include="src\MathEngine\matrix2x2.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\MathEngine\def_matrix3x3.cpp">
+    <ClCompile Include="src\MathEngine\matrix3x3.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\MathEngine\def_matrix4x4.cpp">
+    <ClCompile Include="src\MathEngine\matrix4x4.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="src\MathEngine\Utilities\Utility.cpp">

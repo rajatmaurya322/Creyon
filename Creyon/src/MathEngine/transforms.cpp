@@ -1,9 +1,7 @@
 #include "transforms.h"
 
 
-/*All vectors are treated as row vectors(or row major) and so vectors are pre - multiplied before in matrix 
-transformation. Transformations are then read (general vector v) as: vABC as first A is applied on v then B 
-and then C like a sentence */
+/*Tranforms applied as : v * ABC where v is a vector */
 
 //Namespace is Creyon
 namespace Creyon{
@@ -17,7 +15,8 @@ namespace Creyon{
 		return trans;
 	}
 
-	//Assumes Degree angles and by default converts to Radians unless specified
+	//All rotation functions assume Degree angles and by default converts to Radians unless specified
+
 	matrix_4x4 rotateX(const float angle, bool convtorad) {
 		float radangle{ 0.0f };
 		

@@ -5,12 +5,12 @@
 
 //Namespace is Creyon
 
-//Matrix general notations(row_major ordering is used):
-
-/*  Rows   a   b   c    ---Columns
-    Row 0 |0   1   2|
-    Row 1 |3   4   5|
-    Row 2 |6   7   8| so element[0] is same as a0 and element[5] is same as c1 */
+/*Matrix General notations(row_major ordering is used) :
+ If values are given as [a,b,c,d,e,f,g,h,i], matrix created :
+	|a,	b,	c|
+	|d,	e,	f|
+	|g,	h,	i|
+ */
 
 
 namespace Creyon {
