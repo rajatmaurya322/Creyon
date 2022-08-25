@@ -2,7 +2,7 @@
 #include "vector4d.h"
 #include "vector2d.h"
 
-//Vector3d functionalities
+
 namespace Creyon {
 
     //Overloaded operators

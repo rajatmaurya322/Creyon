@@ -1,7 +1,7 @@
 #include "transforms.h"
 
 
-/*Tranforms applied as : v * ABC where v is a vector */
+/*Tranforms applied as : v * ABC where v is a vector  */
 
 //Namespace is Creyon
 namespace Creyon{

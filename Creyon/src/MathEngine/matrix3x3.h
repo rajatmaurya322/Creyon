@@ -7,9 +7,9 @@
 
 /*Matrix General notations(row_major ordering is used) :
  If values are given as [a,b,c,d,e,f,g,h,i], matrix created :
-	|a,	b,	c|
-	|d,	e,	f|
-	|g,	h,	i|
+		|a,	b,	c|
+		|d,	e,	f|
+		|g,	h,	i|
  */
 
 

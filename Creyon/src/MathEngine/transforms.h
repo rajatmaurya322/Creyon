@@ -9,7 +9,7 @@
 namespace Creyon{
 
 	/*All functions assume degree values for angles.
-	Boolean convtorad can be used to turn off conversion to radians (default conversion set to true)
+	Boolean "convtorad" can be used to turn off conversion to radians (default conversion set to true)
 	*/
 
 	//Translates the object by specified displacements

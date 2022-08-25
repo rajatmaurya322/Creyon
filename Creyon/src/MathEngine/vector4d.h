@@ -10,7 +10,7 @@ namespace Creyon {
  //Row vectors are used
     
     class vector4d {
-    public:     //All data members have m_ prefix
+    public:		//All data members have m_ prefix
         float m_x, m_y, m_z, m_w;
 
         //Constructors

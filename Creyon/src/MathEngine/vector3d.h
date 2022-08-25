@@ -10,7 +10,7 @@
 namespace Creyon {
 
     class vector3d{
-    public:         //All data members of a class have m_ prefix
+    public:		//All data members of a class have m_ prefix
         float m_x, m_y, m_z;
 
         //Default constructor
