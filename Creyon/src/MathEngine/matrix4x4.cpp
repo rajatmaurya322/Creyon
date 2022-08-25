@@ -3,7 +3,8 @@
 //4x4
 namespace Creyon {
     //Constructors
-    //default constructor, creates a 4x4 identity matrix
+    
+	//Default constructor, creates a 4x4 identity matrix
     matrix_4x4::matrix_4x4() 
 		:m_elems{ 1.0f,		0.0f,	0.0f,	0.0f, 
 				  0.0f,		1.0f,	0.0f,	0.0f, 
