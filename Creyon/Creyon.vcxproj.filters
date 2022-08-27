@@ -21,7 +21,7 @@
     <ClInclude Include="src\MathEngine\Constants\constants.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\MathEngine\Utilities\Utility.h">
+    <ClInclude Include="src\Utilities\Utility.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="src\MathEngine\matrix3x3.h">
@@ -68,7 +68,7 @@
     <ClCompile Include="src\MathEngine\matrix4x4.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\MathEngine\Utilities\Utility.cpp">
+    <ClCompile Include="src\Utilities\Utility.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="src\MathEngine\transforms.cpp">

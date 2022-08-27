@@ -116,7 +116,7 @@
     <ClInclude Include="src\MathEngine\matrix2x2.h" />
     <ClInclude Include="src\MathEngine\matrix3x3.h" />
     <ClInclude Include="src\MathEngine\matrix4x4.h" />
-    <ClInclude Include="src\MathEngine\Utilities\Utility.h" />
+    <ClInclude Include="src\Utilities\Utility.h" />
     <ClInclude Include="src\MathEngine\transforms.h" />
     <ClInclude Include="src\MathEngine\vector2d.h" />
     <ClInclude Include="src\MathEngine\vector3d.h" />
@@ -131,7 +131,7 @@
     <ClCompile Include="src\MathEngine\matrix2x2.cpp" />
     <ClCompile Include="src\MathEngine\matrix3x3.cpp" />
     <ClCompile Include="src\MathEngine\matrix4x4.cpp" />
-    <ClCompile Include="src\MathEngine\Utilities\Utility.cpp" />
+    <ClCompile Include="src\Utilities\Utility.cpp" />
     <ClCompile Include="src\MathEngine\transforms.cpp" />
     <ClCompile Include="src\MathEngine\vectordefine.cpp" />
     <ClCompile Include="src\Render\CreyonWindow.cpp" />
