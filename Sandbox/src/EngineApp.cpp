@@ -21,9 +21,9 @@ namespace Creyon {
 		Shaderprogram programrect;
 		
 		programrect.addShader(
-		"Render/VertexShader.glsl", GL_VERTEX_SHADER);
+		"Render\\VertexShader.glsl", GL_VERTEX_SHADER);
 		programrect.addShader(
-		"Render/FragmentShader.glsl",  GL_FRAGMENT_SHADER);
+		"Render\\FragmentShader.glsl",  GL_FRAGMENT_SHADER);
 		
 		programrect.link();
 
