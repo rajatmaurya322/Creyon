@@ -4,7 +4,7 @@
 namespace Creyon {
     //Constructors
 
-    //default constructor, creates a 3x3 identity matrix
+    //Default constructor, creates a 3x3 identity matrix
     matrix_3x3::matrix_3x3() :m_elems{ 1.0f,0.0f,0.0f, 0.0f,1.0f,0.0f, 0.0f,0.0f,1.0f }
     {}
 
@@ -57,20 +57,14 @@ namespace Creyon {
     matrix_3x3 matrix_3x3::operator*(const matrix_3x3& mat)const {
 
         matrix_3x3 a;
+		
+		for (int i = 0; i < 9; i+=3) { //i represents row's first element
+			a.m_elems[i] = m_elems[i] * mat.m_elems[0] + m_elems[i + 1] * mat.m_elems[3] + m_elems[i + 2] * mat.m_elems[6];
+			a.m_elems[i+1] = m_elems[i] * mat.m_elems[1] + m_elems[i + 1] * mat.m_elems[4] + m_elems[i + 2] * mat.m_elems[7];
+			a.m_elems[i+2] = m_elems[i] * mat.m_elems[2] + m_elems[i + 1] * mat.m_elems[5] + m_elems[i + 2] * mat.m_elems[8];
+		}
 
-        a.m_elems[0] = m_elems[0] * mat.m_elems[0] + m_elems[1] * mat.m_elems[3] + m_elems[2] * mat.m_elems[6];
-        a.m_elems[1] = m_elems[0] * mat.m_elems[1] + m_elems[1] * mat.m_elems[4] + m_elems[2] * mat.m_elems[7];
-        a.m_elems[2] = m_elems[0] * mat.m_elems[2] + m_elems[1] * mat.m_elems[5] + m_elems[2] * mat.m_elems[8];
-
-        a.m_elems[3] = m_elems[3] * mat.m_elems[0] + m_elems[4] * mat.m_elems[3] + m_elems[5] * mat.m_elems[6];
-        a.m_elems[4] = m_elems[3] * mat.m_elems[1] + m_elems[4] * mat.m_elems[4] + m_elems[5] * mat.m_elems[7];
-        a.m_elems[5] = m_elems[3] * mat.m_elems[2] + m_elems[4] * mat.m_elems[5] + m_elems[5] * mat.m_elems[8];
-
-        a.m_elems[6] = m_elems[6] * mat.m_elems[0] + m_elems[7] * mat.m_elems[3] + m_elems[8] * mat.m_elems[6];
-        a.m_elems[7] = m_elems[6] * mat.m_elems[1] + m_elems[7] * mat.m_elems[4] + m_elems[8] * mat.m_elems[7];
-        a.m_elems[8] = m_elems[6] * mat.m_elems[2] + m_elems[7] * mat.m_elems[5] + m_elems[8] * mat.m_elems[8];
-
-        return a;
+		return a;
     }
 
     //scalar multiplication of a 3x3 matrix

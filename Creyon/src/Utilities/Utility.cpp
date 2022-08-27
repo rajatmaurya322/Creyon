@@ -1,5 +1,4 @@
-#include "MathEngine/Miscellaneous/Misc.h"
-#include <cmath>
+#include "Utility.h"
 
 namespace Creyon {
 
@@ -19,6 +18,23 @@ namespace Creyon {
 						  mat3.m_elems[3], mat3.m_elems[4], mat3.m_elems[5], 0.0f,
 						  mat3.m_elems[6], mat3.m_elems[7], mat3.m_elems[8], 0.0f,
 						  vec3.m_x		 , vec3.m_y		  , vec3.m_z	   , 1.0f);
+	}
+
+	//Searches for Root Directory(Engine.root file)
+	std::filesystem::path searchRootDir() {
+		//Get working directory
+		std::filesystem::path currpath = std::filesystem::current_path();
+		
+		while (true) {
+			if (std::filesystem::exists(currpath / "Engine.root")) {
+				break;
+			}
+			else {
+				//Sets path to the Parent Directory
+				currpath = currpath.parent_path();
+			}
+		}
+		return currpath;
 	}
 
 }

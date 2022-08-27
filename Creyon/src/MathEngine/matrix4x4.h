@@ -5,23 +5,19 @@
 
 //Namespace is Creyon
 
-//Matrix general notations(row_major ordering is used):
-
-/*         a    b   c    d    ---Columns
-    Row 0 |0    1   2    3| Given  inside are indices of each element
-    Row 1 |4    5   6    7|
-    Row 2 |8    9   10  11|
-    Row 3 |12   13  14  15|
-
-    so element[0] is same as a0(column a and row 0) and element[6] is same as c1(Column c and row 1) 
-*/
+/*Matrix General notations(row_major ordering is used) :
+ If values are given as [a,b,c,d,e,f,g,h,i], matrix created :
+		|a,	b,	c|
+		|d,	e,	f|
+		|g,	h,	i|
+ */
 
 
 namespace Creyon {
 
     class matrix_4x4 {
 
-    public:                             //All data members begin with m_ prefix
+    public:		//All data members begin with m_ prefix
 
         float m_elems[16];     //4x4 matrix elements;
 

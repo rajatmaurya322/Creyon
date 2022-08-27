@@ -3,8 +3,13 @@
 //4x4
 namespace Creyon {
     //Constructors
-    //default constructor, creates a 4x4 identity matrix
-    matrix_4x4::matrix_4x4() :m_elems{ 1.0f,0.0f,0.0f,0.0f, 0.0f,1.0f,0.0f,0.0f, 0.0f,0.0f,1.0f,0.0f, 0.0f,0.0f,0.0f,1.0f }
+    
+	//Default constructor, creates a 4x4 identity matrix
+    matrix_4x4::matrix_4x4() 
+		:m_elems{ 1.0f,		0.0f,	0.0f,	0.0f, 
+				  0.0f,		1.0f,	0.0f,	0.0f, 
+				  0.0f,		0.0f,	1.0f,	0.0f, 
+				  0.0f,		0.0f,	0.0f,	1.0f }
     {}
 
     //overloaded constructor, initialises 4x4 matrix with given values
@@ -61,29 +66,14 @@ namespace Creyon {
 
     //multiplies two 4x4 matrices
     matrix_4x4 matrix_4x4::operator*(const matrix_4x4& mat)const {
-        matrix_4x4 a;
-
-        a.m_elems[0] = m_elems[0] * mat.m_elems[0] + m_elems[1] * mat.m_elems[4] + m_elems[2] * mat.m_elems[8] + m_elems[3] * m_elems[12];
-        a.m_elems[1] = m_elems[0] * mat.m_elems[1] + m_elems[1] * mat.m_elems[5] + m_elems[2] * mat.m_elems[9] + m_elems[3] * m_elems[13];
-        a.m_elems[2] = m_elems[0] * mat.m_elems[2] + m_elems[1] * mat.m_elems[6] + m_elems[2] * mat.m_elems[10] + m_elems[3] * m_elems[14];
-        a.m_elems[3] = m_elems[0] * mat.m_elems[3] + m_elems[1] * mat.m_elems[7] + m_elems[2] * mat.m_elems[11] + m_elems[3] * m_elems[15];
-
-        a.m_elems[4] = m_elems[4] * mat.m_elems[0] + m_elems[5] * mat.m_elems[4] + m_elems[6] * mat.m_elems[8] + m_elems[7] * m_elems[12];
-        a.m_elems[5] = m_elems[4] * mat.m_elems[1] + m_elems[5] * mat.m_elems[5] + m_elems[6] * mat.m_elems[9] + m_elems[7] * m_elems[13];
-        a.m_elems[6] = m_elems[4] * mat.m_elems[2] + m_elems[5] * mat.m_elems[6] + m_elems[6] * mat.m_elems[10] + m_elems[7] * m_elems[14];
-        a.m_elems[7] = m_elems[4] * mat.m_elems[3] + m_elems[5] * mat.m_elems[7] + m_elems[6] * mat.m_elems[11] + m_elems[7] * m_elems[15];
-
-        a.m_elems[8] = m_elems[8] * mat.m_elems[0] + m_elems[9] * mat.m_elems[4] + m_elems[10] * mat.m_elems[8] + m_elems[11] * m_elems[12];
-        a.m_elems[9] = m_elems[8] * mat.m_elems[1] + m_elems[9] * mat.m_elems[5] + m_elems[10] * mat.m_elems[9] + m_elems[11] * m_elems[13];
-        a.m_elems[10] = m_elems[8] * mat.m_elems[2] + m_elems[9] * mat.m_elems[6] + m_elems[10] * mat.m_elems[10] + m_elems[11] * m_elems[14];
-        a.m_elems[11] = m_elems[8] * mat.m_elems[3] + m_elems[9] * mat.m_elems[7] + m_elems[10] * mat.m_elems[11] + m_elems[11] * m_elems[15];
-
-        a.m_elems[12] = m_elems[12] * mat.m_elems[0] + m_elems[13] * mat.m_elems[4] + m_elems[14] * mat.m_elems[8] + m_elems[15] * m_elems[12];
-        a.m_elems[13] = m_elems[12] * mat.m_elems[1] + m_elems[13] * mat.m_elems[5] + m_elems[14] * mat.m_elems[9] + m_elems[15] * m_elems[13];
-        a.m_elems[14] = m_elems[12] * mat.m_elems[2] + m_elems[13] * mat.m_elems[6] + m_elems[14] * mat.m_elems[10] + m_elems[15] * m_elems[14];
-        a.m_elems[15] = m_elems[12] * mat.m_elems[3] + m_elems[13] * mat.m_elems[7] + m_elems[14] * mat.m_elems[11] + m_elems[15] * m_elems[15];
-
-        return a;
+		matrix_4x4 result;
+		for (int i = 0; i < 16; i+=4) {  //i represents row's first element
+			result.m_elems[i] = m_elems[i] * mat.m_elems[0] + m_elems[i + 1] * mat.m_elems[4] + m_elems[i + 2] * mat.m_elems[8] + m_elems[i + 3] * mat.m_elems[12];
+			result.m_elems[i+1] = m_elems[i] * mat.m_elems[1] + m_elems[i + 1] * mat.m_elems[5] + m_elems[i + 2] * mat.m_elems[9] + m_elems[i + 3] * mat.m_elems[13];
+			result.m_elems[i+2] = m_elems[i] * mat.m_elems[2] + m_elems[i + 1] * mat.m_elems[6] + m_elems[i + 2] * mat.m_elems[10] + m_elems[i + 3] * mat.m_elems[14];
+			result.m_elems[i+3] = m_elems[i] * mat.m_elems[3] + m_elems[i + 1] * mat.m_elems[7] + m_elems[i + 2] * mat.m_elems[11] + m_elems[i + 3] * mat.m_elems[15];
+		}
+		return result;
     }
 
     //scalar multiplication of a 4x4 matrix

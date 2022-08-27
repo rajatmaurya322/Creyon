@@ -6,15 +6,14 @@
 #include <cmath>
 #include "matrix3x3.h"
 
-//All vectors are treated as row vectors(or row major) and so vectors are pre-multiplied before in matrix transformation
+//Row vectors are used
 namespace Creyon {
 
     class vector3d{
-    public:         //All data members of a class have m_ prefix
+    public:		//All data members of a class have m_ prefix
         float m_x, m_y, m_z;
 
-        //Constructors
-        //Default constructor ;Creates a null vector
+        //Default constructor
         vector3d() :m_x{ 0.0f }, m_y{ 0.0f }, m_z{ 0.0f }
         {}
 
@@ -32,10 +31,10 @@ namespace Creyon {
         vector3d operator-(const vector3d& v)const;   //Subtract two vectors(respective x,y,z components)
         float operator*(const vector3d& v)const;       //Dot product of two vectors
         
-        //Overloaded multiplication operator * for vector-matrix multiplication; only v*mat form
+        //Overloaded * operator for vector-matrix multiplication; only v*mat form
         vector3d operator*(const Creyon::matrix_3x3 &mat)const;
 
-        //unary minus, returns a vector with negated components(reverses direction of vector)
+        //unary minus, returns a vector with negated components
         vector3d operator-()const;
         vector3d operator*(float s)const;          //Scalar multiplication of vector with s : v*s form
         vector3d operator/(float s)const;          //Scalar division of vector with s : v/s

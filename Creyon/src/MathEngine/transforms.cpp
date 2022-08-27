@@ -1,8 +1,7 @@
 #include "transforms.h"
-#include <cmath>
 
-//All vectors are treated as row vectors(or row major) and so vectors are pre-multiplied before in matrix transformation
-//Transformations are then read (general vector v) as: vABC as first A is applied on v then B and then C like a sentence
+
+/*Tranforms applied as : v * ABC where v is a vector  */
 
 //Namespace is Creyon
 namespace Creyon{
@@ -15,36 +14,53 @@ namespace Creyon{
 
 		return trans;
 	}
-	
-	matrix_4x4 rotateX(const float angle) {
+
+	//All rotation functions assume Degree angles and by default converts to Radians unless specified
+
+	matrix_4x4 rotateX(const float angle, bool convtorad) {
+		float radangle{ 0.0f };
+		
+		//Get Radian Angle if conversion specified to be true
+		if (convtorad) { radangle = degToRad(angle); }
+		else { radangle = angle; }
 		
 		//Matrix to rotate about X axis
 		matrix_4x4 rotateaboutX{1.0f,   0.0f,           0.0f,           0.0f,
-                                0.0f,   cos(angle),     sin(angle),     0.0f,
-                                0.0f,   -sin(angle),    cos(angle),     0.0f, 
+                                0.0f,   cos(radangle),  sin(radangle),  0.0f,
+                                0.0f,  -sin(radangle),  cos(radangle),  0.0f, 
                                 0.0f,   0.0f,           0.0f,           1.0f};
 		
 		return rotateaboutX ;
 	}
 
-	matrix_4x4 rotateY(const float angle) {
+	matrix_4x4 rotateY(const float angle, bool convtorad) {
+		float radangle{ 0.0f };
+
+		//Get Radian Angle if conversion specified to be true
+		if (convtorad) { radangle = degToRad(angle); }
+		else { radangle = angle; }
 		
 		//Matrix to rotate about Y axis
-		matrix_4x4 rotateaboutY{cos(angle), 0.0f,   -sin(angle),    0.0f,
-                                0.0f,       1.0f,   0.0f,           0.0f,
-                                sin(angle), 0.0f,   cos(angle),     0.0f,
-                                0.0f,       0.0f,   0.0f,           1.0f};
+		matrix_4x4 rotateaboutY{cos(radangle), 0.0f,   -sin(radangle),    0.0f,
+                                0.0f,		   1.0f,	0.0f,			  0.0f,
+                                sin(radangle), 0.0f,    cos(radangle),    0.0f,
+                                0.0f,		   0.0f,   0.0f,			  1.0f};
 		
 		return rotateaboutY ;
 	}
 
-	matrix_4x4 rotateZ(const float angle) {
-		
+	matrix_4x4 rotateZ(const float angle, bool convtorad) {
+		float radangle{ 0.0f };
+
+		//Get Radian Angle if conversion specified to be true
+		if (convtorad) { radangle = degToRad(angle); }
+		else { radangle = angle; }
+
 		//Matrix to rotate about Z axis
-		matrix_4x4 rotateaboutZ{cos(angle),     sin(angle),	 0.0f,      0.0f,
-                                -sin(angle),    cos(angle),	 0.0f,      0.0f,
-                                0.0f,           0.0f,        1.0f,      0.0f,
-                                0.0f,           0.0f,        0.0f,      1.0f};
+		matrix_4x4 rotateaboutZ{cos(radangle),    sin(radangle),	0.0f,	0.0f,
+                               -sin(radangle),    cos(radangle),	0.0f,	0.0f,
+                                0.0f,			  0.0f,				1.0f,	0.0f,
+                                0.0f,			  0.0f,				0.0f,	1.0f};
 		
 		return rotateaboutZ ;
 	}
@@ -129,19 +145,23 @@ namespace Creyon{
 		return reflect;
 	}
 
-	matrix_4x4 ortho(const float aspect, const float fieldofview, const float far, const float near) {
+	//Resource: scratchapixel.com
+	//Orthographic Projection
+	matrix_4x4 ortho(const float left, const float top, const float right, const float bottom, const float far, const float near) {
 		matrix_4x4 orthographic;
 		
-		float half_fov = fieldofview / 2.0f;
-
-		orthographic.m_elems[0] = 1.0f / (aspect * tanf(half_fov));
-		orthographic.m_elems[5] = 1.0f / tanf(half_fov);
+		orthographic.m_elems[0] = 2 / (right - left);
+		orthographic.m_elems[5] = 2 / (top - bottom);
 		orthographic.m_elems[10] = 2 / (near - far);
+		orthographic.m_elems[12] = (right + left) / (left - right);
+		orthographic.m_elems[13] = (top + bottom) / (bottom - top);
 		orthographic.m_elems[14] = (far + near) / (near - far);
 
 		return orthographic;
 	}
 
+	//Resource: scratchapixel.com
+	//Perspective Projection
 	matrix_4x4 persp(const float aspect, const float fieldofview, const float far, const float near) {
 		
 		matrix_4x4 perspective;
