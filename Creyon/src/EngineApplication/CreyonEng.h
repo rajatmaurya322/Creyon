@@ -10,7 +10,7 @@
 #include "MathEngine/vector2d.h"
 #include "MathEngine/transforms.h"
 #include "MathEngine/Constants/constants.h"
-#include "MathEngine/Utilities/Utility.h"
+#include "Utilities/Utility.h"
 #include "Render/CreyonWindow.h"
 #include "Render/Shaderprogram.h"
 #include "Render/stb_image.h"
