@@ -126,6 +126,8 @@
     <ClInclude Include="src\sdlmanage\sdlmanage.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\MathEngine\vector2d.cpp" />
+    <ClCompile Include="src\MathEngine\vector4d.cpp" />
     <ClCompile Include="src\Render\Shaderprogram.cpp" />
     <ClCompile Include="src\glad.c" />
     <ClCompile Include="src\MathEngine\matrix2x2.cpp" />
@@ -133,7 +135,7 @@
     <ClCompile Include="src\MathEngine\matrix4x4.cpp" />
     <ClCompile Include="src\Utilities\Utility.cpp" />
     <ClCompile Include="src\MathEngine\transforms.cpp" />
-    <ClCompile Include="src\MathEngine\vectordefine.cpp" />
+    <ClCompile Include="src\MathEngine\vector3d.cpp" />
     <ClCompile Include="src\Render\CreyonWindow.cpp" />
     <ClCompile Include="src\Render\stb_image.cpp" />
   </ItemGroup>

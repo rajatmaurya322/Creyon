@@ -74,7 +74,7 @@
     <ClCompile Include="src\MathEngine\transforms.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\MathEngine\vectordefine.cpp">
+    <ClCompile Include="src\MathEngine\vector3d.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="src\glad.c">
@@ -87,6 +87,12 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="src\Render\stb_image.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\MathEngine\vector2d.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\MathEngine\vector4d.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
