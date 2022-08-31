@@ -124,6 +124,7 @@
     <ClInclude Include="src\Render\CreyonWindow.h" />
     <ClInclude Include="src\Render\stb_image.h" />
     <ClInclude Include="src\sdlmanage\sdlmanage.h" />
+    <ClInclude Include="src\Render\Texture.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\MathEngine\vector2d.cpp" />
@@ -138,6 +139,7 @@
     <ClCompile Include="src\MathEngine\vector3d.cpp" />
     <ClCompile Include="src\Render\CreyonWindow.cpp" />
     <ClCompile Include="src\Render\stb_image.cpp" />
+    <ClCompile Include="src\Render\Texture.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="src\Render\FragmentShader.glsl" />
