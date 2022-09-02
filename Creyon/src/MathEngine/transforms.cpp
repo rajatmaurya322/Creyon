@@ -54,6 +54,7 @@ namespace Creyon{
 
 		//Get Radian Angle if conversion specified to be true
 		if (convtorad) { radangle = degToRad(angle); }
+		//Otherwise don't convert
 		else { radangle = angle; }
 
 		//Matrix to rotate about Z axis
