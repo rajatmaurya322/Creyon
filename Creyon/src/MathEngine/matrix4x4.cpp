@@ -122,7 +122,7 @@ namespace Creyon {
 
     float det(const matrix_4x4& mat) {
         //returns determinant of 4x4  matrix
-        return mat.m_elems[0] * (mat.m_elems[5] * (mat.m_elems[10] * mat.m_elems[15] - mat.m_elems[14] * mat.m_elems[11]) - mat.m_elems[6] * (mat.m_elems[9] * mat.m_elems[15] - mat.m_elems[13] * mat.m_elems[11]) + mat.m_elems[7] * (mat.m_elems[9] * mat.m_elems[14] - mat.m_elems[13] * mat.m_elems[10]))
+        return mat.m_elems[0] * (mat.m_elems[5] * (mat.m_elems[10] * mat.m_elems[15] - mat.m_elems[14] * mat.m_elems	[11]) - mat.m_elems[6] * (mat.m_elems[9] * mat.m_elems[15] - mat.m_elems[13] * mat.m_elems[11]) +			mat.m_elems[7] * (mat.m_elems[9] * mat.m_elems[14] - mat.m_elems[13] * mat.m_elems[10]))
             - mat.m_elems[1] * (mat.m_elems[4] * (mat.m_elems[10] * mat.m_elems[15] - mat.m_elems[14] * mat.m_elems[11]) - mat.m_elems[6] * (mat.m_elems[8] * mat.m_elems[15] - mat.m_elems[12] * mat.m_elems[11]) + mat.m_elems[7] * (mat.m_elems[8] * mat.m_elems[14] - mat.m_elems[12] * mat.m_elems[10]))
             + mat.m_elems[2] * (mat.m_elems[4] * (mat.m_elems[9] * mat.m_elems[15] - mat.m_elems[13] * mat.m_elems[11]) - mat.m_elems[5] * (mat.m_elems[8] * mat.m_elems[15] - mat.m_elems[12] * mat.m_elems[11]) + mat.m_elems[7] * (mat.m_elems[8] * mat.m_elems[13] - mat.m_elems[12] * mat.m_elems[9]))
             - mat.m_elems[3] * (mat.m_elems[4] * (mat.m_elems[9] * mat.m_elems[14] - mat.m_elems[13] * mat.m_elems[10]) - mat.m_elems[5] * (mat.m_elems[8] * mat.m_elems[14] - mat.m_elems[12] * mat.m_elems[10]) + mat.m_elems[6] * (mat.m_elems[8] * mat.m_elems[13] - mat.m_elems[12] * mat.m_elems[9]));
