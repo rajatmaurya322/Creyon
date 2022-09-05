@@ -15,6 +15,14 @@ namespace Creyon{
 		return trans;
 	}
 
+	matrix_4x4 translate(const vector3d disp) {
+		matrix_4x4 trans{	1.0f,		0.0f,		0.0f,		0.0f,
+							0.0f,		1.0f,		0.0f,		0.0f,
+							0.0f,		0.0f,		1.0f,		0.0f,
+							disp.m_x,	disp.m_y,	disp.m_z,	1.0f };
+		return trans;
+	}
+
 	//All rotation functions assume Degree angles and by default converts to Radians unless specified
 
 	matrix_4x4 rotateX(const float angle, bool convtorad) {

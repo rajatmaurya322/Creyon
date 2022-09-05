@@ -70,7 +70,20 @@ namespace Creyon {
 		 0.5f,  0.5f,  0.5f,  1.0f, 0.0f,
 		-0.5f,  0.5f,  0.5f,  0.0f, 0.0f,
 		-0.5f,  0.5f, -0.5f,  0.0f, 1.0f
-		};	 
+		};
+
+		vector3d positions[] = {
+			vector3d{0.0f,  0.0f,  0.0f},
+			vector3d{2.0f,  5.0f, -15.0f},
+			vector3d{-1.5f,-2.2f, -2.5f},
+			vector3d{-3.8f,-2.0f, -12.3f},
+			vector3d{2.4f, -0.4f, -3.5f},
+			vector3d{-1.7f, 3.0f, -7.5f},
+			vector3d{1.3f, -2.0f, -2.5f},
+			vector3d{1.5f,  2.0f, -2.5f},
+			vector3d{1.5f,  0.2f, -1.5f},
+			vector3d{-1.3f, 1.0f, -1.5f}
+		};
 
 		unsigned int VBO, VAO;
 		glGenVertexArrays(1, &VAO);
@@ -129,16 +142,19 @@ namespace Creyon {
 			glUniform1i(glGetUniformLocation(programrect.getId(), "ourTexture2"), 1);
 
 			unsigned int transformloc = glGetUniformLocation(programrect.getId(), "transform");
-			
-			mat44 trans;
-			mat44 model = scale( (sinf( (float)glfwGetTime() )/2.0f + 0.5f)* 2) * rotateY((float)glfwGetTime(), false) * rotateX((float)glfwGetTime(), false);
-			mat44 view = translate(0.0f, 0.0f, -5.0f);
-			mat44 proj = persp(800.0f / 600.0f, pi_u4, 100.0f, 0.1f);
-			trans = trans  * model * view * proj;
-			glUniformMatrix4fv(transformloc, 1, GL_TRUE, trans.m_elems);
-
 			glBindVertexArray(VAO);
-			glDrawArrays(GL_TRIANGLES, 0, 36);
+			
+			for(unsigned int i=0 ; i<10; ++i){
+				mat44 trans;
+				mat44 model = rotateY((float)glfwGetTime()*(i+1), false)* rotateX((float)glfwGetTime(), false) * 
+					scale(sinf((float)glfwGetTime())/2.0f + 0.5f) *translate(positions[i]);
+				mat44 view = translate(0.0f, 0.0f, -5.0f);
+				mat44 proj = persp(800.0f / 600.0f, pi_u4, 100.0f, 0.1f);
+				trans = trans  * model * view * proj;
+				glUniformMatrix4fv(transformloc, 1, GL_TRUE, trans.m_elems);
+
+				glDrawArrays(GL_TRIANGLES, 0, 36);
+			}
 
 			//---------------------------------------
 			windowInstance.swapBuffers();

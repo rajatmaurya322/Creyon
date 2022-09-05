@@ -1,7 +1,6 @@
 #pragma once
 
 #include <iostream>
-#include "vector3d.h"
 
 //Namespace is Creyon
 
@@ -16,9 +15,6 @@ namespace Creyon {
 		{}
 
 		vector2d(float x, float y):m_x{x} , m_y{y}
-		{}
-
-		vector2d(const Creyon::vector3d& vec):m_x{vec.m_x}, m_y{vec.m_y}
 		{}
 
 		//overloaded << operator to display vector directly with cout
