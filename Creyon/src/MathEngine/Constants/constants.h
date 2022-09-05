@@ -1,5 +1,6 @@
 #pragma once
 
+//Only contains constants related to MathEngine
 namespace Creyon {
 	
 	const float pi		=	3.141592653589793f;
