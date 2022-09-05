@@ -15,6 +15,9 @@ namespace Creyon{
 	//Translates the object by specified displacements
 	matrix_4x4 translate(const float dX, const float dY, const float dZ);
 
+	//Translates the object by specified by given vector displacements
+	matrix_4x4 translate(const vector3d disp);
+
 	//Rotates about X axis by given angle
 	matrix_4x4 rotateX(const float angle, bool convtorad = true);
 
