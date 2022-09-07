@@ -6,7 +6,7 @@ Currently the Engine is under development(see dev branch) and so there are no wo
 
 ## Current Development Plans?
 * Basic Rendering System and subsystems
-* Physics System and subsystems
+* Integrating a Physics system
 * UI and other features
 * Bug Fixing
 * Performance Improvement
@@ -20,6 +20,21 @@ Currently the Engine is under development(see dev branch) and so there are no wo
 * Simple To Use
 * Decent UI
 * Supports a specific genre of games
+
+## Third-Party Libraries Used:
+No software is built entirely from scratch (exceptions do exist but that's beside the point :confused: ) and so CreyonEngine also uses third party libraries for its development and more will be added as development progresses. Below is the list of libraries used with their name, developer name, and link to their official site/ github repository. Do check them out and support them, most are open source.
+
+* GLFW Library: By The GLFW Development Team
+
+   Github: https://github.com/glfw/glfw   Website: https://www.glfw.org/
+
+* glad Library: By Dav1dde
+  
+   Github: https://github.com/Dav1dde/glad   Webservice: https://glad.dav1d.de/
+
+* stb_image Library: By nothings
+  
+   Github: https://github.com/nothings/stb
 
 ## Platforms:
 * PC - Windows
