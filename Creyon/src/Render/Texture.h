@@ -30,7 +30,7 @@ namespace Creyon {
 			return texId;
 		}
 
-		//Configures texture wrapping methods
+		//Configures texture wrapping modes
 		void configTexWrap(GLint mode_Xaxis, GLint mode_Yaxis);
 
 		//Configures texture filtering modes

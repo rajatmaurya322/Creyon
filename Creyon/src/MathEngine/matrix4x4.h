@@ -21,39 +21,45 @@ namespace Creyon {
 
         float m_elems[16];     //4x4 matrix elements;
 
-        //Constructors
-        matrix_4x4();                        //creates a 4x4 identity matrix
+		//creates a 4x4 identity matrix
+        matrix_4x4();
 
-        //overloaded constructor, initialises 4x4 matrix with given values
+        //creates a 4x4 matrix with given values
         matrix_4x4(float a0, float b0, float c0, float d0, float a1, float b1, float c1, float d1, float a2, float b2, float c2, float d2, float a3, float b3, float c3, float d3);
 
+		//creates a 4x4 matrix with given array
         matrix_4x4(const float *p_array);
 
+		//Copy constructor
         matrix_4x4(const matrix_4x4& mat4);
         
-        //overloaded constructor
-        //Methods
-        matrix_4x4 transpose();  //transposes the 3x3 matrix; row-column interchange
+		//transposes the original 4x4 matrix; row-column interchange
+		matrix_4x4 transpose();
 
-        //Overloaded Operators
-        matrix_4x4 operator+(const matrix_4x4& mat)const;    //adds two 3x3 matrices
+		//adds two 4x4 matrices
+        matrix_4x4 operator+(const matrix_4x4& mat)const;
 
-        matrix_4x4 operator-(const matrix_4x4& mat)const;    //subtracts two 3x3 matrices
+		//subtracts two 4x4 matrices
+        matrix_4x4 operator-(const matrix_4x4& mat)const;
 
-        matrix_4x4 operator*(const matrix_4x4& mat)const;    //multiplication of two 3x3 matrices
+		//multiplies two 4x4 matrices
+        matrix_4x4 operator*(const matrix_4x4& mat)const;
 
-        matrix_4x4 operator*(float f)const;           //scalar multiplication of matrix: mat*f
+		//scalar multiplication of 4x4 matrix: mat*f
+        matrix_4x4 operator*(float f)const;
 
-        matrix_4x4 operator/(float f)const;           //scalar division of 3x3 matrix: mat/f
-
-        //Friend functions
-        //same scalar multiplication: f * mat
+		//scalar division of 4x4 matrix: mat/f
+        matrix_4x4 operator/(float f)const;
+		
+        //scalar multiplication of 4x4 matrix: f * mat
         friend matrix_4x4 operator*(float f, matrix_4x4& mat);
 
-        //overloaded friend operator << for printing matrix directly with cout object
+		//Prints 4x4 matrix directly with cout
         friend std::ostream& operator<<(std::ostream& os, const matrix_4x4& mat);
     };
 
-    //NON-MEMBER FUNCTIONS
+    //Non member functions
+
+	//Returns determinant of 4x4 matrix
     float det(const matrix_4x4& mat);
 }

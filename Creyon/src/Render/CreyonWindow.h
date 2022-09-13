@@ -6,9 +6,10 @@
 
 namespace Creyon {
 
+	//This class abstracts over GLFW Window creation for ease of use
 	class CreyonWindow
 	{
-	/*This class abstracts over GLFW Window creation for ease of use*/
+
 	private:
 		GLFWwindow* mp_window;	//prefix mp_ stands for member of class and is a pointer
 		int m_width, m_height;
@@ -16,10 +17,10 @@ namespace Creyon {
 
 	public:
 
-		//Default constructor
+		//creates a default glfw window
 		CreyonWindow();
 
-		//Overloaded Constructors
+		//creates a glfw window with given parameters
 		CreyonWindow(int width, int height, const char* title);
 
 		//Get methods
@@ -29,31 +30,43 @@ namespace Creyon {
 		//Set methods
 		inline void setWidth(const int nwidth) { m_width = nwidth ;}
 		inline void setHeight(const int nheight) {m_height = nheight ;}
-
-		//Methods
-		static void CreyonWindowInit();
-		static void framebuffer_size_callback(GLFWwindow* window, int width, int height);
-		void setContextCurrent();
-		void processInput();
-		void register_Callback();
-		void setSize(const int nwidth,const int nheight);
-		static void CreyonWindowTerminate(CreyonWindow& window);
 		
-		//Inline Methods
+		//Properly initialises glfw
+		static void CreyonWindowInit();
+		
+		//Sets context of the window object's window to current
+		void setContextCurrent();
+
+		//Registers the given window for resizing callback
+		void register_Callback();
+
+		//Processes the keyboard input events
+		void processInput();
+
+		//Resizes the window to new height and width
+		void setSize(const int nwidth,const int nheight);
+		
+		//callback function which resizes the framebuffer as the window size changes
+		static void framebuffer_size_callback(GLFWwindow* window, int width, int height);
+		
+		// Properly terminates glfw window
+		static void CreyonWindowTerminate(CreyonWindow& window);
+
+		//Swap window buffers
 		inline void swapBuffers() {
 			glfwSwapBuffers(mp_window);
 		}
 
+		//Poll events for processing
 		inline void pollWindowEvents() {
 			glfwPollEvents();
 		}
 
+		//Checks if the window is closed
 		inline bool isWindowClosed() {
 			return glfwWindowShouldClose(mp_window);
 		}
 
 	};
 
-	//Non_Member Functions
-	
 }

@@ -14,22 +14,23 @@ namespace Creyon {
 		unsigned int programId;
 	
 	public:
-		//Constructors
 		
 		//Creates a Shaderprogram object
 		Shaderprogram();
-
-		//Inline Methods
-		//returns the shaderid of the program object
+		
+		//Gets the Shaderprogram ID
 		inline unsigned int getId() {
 			return programId;
 		}
-
-		//Methods
+		
 		// Add a Shader to program object
 		void addShader(const char* pathtoShader,GLenum Shadertype);
-		void link();//Link the Shaderprogram
-		inline void useProgram() { //Use the Shader Program
+		
+		//Link the Shaderprogram
+		void link();
+
+		//Use the Shader Program
+		inline void useProgram() {
 			glUseProgram(programId);
 		}
 	};

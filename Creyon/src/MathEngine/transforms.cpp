@@ -1,8 +1,5 @@
 #include "transforms.h"
 
-
-/*Tranforms applied as : v * ABC where v is a vector  */
-
 //Namespace is Creyon
 namespace Creyon{
 	
@@ -62,7 +59,6 @@ namespace Creyon{
 
 		//Get Radian Angle if conversion specified to be true
 		if (convtorad) { radangle = degToRad(angle); }
-		//Otherwise don't convert
 		else { radangle = angle; }
 
 		//Matrix to rotate about Z axis
@@ -155,7 +151,7 @@ namespace Creyon{
 	}
 
 	//Resource: scratchapixel.com
-	//Orthographic Projection
+	//Orthographic Projection converts 3D coordinates to 2D and does not consider depth 
 	matrix_4x4 ortho(const float left, const float top, const float right, const float bottom, const float far, const float near) {
 		matrix_4x4 orthographic;
 		
@@ -170,7 +166,7 @@ namespace Creyon{
 	}
 
 	//Resource: scratchapixel.com
-	//Perspective Projection
+	//Perspective Projection: Converts 3D coordinates to project onto view frustum and considers depth
 	matrix_4x4 persp(const float aspect, const float fieldofview, const float far, const float near) {
 		
 		matrix_4x4 perspective;

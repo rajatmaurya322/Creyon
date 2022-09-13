@@ -40,11 +40,12 @@ namespace Creyon {
 
 		//Different formats : JPG, PNG
 		switch (imgformat) {
-		case Format::JPG: {
+		
+			case Format::JPG: {
 				if (data) {
 					//Creating textures
 					glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, width, height, 0, GL_RGB, GL_UNSIGNED_BYTE, data);
-					glGenerateMipmap(GL_TEXTURE_2D);
+					glGenerateMipmap(GL_TEXTURE_2D); //Generate mipmap
 				}
 				else {
 					std::cout << "\nERROR: Failed to load texture";
@@ -53,7 +54,7 @@ namespace Creyon {
 			}
 			break;
 
-		case Format::PNG: {
+			case Format::PNG: {
 				if (data) {
 					//Creating textures
 					glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, width, height, 0, GL_RGBA, GL_UNSIGNED_BYTE, data);
@@ -62,7 +63,7 @@ namespace Creyon {
 				else {
 					std::cout << "\nERROR: Failed to load texture";
 				}
-				stbi_image_free(data);
+				stbi_image_free(data);  //Free image data
 			}
 			break;
 
