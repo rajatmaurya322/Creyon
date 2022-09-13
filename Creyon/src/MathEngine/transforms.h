@@ -6,11 +6,12 @@
 #include "Utilities/Utility.h"
 #include <cmath>
 
+/*Tranforms applied as : v * ABC where v is a vector  */
+
 namespace Creyon{
 
-	/*All functions assume degree values for angles.
-	Boolean "convtorad" can be used to turn off conversion to radians (default conversion set to true)
-	*/
+	/* All functions assume degree values for angles.Boolean "convtorad" can be
+	used to turn off conversion to radians (default conversion set to true) */
 
 	//Translates the object by specified displacements
 	matrix_4x4 translate(const float dX, const float dY, const float dZ);
@@ -42,9 +43,9 @@ namespace Creyon{
 	//Reflection about the given axis
 	matrix_4x4 reflectaboutaxis(const vector4d& vec4);
 
-	//Orthographic(Parallel) projection: Converts 3d coordinates to project directly onto 2d image screen(does not considers depth)
+	//Orthographic(Parallel) projection
 	matrix_4x4 ortho(const float left, const float top, const float right, const float bottom, const float far, const float near);
 
-	//Perspective projection: Converts 3d coordinates to project inside the view frustum and considers depth
+	//Perspective projection
 	matrix_4x4 persp(const float aspect, const float fieldofview, const float far, const float near);
 }

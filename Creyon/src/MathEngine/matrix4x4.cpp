@@ -1,10 +1,7 @@
 #include "matrix4x4.h"
 
-//4x4
 namespace Creyon {
-    //Constructors
     
-	//Default constructor, creates a 4x4 identity matrix
     matrix_4x4::matrix_4x4() 
 		:m_elems{ 1.0f,		0.0f,	0.0f,	0.0f, 
 				  0.0f,		1.0f,	0.0f,	0.0f, 
@@ -12,7 +9,6 @@ namespace Creyon {
 				  0.0f,		0.0f,	0.0f,	1.0f }
     {}
 
-    //overloaded constructor, initialises 4x4 matrix with given values
     matrix_4x4::matrix_4x4(float a0, float b0, float c0, float d0, float a1, float b1, float c1, float d1, float a2, float b2, float c2, float d2, float a3, float b3, float c3, float d3)
         : m_elems{a0,b0,c0,d0,
                   a1,b1,c1,d1,
@@ -30,9 +26,8 @@ namespace Creyon {
     matrix_4x4::matrix_4x4(const matrix_4x4& mat4) {
         *this = mat4;
     }
-
-    //Methods
-    matrix_4x4 matrix_4x4::transpose() {
+    
+	matrix_4x4 matrix_4x4::transpose() {
         //changes rows to columns and columns to rows
         std::swap(m_elems[1], m_elems[4]);
         std::swap(m_elems[2], m_elems[8]);
@@ -44,9 +39,6 @@ namespace Creyon {
         return *this;
     }
 
-    //Overloaded Operators    
-
-    //adds two 4x4 matrices elementwise
     matrix_4x4 matrix_4x4::operator+(const matrix_4x4& mat)const {
 
         return matrix_4x4(m_elems[0]  + mat.m_elems[0],     m_elems[1]  + mat.m_elems[1],  m_elems[2] + mat.m_elems[2],   m_elems[3] + mat.m_elems[3],
@@ -55,7 +47,6 @@ namespace Creyon {
                           m_elems[12] + mat.m_elems[12],    m_elems[13] + mat.m_elems[13], m_elems[14] + mat.m_elems[14], m_elems[15] + mat.m_elems[15]);
     }
 
-    //subtracts two 4x4 matrices elementwise
     matrix_4x4 matrix_4x4::operator-(const matrix_4x4& mat)const {
 
         return matrix_4x4(m_elems[0] - mat.m_elems[0], m_elems[1] - mat.m_elems[1], m_elems[2] - mat.m_elems[2], m_elems[3] - mat.m_elems[3],
@@ -64,9 +55,10 @@ namespace Creyon {
                           m_elems[12] - mat.m_elems[12], m_elems[13] - mat.m_elems[13], m_elems[14] - mat.m_elems[14], m_elems[15] - mat.m_elems[15]);
     }
 
-    //multiplies two 4x4 matrices
     matrix_4x4 matrix_4x4::operator*(const matrix_4x4& mat)const {
 		matrix_4x4 result;
+		
+		//Matrix multiplication
 		for (int i = 0; i < 16; i+=4) {  //i represents row's first element
 			result.m_elems[i] = m_elems[i] * mat.m_elems[0] + m_elems[i + 1] * mat.m_elems[4] + m_elems[i + 2] * mat.m_elems[8] + m_elems[i + 3] * mat.m_elems[12];
 			result.m_elems[i+1] = m_elems[i] * mat.m_elems[1] + m_elems[i + 1] * mat.m_elems[5] + m_elems[i + 2] * mat.m_elems[9] + m_elems[i + 3] * mat.m_elems[13];
@@ -76,40 +68,36 @@ namespace Creyon {
 		return result;
     }
 
-    //scalar multiplication of a 4x4 matrix
     matrix_4x4 matrix_4x4::operator*(float f)const {
-
+		//Multiply each element by f
         return matrix_4x4(m_elems[0] * f, m_elems[1] * f, m_elems[2] * f, m_elems[3] * f,
                           m_elems[4] * f, m_elems[5] * f, m_elems[6] * f, m_elems[7] * f,
                           m_elems[8] * f, m_elems[9] * f, m_elems[10]* f, m_elems[11]* f,
                           m_elems[12]* f, m_elems[13]* f, m_elems[14]* f, m_elems[15]* f);
     }
 
-    //scalar division of a 4x4 matrix
     matrix_4x4 matrix_4x4::operator/(float f)const {
 
-        if (f == 0) {
+        if (f == 0) {  //Can't divide by 0
             std::cout << "Matrix division by zero!";
             exit(EXIT_FAILURE);
         }
-
-        return matrix_4x4(m_elems[0] / f, m_elems[1] / f, m_elems[2] / f, m_elems[3] / f,
-                          m_elems[4] / f, m_elems[5] / f, m_elems[6] / f, m_elems[7] / f,
-                          m_elems[8] / f, m_elems[9] / f, m_elems[10]/ f, m_elems[11]/ f,
-                          m_elems[12]/ f, m_elems[13]/ f, m_elems[14]/ f, m_elems[15]/ f);
+		else{
+			return matrix_4x4(	m_elems[0] / f, m_elems[1] / f, m_elems[2] / f, m_elems[3] / f,
+								m_elems[4] / f, m_elems[5] / f, m_elems[6] / f, m_elems[7] / f,
+								m_elems[8] / f, m_elems[9] / f, m_elems[10]/ f, m_elems[11]/ f,
+								m_elems[12]/ f, m_elems[13]/ f, m_elems[14]/ f, m_elems[15]/ f);
+		}
     }
 
-    //Friend functions
     matrix_4x4 operator*(float f, matrix_4x4& mat) {
-        //reverses scalar multiplication of form f*mat to mat*f
 
         return mat * f; //calls above overloaded mat*f
     }
 
-    //Overloaded friend operator << for printing matrix directly with cout object
     std::ostream& operator<<(std::ostream& os, const matrix_4x4& mat) {
 
-        for (int i = 0; i < 16; i += 4) { //i represents row number
+        for (int i = 0; i < 16; i += 4) { //Prints elements row-wise
             os << mat.m_elems[i] << " " << mat.m_elems[i + 1] << " " << mat.m_elems[i + 2] << " " << mat.m_elems[i + 3] << "\n";
         }
 

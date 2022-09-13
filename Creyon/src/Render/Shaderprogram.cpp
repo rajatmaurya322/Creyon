@@ -32,22 +32,24 @@ namespace Creyon {
 
 		//Create shader object
 		unsigned int shaderID;
-		shaderID = glCreateShader(Shadertype);
-		glShaderSource(shaderID, 1, &shadersource, nullptr);
+		shaderID = glCreateShader(Shadertype);   //Create shader of provided type
+		glShaderSource(shaderID, 1, &shadersource, nullptr);  //Give shader object its source code
 		
 		//Compile Shader
 		glCompileShader(shaderID);
 
+		//Check errors
 		int success;
 		char infolog[512];
 		glGetShaderiv(shaderID, GL_COMPILE_STATUS, &success);
+		
 		if (!success) {
-			glGetShaderInfoLog(shaderID, 512, nullptr, infolog);
+			glGetShaderInfoLog(shaderID, 512, nullptr, infolog);  //Get shader log if errors are found
 			std::cout << "\nERROR! Shader Compilation failed\n" << infolog << "\n";
 		}
 		else {  //Attach shader to program
 			glAttachShader(programId, shaderID);
-			glDeleteShader(shaderID);
+			glDeleteShader(shaderID);  //Delete shader as already attached to program object
 		}
 	}
 
