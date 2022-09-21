@@ -18,7 +18,7 @@
     <ClInclude Include="src\MathEngine\matrix2x2.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\MathEngine\Constants\constants.h">
+    <ClInclude Include="src\Utilities\Mathconstants.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="src\Utilities\Utility.h">
@@ -58,6 +58,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="src\Render\Texture.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Utilities\EngineConstants.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

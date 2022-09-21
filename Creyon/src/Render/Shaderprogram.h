@@ -5,6 +5,7 @@
 #include <sstream>
 #include <fstream>
 #include "Utilities/Utility.h"
+#include "Utilities/EngineConstants.h"
 
 namespace Creyon {
 
