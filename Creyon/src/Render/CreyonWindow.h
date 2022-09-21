@@ -63,13 +63,8 @@ namespace Creyon {
 		}
 
 		//Checks if the window is closed
-		bool isWindowClosed() {
+		inline bool isWindowClosed() {
 			return glfwWindowShouldClose(mp_window);
-		}
-
-		//Returns elapsed time from initialisation of glfw
-		static float getTime() {
-			return (float)glfwGetTime();
 		}
 
 	};

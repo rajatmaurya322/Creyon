@@ -112,11 +112,10 @@
   <ItemGroup>
     <ClInclude Include="src\EngineApplication\CreyonEng.h" />
     <ClInclude Include="src\Render\Shaderprogram.h" />
-    <ClInclude Include="src\Utilities\Mathconstants.h" />
+    <ClInclude Include="src\MathEngine\Constants\constants.h" />
     <ClInclude Include="src\MathEngine\matrix2x2.h" />
     <ClInclude Include="src\MathEngine\matrix3x3.h" />
     <ClInclude Include="src\MathEngine\matrix4x4.h" />
-    <ClInclude Include="src\Utilities\EngineConstants.h" />
     <ClInclude Include="src\Utilities\Utility.h" />
     <ClInclude Include="src\MathEngine\transforms.h" />
     <ClInclude Include="src\MathEngine\vector2d.h" />

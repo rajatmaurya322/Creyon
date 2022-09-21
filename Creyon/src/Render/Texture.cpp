@@ -28,7 +28,7 @@ namespace Creyon {
 	void Texture::loadImg(const char* pathtoimg, Format imgformat) {
 		
 		//Compose the path to image
-		std::filesystem::path abspath = CreyonSrcPath / pathtoimg;
+		std::filesystem::path abspath = searchRootDir() / "Creyon\\src" / pathtoimg;
 
 		int width, height, nrchannels;
 		

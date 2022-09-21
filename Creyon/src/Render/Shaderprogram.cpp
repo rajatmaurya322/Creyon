@@ -10,7 +10,7 @@ namespace Creyon {
 	void Shaderprogram::addShader(const char* pathtoShader, GLenum Shadertype) {
 		
 		//Creates proper path to Shader Files
-		std::filesystem::path abspath = CreyonSrcPath / pathtoShader ;
+		std::filesystem::path abspath = searchRootDir() / "Creyon\\src" / pathtoShader ;
 
 		//Read file's Shader source
 		std::ifstream shaderfile;
