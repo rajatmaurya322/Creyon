@@ -146,8 +146,8 @@ namespace Creyon {
 			
 			for(unsigned int i=0 ; i<10; ++i){
 				mat44 trans;
-				mat44 model = rotateY((float)glfwGetTime()*(i+1), false)* rotateX((float)glfwGetTime(), false) * 
-					scale(sinf((float)glfwGetTime())/2.0f + 0.5f) *translate(positions[i]);
+				mat44 model = rotateY(CreyonWindow::getTime()*(i+1), false)* rotateX(CreyonWindow::getTime(), false) * 
+					scale(sinf(CreyonWindow::getTime())/2.0f + 0.5f) *translate(positions[i]);
 				mat44 view = translate(0.0f, 0.0f, -5.0f);
 				mat44 proj = persp(800.0f / 600.0f, pi_u4, 100.0f, 0.1f);
 				trans = trans  * model * view * proj;
