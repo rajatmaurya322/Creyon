@@ -9,5 +9,7 @@ namespace Creyon {
 
 	const float pi_u4	=	0.785398163397448f;
 
-	const float degtorad=	0.0174532925199f; 
+	const float degtorad=	0.0174532925199f;
+
+	const float radtodeg=	57.295779513082f;
 }
