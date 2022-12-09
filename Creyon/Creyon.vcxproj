@@ -110,7 +110,9 @@
     </ProjectReference>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="src\Render\Camera.h" />
     <ClInclude Include="src\EngineApplication\CreyonEng.h" />
+    <ClInclude Include="src\MathEngine\quaternion.h" />
     <ClInclude Include="src\Render\Shaderprogram.h" />
     <ClInclude Include="src\MathEngine\Constants\constants.h" />
     <ClInclude Include="src\MathEngine\matrix2x2.h" />
@@ -129,6 +131,8 @@
     <ClInclude Include="src\Render\Texture.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\Render\Camera.cpp" />
+    <ClCompile Include="src\MathEngine\quaternion.cpp" />
     <ClCompile Include="src\MathEngine\vector2d.cpp" />
     <ClCompile Include="src\MathEngine\vector4d.cpp" />
     <ClCompile Include="src\Render\Shaderprogram.cpp" />
