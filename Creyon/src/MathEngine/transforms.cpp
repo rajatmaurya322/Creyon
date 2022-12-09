@@ -70,6 +70,24 @@ namespace Creyon{
 		return rotateaboutZ ;
 	}
 
+	vector3d qrotate(const float& angle, const vector3d& vec, const vector3d& axis, bool convtorad){
+		float radangle{ 0.0f };
+
+		//Get Radian Angle if conversion specified to be true
+		if (convtorad) { radangle = degToRad(angle); }
+		else { radangle = angle; }
+
+		float sinRadAngle = sinf(radangle / 2.0f);
+
+		quaternion q{ cosf(radangle / 2.0f), sinRadAngle * axis.m_x, sinRadAngle * axis.m_y,
+		sinRadAngle * axis.m_z };
+		quaternion qvec{ 0.0f, vec.m_x, vec.m_y, vec.m_z };
+
+		//perform quaternion rotation
+		quaternion result= q * qvec * inverse(q);
+		return vector3d{ result.m_x, result.m_y, result.m_z };
+	}
+
 	//Assumes that given vector is a unit vector for now
 	matrix_4x4 rotateaboutAxis_origin(const vector4d& Axis , const float angle) {
 		//Matrix to rotate about arbitrary axis
