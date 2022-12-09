@@ -2,28 +2,27 @@
 
 namespace Creyon {
 
-	EngineApp::EngineApp()
-	{
-		CreyonWindow::CreyonWindowInit();
-		
-		windowInstance = CreyonWindow(800,600, "Learnopengl");
+	void EngineApp::Run() {
 
-		if(!gladLoadGLLoader((GLADloadproc)glfwGetProcAddress)) {
+		CreyonWindow::Init();
+
+		CreyonWindow window{ 800,600, "Learnopengl" };
+
+		if (!gladLoadGLLoader((GLADloadproc)glfwGetProcAddress)) {
 			cout << "Failed to initialize GLAD\n";
 		}
 
 		glViewport(0, 0, 800, 600);
 
-		windowInstance.register_Callback();
-	}
+		window.reg_ResizeCallback();
+		window.reg_MouseCallback();
 
-	void EngineApp::Run() {
+		window.setInputMode(GLFW_CURSOR, GLFW_CURSOR_DISABLED);
+
 		Shaderprogram programrect;
 		
-		programrect.addShader(
-		"Render\\VertexShader.glsl", GL_VERTEX_SHADER);
-		programrect.addShader(
-		"Render\\FragmentShader.glsl",  GL_FRAGMENT_SHADER);
+		programrect.addShader("Render\\VertexShader.glsl", GL_VERTEX_SHADER);
+		programrect.addShader("Render\\FragmentShader.glsl",  GL_FRAGMENT_SHADER);
 		
 		programrect.link();
 
@@ -85,6 +84,12 @@ namespace Creyon {
 			vector3d{-1.3f, 1.0f, -1.5f}
 		};
 
+		//----------Camera Defined Here------------------------------
+		
+		Camera fpsCam;
+		window.activateCamera(fpsCam);
+		//-----------------------------------------------------------
+
 		unsigned int VBO, VAO;
 		glGenVertexArrays(1, &VAO);
 		glBindVertexArray(VAO);
@@ -125,10 +130,10 @@ namespace Creyon {
 		//---------------------------------------------------------------------------
 		glEnable(GL_DEPTH_TEST);
 		//Render loop
-		while (!windowInstance.isWindowClosed()) {
+		while (!window.isWindowClosed()) {
 
 			//Processes all Input
-			windowInstance.processInput();
+			window.processKeyboard();
 
 			//Render commands here------------------------
 			glClearColor(0.2f, 0.3f, 0.3f, 1.0f);
@@ -141,26 +146,29 @@ namespace Creyon {
 			glUniform1i(glGetUniformLocation(programrect.getId(), "ourTexture"), 0);
 			glUniform1i(glGetUniformLocation(programrect.getId(), "ourTexture2"), 1);
 
-			unsigned int transformloc = glGetUniformLocation(programrect.getId(), "transform");
+			unsigned int modelId = glGetUniformLocation(programrect.getId(), "model");
+			unsigned int viewId = glGetUniformLocation(programrect.getId(), "view");
+			unsigned int projId = glGetUniformLocation(programrect.getId(), "projection");
 			glBindVertexArray(VAO);
 			
+			mat44 view = fpsCam.lookAt();
+			glUniformMatrix4fv(viewId, 1, GL_TRUE, view.m_elems);
+
 			for(unsigned int i=0 ; i<10; ++i){
-				mat44 trans;
-				mat44 model = rotateY(CreyonWindow::getTime()*(i+1), false)* rotateX(CreyonWindow::getTime(), false) * 
-					scale(sinf(CreyonWindow::getTime())/2.0f + 0.5f) *translate(positions[i]);
-				mat44 view = translate(0.0f, 0.0f, -5.0f);
+				mat44 model = rotateY(CreyonWindow::getTime()*(i+1), false) * translate(positions[i]);
 				mat44 proj = persp(800.0f / 600.0f, pi_u4, 100.0f, 0.1f);
-				trans = trans  * model * view * proj;
-				glUniformMatrix4fv(transformloc, 1, GL_TRUE, trans.m_elems);
+				glUniformMatrix4fv(modelId, 1, GL_TRUE, model.m_elems);
+				glUniformMatrix4fv(projId, 1, GL_TRUE, proj.m_elems);
 
 				glDrawArrays(GL_TRIANGLES, 0, 36);
 			}
 
 			//---------------------------------------
-			windowInstance.swapBuffers();
-			windowInstance.pollWindowEvents();
+			window.swapBuffers();
+			window.pollWindowEvents();
 			//---------------------------------------
 		}
-		CreyonWindow::CreyonWindowTerminate(windowInstance);
+		CreyonWindow::Terminate(window);
+
 	}
 }
