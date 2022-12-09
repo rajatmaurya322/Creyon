@@ -27,6 +27,10 @@ namespace Creyon {
 	inline float degToRad(const float angleInDeg) {
 		return angleInDeg * degtorad;
 	}
+
+	inline float radToDeg(const float angleInRad) {
+		return angleInRad * radtodeg;
+	}
 	
 	//Conversion to 4x4 matrix
 	matrix_4x4 convert_mat4(const matrix_3x3& mat3, const vector3d& vec3);
