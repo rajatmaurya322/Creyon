@@ -2,7 +2,7 @@
 
 int main() {
 	using Creyon::EngineApp;
-	EngineApp newapp;
-	newapp.Run();
+	EngineApp Game;
+	Game.Run();
 	return 0;
 }
