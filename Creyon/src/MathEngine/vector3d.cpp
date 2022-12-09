@@ -61,6 +61,11 @@ namespace Creyon {
     float magn(const vector3d& v) {
         return sqrt(sq_magn(v));  // Vector magnitude = sqrt(x^2 + y^2 + z^2)
     }
+	
+	vector3d normalize(const vector3d& v) {
+		//Returns a new normalized vector
+		return v / magn(v);
+	}
 
     vector3d cross(const vector3d& v1, const vector3d& v2) {
         return vector3d(v1.m_y * v2.m_z - v1.m_z * v2.m_y, v1.m_z * v2.m_x - v1.m_x * v2.m_z, v1.m_x * v2.m_y - v1.m_y * v2.m_x);

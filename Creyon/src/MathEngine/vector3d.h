@@ -72,6 +72,9 @@ namespace Creyon {
     //Returns magnitude of the vector
     float magn(const vector3d& v);
 
+	//Normalize a vector
+	vector3d normalize(const vector3d& v);
+
     //Cross product of two vectors
     vector3d cross(const vector3d& a, const vector3d& b);
 
