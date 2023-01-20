@@ -5,7 +5,7 @@ namespace Creyon {
 	Texture::Texture() {
 		//Generate single texture
 		glGenTextures(1, &texId);
-		//SetasTarget
+		//Set as Target
 		glBindTexture(GL_TEXTURE_2D, texId);
 	}
 
