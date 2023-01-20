@@ -27,7 +27,7 @@ namespace Creyon {
 		programrect.link();
 
 		//Set the data for rendering------------------------------------------------
-		float vertices[]{ //position	//Texutre Coords
+		std::vector<float> vertices{ //position	//Texture Coords
 		-0.5f, -0.5f, -0.5f,  0.0f, 0.0f,
 		 0.5f, -0.5f, -0.5f,  1.0f, 0.0f,
 		 0.5f,  0.5f, -0.5f,  1.0f, 1.0f,
@@ -90,20 +90,13 @@ namespace Creyon {
 		window.activateCamera(fpsCam);
 		//-----------------------------------------------------------
 
-		unsigned int VBO, VAO;
-		glGenVertexArrays(1, &VAO);
-		glBindVertexArray(VAO);
+		VertexArray vao;
 
-		glGenBuffers(1, &VBO);
-		glBindBuffer(GL_ARRAY_BUFFER, VBO);
+		VertexBuffer vbo;
+		vbo.loadData(vertices, GL_STATIC_DRAW);
 
-		glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), vertices, GL_STATIC_DRAW);
-
-		//glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
-		glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 5 * sizeof(float), (void*)0);
-		glEnableVertexAttribArray(0);
-		glVertexAttribPointer(1, 2, GL_FLOAT, GL_FALSE, 5 * sizeof(float), (void*)(3 * sizeof(float)));
-		glEnableVertexAttribArray(1);
+		setVertexAttribPtr(0, 3, GL_FALSE, 5, 0);
+		setVertexAttribPtr(1, 2, GL_FALSE, 5, 3);
 
 		Texture tex1;
 		
@@ -125,10 +118,10 @@ namespace Creyon {
 
 		tex2.loadImg("awesomeface.png", Texture::Format::PNG);
 
-		//unbind vao
-		glBindVertexArray(0);
+		vao.unbind();
 		//---------------------------------------------------------------------------
 		glEnable(GL_DEPTH_TEST);
+		
 		//Render loop
 		while (!window.isWindowClosed()) {
 
@@ -149,7 +142,8 @@ namespace Creyon {
 			unsigned int modelId = glGetUniformLocation(programrect.getId(), "model");
 			unsigned int viewId = glGetUniformLocation(programrect.getId(), "view");
 			unsigned int projId = glGetUniformLocation(programrect.getId(), "projection");
-			glBindVertexArray(VAO);
+			
+			vao.bind();
 			
 			mat44 view = fpsCam.lookAt();
 			glUniformMatrix4fv(viewId, 1, GL_TRUE, view.m_elems);
@@ -169,6 +163,5 @@ namespace Creyon {
 			//---------------------------------------
 		}
 		CreyonWindow::Terminate(window);
-
 	}
 }
