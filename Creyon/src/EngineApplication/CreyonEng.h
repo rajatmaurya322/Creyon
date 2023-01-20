@@ -17,6 +17,8 @@
 #include "Render/Shaderprogram.h"
 #include "Render/stb_image.h"
 #include "Render/Texture.h"
+#include "Render/VertexBuffer.h"
+#include "Render/VertexArray.h"
 #include "glad/glad.h"
 #include "GLFW/glfw3.h"
 #include <iostream>
