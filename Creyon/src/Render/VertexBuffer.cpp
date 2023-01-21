@@ -24,7 +24,7 @@ namespace Creyon {
 
 	void setVertexAttribPtr(GLuint locationIndex, GLint size, GLboolean normalized, int stride, int offset) {
 		//Sets location index, stride and offset of data
-		glVertexAttribPointer(locationIndex, size, GL_FLOAT, GL_FALSE, stride * sizeof(float), 
+		glVertexAttribPointer(locationIndex, size, GL_FLOAT, normalized, stride * sizeof(float), 
 							 (void*)(offset * sizeof(float)) );
 
 		//Enables Vertex Attribute
