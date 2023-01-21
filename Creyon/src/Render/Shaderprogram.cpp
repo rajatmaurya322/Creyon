@@ -66,4 +66,16 @@ namespace Creyon {
 			std::cout << "\nError: Shader Program linking failed!\n" << infolog << "\n";
 		}
 	}
+
+	GLint Shaderprogram::locateUniform(const std::string &uniformName) {
+		return glGetUniformLocation(programId, uniformName.c_str());
+	}
+
+	void Shaderprogram::setInt(const std::string& uniformName, int value) {
+		glUniform1i(locateUniform(uniformName), value);
+	}
+
+	void Shaderprogram::setFloat(const std::string& uniformName, float value) {
+		glUniform1f(locateUniform(uniformName), value);
+	}
 }

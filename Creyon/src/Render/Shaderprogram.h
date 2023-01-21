@@ -22,6 +22,11 @@ namespace Creyon {
 		inline unsigned int getId() {
 			return programId;
 		}
+
+		//Use the Shader Program
+		inline void useProgram() {
+			glUseProgram(programId);
+		}
 		
 		// Add a Shader to program object
 		void addShader(const char* pathtoShader,GLenum Shadertype);
@@ -29,10 +34,14 @@ namespace Creyon {
 		//Link the Shaderprogram
 		void link();
 
-		//Use the Shader Program
-		inline void useProgram() {
-			glUseProgram(programId);
-		}
+		//Returns the Uniform's location
+		GLint locateUniform(const std::string &uniformName);
+
+		//Locates and sets int value to a uniform
+		void setInt(const std::string& uniformName, int value);
+
+		//Locates and sets float value to a uniform
+		void setFloat(const std::string& uniformName, float value);
 	};
 }
 
