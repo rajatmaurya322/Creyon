@@ -91,11 +91,11 @@ namespace Creyon {
 			return glfwWindowShouldClose(mp_window);
 		}
 
-		//Returns elapsed Time from glfw initialisation
-		static float getTime() {
-			return (float)glfwGetTime();
-		}
-
 	};
+
+	//Returns elapsed Time from glfw initialisation
+	inline float getTime() {
+		return (float)glfwGetTime();
+	}
 
 }

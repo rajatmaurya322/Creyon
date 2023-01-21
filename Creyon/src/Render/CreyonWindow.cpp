@@ -79,7 +79,7 @@ namespace Creyon {
 
 	float CreyonWindow::deltaTime() {
 		//Calculating time taken to render previous frame
-		float current = CreyonWindow::getTime();
+		float current = getTime();
 		float delta = current - m_lastFrame;
 		//updates lastFrame value
 		m_lastFrame = current;
