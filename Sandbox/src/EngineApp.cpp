@@ -136,12 +136,12 @@ namespace Creyon {
 			tex2.setTexUnit(GL_TEXTURE1);
 
 			programrect.useProgram();
-			glUniform1i(glGetUniformLocation(programrect.getId(), "ourTexture"), 0);
-			glUniform1i(glGetUniformLocation(programrect.getId(), "ourTexture2"), 1);
-
-			unsigned int modelId = glGetUniformLocation(programrect.getId(), "model");
-			unsigned int viewId = glGetUniformLocation(programrect.getId(), "view");
-			unsigned int projId = glGetUniformLocation(programrect.getId(), "projection");
+			programrect.setInt("ourTexture", 0);
+			programrect.setInt("ourTexture2", 1);
+			
+			unsigned int modelId = programrect.locateUniform("model");
+			unsigned int viewId = programrect.locateUniform("view");	
+			unsigned int projId = programrect.locateUniform("projection");
 			
 			vao.bind();
 			
@@ -149,7 +149,7 @@ namespace Creyon {
 			glUniformMatrix4fv(viewId, 1, GL_TRUE, view.m_elems);
 
 			for(unsigned int i=0 ; i<10; ++i){
-				mat44 model = rotateY(CreyonWindow::getTime()*(i+1), false) * translate(positions[i]);
+				mat44 model = rotateY(getTime()*(i+1), false) * translate(positions[i]);
 				mat44 proj = persp(800.0f / 600.0f, pi_u4, 100.0f, 0.1f);
 				glUniformMatrix4fv(modelId, 1, GL_TRUE, model.m_elems);
 				glUniformMatrix4fv(projId, 1, GL_TRUE, proj.m_elems);
