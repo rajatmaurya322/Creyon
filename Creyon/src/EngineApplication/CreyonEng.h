@@ -10,7 +10,6 @@
 #include "MathEngine/vector2d.h"
 #include "MathEngine/transforms.h"
 #include "MathEngine/quaternion.h"
-#include "Utilities/Mathconstants.h"
 #include "Utilities/Utility.h"
 #include "Render/CreyonWindow.h"
 #include "Render/Camera.h"
@@ -19,13 +18,11 @@
 #include "Render/Texture.h"
 #include "Render/VertexBuffer.h"
 #include "Render/VertexArray.h"
+#include "Render/Color.h"
 #include "glad/glad.h"
 #include "GLFW/glfw3.h"
 #include <iostream>
 
-using mat44 = Creyon::matrix_4x4;
-using mat33 = Creyon::matrix_3x3;
-using mat22 = Creyon::matrix_2x2;
 using std::cout;
 using std::cin;
 using Creyon::CreyonWindow;
