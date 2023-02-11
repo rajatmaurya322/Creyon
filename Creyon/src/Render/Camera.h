@@ -45,7 +45,7 @@ namespace Creyon {
 			void UpdateTarget();
 
 			//Generates the lookAt matrix
-			matrix_4x4 lookAt();
+			Mat44 lookAt();
 	};
 	//Reference: OglDev for camera's quaternion rotation and learnOpengl.com
 }
