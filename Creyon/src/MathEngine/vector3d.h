@@ -36,7 +36,7 @@ namespace Creyon {
         float operator*(const vector3d& v)const;
         
         //Vector-matrix multiplication; only v*mat form
-        vector3d operator*(const Creyon::matrix_3x3 &mat)const;
+        vector3d operator*(const Creyon::Mat33 &mat)const;
 
         //unary minus, returns a vector with negated components
         vector3d operator-()const;

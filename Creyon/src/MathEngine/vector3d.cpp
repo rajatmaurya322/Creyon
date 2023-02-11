@@ -38,7 +38,7 @@ namespace Creyon {
         }
     }
 
-    vector3d vector3d::operator*(const Creyon::matrix_3x3 &mat)const{
+    vector3d vector3d::operator*(const Creyon::Mat33 &mat)const{
         
         return vector3d(m_x * mat.m_elems[0] + m_y * mat.m_elems[3] + m_z * mat.m_elems[6],
                         m_x * mat.m_elems[1] + m_y * mat.m_elems[4] + m_z * mat.m_elems[7],
