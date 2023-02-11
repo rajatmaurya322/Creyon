@@ -10,7 +10,8 @@ namespace Creyon {
 	void Shaderprogram::addShader(const char* pathtoShader, GLenum Shadertype) {
 		
 		//Creates proper path to Shader Files
-		std::filesystem::path abspath = CreyonSrcPath / pathtoShader ;
+		Utility util = Utility::instance();
+		std::filesystem::path abspath = util.CreyonSrcPath / pathtoShader ;
 
 		//Read file's Shader source
 		std::ifstream shaderfile;
@@ -77,5 +78,17 @@ namespace Creyon {
 
 	void Shaderprogram::setFloat(const std::string& uniformName, float value) {
 		glUniform1f(locateUniform(uniformName), value);
+	}
+
+	void Shaderprogram::setVec3(const std::string& uniformName, vector3d& value) {
+		glUniform3f(locateUniform(uniformName), value.m_x, value.m_y, value.m_z);
+	}
+
+	void Shaderprogram::setColor(const std::string& uniformName, Color& value) {
+		glUniform3f(locateUniform(uniformName), value.m_red, value.m_green, value.m_blue);
+	}
+
+	void Shaderprogram::setMat44(const std::string& uniformName, Mat44& value) {
+		glUniformMatrix4fv(locateUniform(uniformName), 1, GL_TRUE, value.m_elems);
 	}
 }
