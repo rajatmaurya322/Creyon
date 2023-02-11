@@ -19,17 +19,17 @@ namespace Creyon {
 		m_target = m_pos + m_front;
 	}
 
-	matrix_4x4 Camera::lookAt(){
+	Mat44 Camera::lookAt(){
 		UpdateTarget();
 		vector3d direction = normalize(m_pos - m_target);
 		vector3d right = normalize(cross(m_up, direction));
 		vector3d up = cross(direction, right);
 
 		//Constructing the lookAt matrix
-		matrix_4x4 LookAt{	right.m_x,		up.m_x,		direction.m_x,		0.0f,
-							right.m_y,		up.m_y,		direction.m_y,		0.0f,
-							right.m_z,		up.m_z,		direction.m_z,		0.0f,
-						   -(right*m_pos),	-(up*m_pos), -(direction*m_pos),1.0f };
+		Mat44 LookAt{	right.m_x,		up.m_x,		direction.m_x,		0.0f,
+						right.m_y,		up.m_y,		direction.m_y,		0.0f,
+						right.m_z,		up.m_z,		direction.m_z,		0.0f,
+					  -(right*m_pos), -(up*m_pos), -(direction*m_pos),1.0f };
 		
 		return LookAt;
 	}
@@ -64,10 +64,11 @@ namespace Creyon {
 
 	void Camera::rotateCamera() {
 		//Update camera's front
+		Utility util = Utility::instance();
 		vector3d tempFront;
-		tempFront.m_x = cos(degToRad(m_yaw)) * cos(degToRad(m_pitch));
-		tempFront.m_y = sin(degToRad(m_pitch));
-		tempFront.m_z = sin(degToRad(m_yaw)) * cos(degToRad(m_pitch));
+		tempFront.m_x = cos(util.toRad(m_yaw)) * cos(util.toRad(m_pitch));
+		tempFront.m_y = sin(util.toRad(m_pitch));
+		tempFront.m_z = sin(util.toRad(m_yaw)) * cos(util.toRad(m_pitch));
 
 		m_front = normalize(tempFront);
 	}
