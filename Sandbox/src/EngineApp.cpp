@@ -19,12 +19,17 @@ namespace Creyon {
 
 		window.setInputMode(GLFW_CURSOR, GLFW_CURSOR_DISABLED);
 
-		Shaderprogram programrect;
+		Shaderprogram lightprog, lightcube;
 		
-		programrect.addShader("Render\\VertexShader.glsl", GL_VERTEX_SHADER);
-		programrect.addShader("Render\\FragmentShader.glsl",  GL_FRAGMENT_SHADER);
+		lightprog.addShader("Render\\VertexShader.glsl", GL_VERTEX_SHADER);
+		lightprog.addShader("Render\\FragmentShader.glsl",  GL_FRAGMENT_SHADER);
 		
-		programrect.link();
+		lightprog.link();
+
+		lightcube.addShader("Render\\lightSource.glsl", GL_VERTEX_SHADER);
+		lightcube.addShader("Render\\lightSourceFragment.glsl", GL_FRAGMENT_SHADER);
+
+		lightcube.link();
 
 		//Set the data for rendering------------------------------------------------
 		std::vector<float> vertices{ //position	//Texture Coords
@@ -71,18 +76,7 @@ namespace Creyon {
 		-0.5f,  0.5f, -0.5f,  0.0f, 1.0f
 		};
 
-		vector3d positions[] = {
-			vector3d{0.0f,  0.0f,  0.0f},
-			vector3d{2.0f,  5.0f, -15.0f},
-			vector3d{-1.5f,-2.2f, -2.5f},
-			vector3d{-3.8f,-2.0f, -12.3f},
-			vector3d{2.4f, -0.4f, -3.5f},
-			vector3d{-1.7f, 3.0f, -7.5f},
-			vector3d{1.3f, -2.0f, -2.5f},
-			vector3d{1.5f,  2.0f, -2.5f},
-			vector3d{1.5f,  0.2f, -1.5f},
-			vector3d{-1.3f, 1.0f, -1.5f}
-		};
+		vector3d lightpos{ 1.2f, 1.0f, 2.0f };
 
 		//----------Camera Defined Here------------------------------
 		
@@ -90,13 +84,16 @@ namespace Creyon {
 		window.activateCamera(fpsCam);
 		//-----------------------------------------------------------
 
-		VertexArray vao;
+		VertexArray cubevao;
 
 		VertexBuffer vbo;
 		vbo.loadData(vertices, GL_STATIC_DRAW);
 
 		setVertexAttribPtr(0, 3, GL_FALSE, 5, 0);
-		setVertexAttribPtr(1, 2, GL_FALSE, 5, 3);
+
+		VertexArray lightvao;
+		vbo.setBufferAsTarget();
+		setVertexAttribPtr(0, 3, GL_FALSE, 5, 0);
 
 		Texture tex1;
 		
@@ -118,10 +115,11 @@ namespace Creyon {
 
 		tex2.loadImg("awesomeface.png", Texture::Format::PNG);
 
-		vao.unbind();
+		cubevao.unbind();
 		//---------------------------------------------------------------------------
 		glEnable(GL_DEPTH_TEST);
 		
+		Utility util = Utility::instance();
 		//Render loop
 		while (!window.isWindowClosed()) {
 
@@ -132,30 +130,31 @@ namespace Creyon {
 			glClearColor(0.2f, 0.3f, 0.3f, 1.0f);
 			glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
-			tex1.setTexUnit(GL_TEXTURE0);
-			tex2.setTexUnit(GL_TEXTURE1);
-
-			programrect.useProgram();
-			programrect.setInt("ourTexture", 0);
-			programrect.setInt("ourTexture2", 1);
+			lightprog.useProgram();
+			Color objcolor{ 1.0f, 0.5f, 0.31f };
+			Color ligcolor{ 1.0f, 1.0f, 1.0f };
+			lightprog.setColor("lightColor", ligcolor);
+			lightprog.setColor("objectColor", objcolor);
 			
-			unsigned int modelId = programrect.locateUniform("model");
-			unsigned int viewId = programrect.locateUniform("view");	
-			unsigned int projId = programrect.locateUniform("projection");
-			
-			vao.bind();
-			
-			mat44 view = fpsCam.lookAt();
-			glUniformMatrix4fv(viewId, 1, GL_TRUE, view.m_elems);
+			Mat44 view = fpsCam.lookAt();
+			lightprog.setMat44("view", view);
+			Mat44 model = rotateY(util.getTime(), false) ;
+			Mat44 proj = persp(800.0f / 600.0f, util.pi_u4, 100.0f, 0.1f);
+			lightprog.setMat44("model", model);
+			lightprog.setMat44("projection", proj);
 
-			for(unsigned int i=0 ; i<10; ++i){
-				mat44 model = rotateY(getTime()*(i+1), false) * translate(positions[i]);
-				mat44 proj = persp(800.0f / 600.0f, pi_u4, 100.0f, 0.1f);
-				glUniformMatrix4fv(modelId, 1, GL_TRUE, model.m_elems);
-				glUniformMatrix4fv(projId, 1, GL_TRUE, proj.m_elems);
+			cubevao.bind();
+			glDrawArrays(GL_TRIANGLES, 0, 36);
 
-				glDrawArrays(GL_TRIANGLES, 0, 36);
-			}
+			lightcube.useProgram();
+			
+			Mat44 model2 = scale(0.2f) * translate(lightpos);
+			lightcube.setMat44("model", model2);
+			lightcube.setMat44("view", view);
+			lightcube.setMat44("projection", proj);
+			
+			lightvao.bind();
+			glDrawArrays(GL_TRIANGLES, 0, 36);
 
 			//---------------------------------------
 			window.swapBuffers();
