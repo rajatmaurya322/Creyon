@@ -26,7 +26,7 @@ namespace Creyon {
         {}
         
 		//Vector-matrix multiplication; only v*mat form
-        vector4d operator*(const Creyon::matrix_4x4& mat);
+        vector4d operator*(const Creyon::Mat44& mat);
 
 		//Prints vector directly with cout
         friend std::ostream& operator<<(std::ostream& os, const vector4d& vec);

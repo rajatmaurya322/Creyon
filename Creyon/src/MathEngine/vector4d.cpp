@@ -3,7 +3,7 @@
 //Namespace is Creyon
 namespace Creyon {
 	
-	vector4d vector4d::operator*(const Creyon::matrix_4x4& mat) {
+	vector4d vector4d::operator*(const Creyon::Mat44& mat) {
 		
 		return vector4d(m_x * mat.m_elems[0] + m_y * mat.m_elems[4] + m_z * mat.m_elems[8] + m_w * mat.m_elems[12],
 			m_x * mat.m_elems[1] + m_y * mat.m_elems[5] + m_z * mat.m_elems[9] + m_w * mat.m_elems[13],
