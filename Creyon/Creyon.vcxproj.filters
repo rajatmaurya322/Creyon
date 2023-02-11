@@ -60,12 +60,6 @@
     <ClInclude Include="src\Render\Texture.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\Utilities\EngineConstants.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Utilities\Mathconstants.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="src\MathEngine\quaternion.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -76,6 +70,12 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="src\Render\VertexArray.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Render\Color.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Render\Keyboard.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -131,9 +131,17 @@
     <ClCompile Include="src\Render\VertexArray.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="src\Render\Color.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Render\Keyboard.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="src\Render\VertexShader.glsl" />
     <None Include="src\Render\FragmentShader.glsl" />
+    <None Include="src\Render\lightSource.glsl" />
+    <None Include="src\Render\lightSourceFragment.glsl" />
   </ItemGroup>
 </Project>
