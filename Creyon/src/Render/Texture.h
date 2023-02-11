@@ -2,10 +2,9 @@
 
 #include "glad/glad.h"
 #include "stb_image.h"
-#include "Utilities/EngineConstants.h"
+#include "Utilities/Utility.h"
 #include <iostream>
 #include <string>
-#include <filesystem>
 
 //Namespace is Creyon
 namespace Creyon {
