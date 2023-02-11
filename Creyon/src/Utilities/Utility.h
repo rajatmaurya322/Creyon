@@ -1,40 +1,42 @@
 #pragma once
 
-#include "MathEngine/matrix3x3.h"
-#include "MathEngine/matrix4x4.h"
-#include "MathEngine/vector3d.h"
-#include "MathEngine/vector2d.h"
-#include "Mathconstants.h"
 #include <cmath>
+#include "glad/glad.h"
+#include "GLFW/glfw3.h"
 #include <filesystem>
 
+//Contains Constants and Functions which can be used anywhere 
 namespace Creyon {
 
-	//Epsilon checks for floating-point comparisons
+	//Singleton class for accessing Utility functions and constants
+	class Utility {
+	private:
+		Utility();
 
-	//Absolute epsilon comparison
-	bool abscompare(float a, float b, float abs_epsilon);
+	public:
+		const float pi, pi_u2, pi_u4, degtorad, radtodeg;
+		const std::filesystem::path EngineRootPath, CreyonSrcPath;
 
-	//Relative epsilon comparison
-	bool relcompare(float a, float b, float rel_epsilon);
+		//Returns single instance of the Utility class
+		static Utility& instance();
+		
+		//Absolute epsilon comparison
+		bool absCompare(float a, float b, float abs_epsilon);
 
-	//Square function
-	inline float square(const float value) {
-		return value * value;
-	}
+		//Relative epsilon comparison
+		bool relCompare(float a, float b, float rel_epsilon);
 
-	//Converts from degree to radian angles
-	inline float degToRad(const float angleInDeg) {
-		return angleInDeg * degtorad;
-	}
+		//Converts from degree to radian angles
+		float toRad(const float angleInDeg);
 
-	inline float radToDeg(const float angleInRad) {
-		return angleInRad * radtodeg;
-	}
-	
-	//Conversion to 4x4 matrix
-	matrix_4x4 convert_mat4(const matrix_3x3& mat3, const vector3d& vec3);
+		//Converts from radian to degree angles
+		float toDeg(const float angleInRad);
 
-	//Search root directory
-	std::filesystem::path searchRootDir();
+		//Search root directory
+		std::filesystem::path searchRootDir();
+
+		//Returns elapsed Time from glfw initialisation
+		float getTime();
+		
+	};
 }
