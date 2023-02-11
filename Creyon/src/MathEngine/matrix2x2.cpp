@@ -2,44 +2,44 @@
 
 namespace Creyon {
     
-    matrix_2x2::matrix_2x2() :m_elems{ 1.0f,0.0f, 0.0f,1.0f }
+    Mat22::Mat22() :m_elems{ 1.0f,0.0f, 0.0f,1.0f }
     {}
     
-    matrix_2x2::matrix_2x2(float a0, float b0, float a1, float b1)
+    Mat22::Mat22(float a0, float b0, float a1, float b1)
         : m_elems{ a0,b0, 
                    a1,b1 }
     {}
 
-    matrix_2x2::matrix_2x2(const float *p_array)
+    Mat22::Mat22(const float *p_array)
         :m_elems{p_array[0], p_array[1], 
                  p_array[2], p_array[3]}
     {}
 
-    matrix_2x2::matrix_2x2(const matrix_2x2& mat2) {
+    Mat22::Mat22(const Mat22& mat2) {
         *this = mat2;
     }
 
-	matrix_2x2 matrix_2x2::transpose() {
+	Mat22 Mat22::transpose() {
         //changes rows to columns and columns to rows
         std::swap(m_elems[1], m_elems[2]);
         return *this;
     }
     
-    matrix_2x2 matrix_2x2::operator+(const matrix_2x2& mat)const {
+    Mat22 Mat22::operator+(const Mat22& mat)const {
         
-        return matrix_2x2(m_elems[0] + mat.m_elems[0], m_elems[1] + mat.m_elems[1],
+        return Mat22(m_elems[0] + mat.m_elems[0], m_elems[1] + mat.m_elems[1],
                           m_elems[2] + mat.m_elems[2], m_elems[3] + mat.m_elems[3]);
     }
 
-    matrix_2x2 matrix_2x2::operator-(const matrix_2x2& mat)const {
+    Mat22 Mat22::operator-(const Mat22& mat)const {
 
-        return matrix_2x2(m_elems[0] - mat.m_elems[0], m_elems[1] - mat.m_elems[1],
+        return Mat22(m_elems[0] - mat.m_elems[0], m_elems[1] - mat.m_elems[1],
                           m_elems[2] - mat.m_elems[2], m_elems[3] - mat.m_elems[3]);
         
     }
 
-    matrix_2x2 matrix_2x2::operator*(const matrix_2x2& mat)const {
-        matrix_2x2 a;
+    Mat22 Mat22::operator*(const Mat22& mat)const {
+        Mat22 a;
 
         a.m_elems[0] = m_elems[0] * mat.m_elems[0] + m_elems[1] * mat.m_elems[2];
         a.m_elems[1] = m_elems[0] * mat.m_elems[1] + m_elems[1] * mat.m_elems[3];
@@ -50,28 +50,28 @@ namespace Creyon {
         return a;
     }
 
-    matrix_2x2 matrix_2x2::operator*(float f)const {
+    Mat22 Mat22::operator*(float f)const {
         //Multiply each element by f
-        return matrix_2x2(m_elems[0] * f, m_elems[1] * f,
+        return Mat22(m_elems[0] * f, m_elems[1] * f,
                           m_elems[2] * f, m_elems[3] * f);
     }
 
-    matrix_2x2 matrix_2x2::operator/(float f)const {
+    Mat22 Mat22::operator/(float f)const {
         
 		if (f == 0) {   //Can't divide by 0
             std::cout << "Matrix division by zero!";
             exit(EXIT_FAILURE);
         }
-        return matrix_2x2(m_elems[0] / f, m_elems[1] / f,
+        return Mat22(m_elems[0] / f, m_elems[1] / f,
                           m_elems[2] / f, m_elems[3] / f);
     }
 
-    matrix_2x2 operator*(float f, matrix_2x2& mat) {
+    Mat22 operator*(float f, Mat22& mat) {
         //Calls above overloaded * operator
         return mat * f;
     }
 
-    std::ostream& operator<<(std::ostream& os, const matrix_2x2& mat) {
+    std::ostream& operator<<(std::ostream& os, const Mat22& mat) {
         
         for (int i = 0; i < 4; i+=2) { //Prints row-wise elements
             os << mat.m_elems[i] << " " << mat.m_elems[i+1] << "\n";
@@ -80,7 +80,7 @@ namespace Creyon {
         return os;
     }
 
-    float det(const matrix_2x2& mat) {
+    float det(const Mat22& mat) {
         //returns determinant of a 2x2 matrix
         return mat.m_elems[0] * mat.m_elems[3] - mat.m_elems[1] * mat.m_elems[2];
     }
