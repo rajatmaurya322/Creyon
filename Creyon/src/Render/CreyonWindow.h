@@ -3,6 +3,7 @@
 #include "glad/glad.h"
 #include "GLFW/glfw3.h"
 #include "Camera.h"
+#include "Utilities/Utility.h"
 #include <iostream>
 
 namespace Creyon {
@@ -92,10 +93,5 @@ namespace Creyon {
 		}
 
 	};
-
-	//Returns elapsed Time from glfw initialisation
-	inline float getTime() {
-		return (float)glfwGetTime();
-	}
 
 }
