@@ -24,10 +24,9 @@ namespace Creyon{
 
 	Mat44 rotateX(const float angle, bool convtorad) {
 		float radangle{ 0.0f };
-		
-		Utility util = Utility::instance();
+	
 		//Get Radian Angle if conversion specified to be true
-		if (convtorad) { radangle = util.toRad(angle); }
+		if (convtorad) { radangle = toRad(angle); }
 		else { radangle = angle; }
 		
 		//Matrix to rotate about X axis
@@ -42,9 +41,8 @@ namespace Creyon{
 	Mat44 rotateY(const float angle, bool convtorad) {
 		float radangle{ 0.0f };
 
-		Utility util = Utility::instance();
 		//Get Radian Angle if conversion specified to be true
-		if (convtorad) { radangle = util.toRad(angle); }
+		if (convtorad) { radangle = toRad(angle); }
 		else { radangle = angle; }
 		
 		//Matrix to rotate about Y axis
@@ -59,9 +57,8 @@ namespace Creyon{
 	Mat44 rotateZ(const float angle, bool convtorad) {
 		float radangle{ 0.0f };
 
-		Utility util = Utility::instance();
 		//Get Radian Angle if conversion specified to be true
-		if (convtorad) { radangle = util.toRad(angle); }
+		if (convtorad) { radangle = toRad(angle); }
 		else { radangle = angle; }
 
 		//Matrix to rotate about Z axis
@@ -76,9 +73,8 @@ namespace Creyon{
 	vector3d qrotate(const float& angle, const vector3d& vec, const vector3d& axis, bool convtorad){
 		float radangle{ 0.0f };
 
-		Utility util = Utility::instance();
 		//Get Radian Angle if conversion specified to be true
-		if (convtorad) { radangle = util.toRad(angle); }
+		if (convtorad) { radangle = toRad(angle); }
 		else { radangle = angle; }
 
 		float sinRadAngle = sinf(radangle / 2.0f);
