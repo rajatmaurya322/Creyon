@@ -19,6 +19,7 @@
 #include "Render/VertexBuffer.h"
 #include "Render/VertexArray.h"
 #include "Render/Color.h"
+#include "Render/InputHandler.h"
 #include "glad/glad.h"
 #include "GLFW/glfw3.h"
 #include <iostream>
