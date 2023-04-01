@@ -1,13 +1,11 @@
 #pragma once
 
-#include "glad/glad.h"
-#include <iostream>
-#include <sstream>
-#include <fstream>
-#include "Color.h"
 #include "MathEngine/matrix4x4.h"
 #include "MathEngine/vector3d.h"
 #include "Utilities/Utility.h"
+#include <iostream>
+#include <sstream>
+#include <fstream>
 
 namespace Creyon {
 
@@ -48,9 +46,6 @@ namespace Creyon {
 
 		//Locates and sets vec3 value to a uniform
 		void setVec3(const std::string& uniformName, vector3d& value);
-
-		//Locates and sets Color value to a uniform
-		void setColor(const std::string& uniformName, Color& value);
 
 		//Locates and sets Mat44 value to a uniform
 		void setMat44(const std::string& uniformName, Mat44& value);
