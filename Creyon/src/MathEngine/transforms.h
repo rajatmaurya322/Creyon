@@ -7,27 +7,35 @@
 #include "Utilities/Utility.h"
 #include <cmath>
 
-/*Tranforms applied as : v * ABC where v is a vector  */
+// Tranforms applied as : v * ABC where v is a vector 
 
 namespace Creyon{
-
-	/* All functions assume degree values for angles. Boolean "convtorad" can be
-	used to turn off conversion to radians (default conversion set to true) */
 
 	//Translates the object by specified displacements
 	Mat44 translate(const float dX, const float dY, const float dZ);
 
-	//Translates the object by specified by given vector displacements
+	//Translates the object by specified by given vector displacement
 	Mat44 translate(const vector3d disp);
 
+	//All functions assume degree values for angles
+
 	//Rotates about X axis by given angle
-	Mat44 rotateX(const float angle, bool convtorad = true);
+	Mat44 rotateX(const float angle);
 
 	//Rotates about Y axis by given angle
-	Mat44 rotateY(const float angle, bool convtorad = true);
+	Mat44 rotateY(const float angle);
 
 	//Rotates about Z axis by given angle
-	Mat44 rotateZ(const float angle, bool convtorad = true);
+	Mat44 rotateZ(const float angle);
+
+	//Rotates about X axis by time value
+	Mat44 timeRotateX();
+
+	//Rotates about Y axis by time value
+	Mat44 timeRotateY();
+
+	//Rotates about Z axis by time value
+	Mat44 timeRotateZ();
 
 	//Rotates about axis by given angle by using Quaternions 
 	vector3d qrotate(const float& angle, const vector3d& vec, const vector3d& axis, bool convtorad = true);

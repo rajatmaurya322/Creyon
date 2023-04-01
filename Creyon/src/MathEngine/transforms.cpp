@@ -5,69 +5,88 @@ namespace Creyon{
 	
 	Mat44 translate(const float dX, const float dY, const float dZ) {
 		Mat44 trans{	1.0f,	0.0f,	0.0f,	0.0f,
-							0.0f,	1.0f,	0.0f,	0.0f,
-							0.0f,	0.0f,	1.0f,	0.0f,
-							dX,		dY,		dZ,		1.0f };
+						0.0f,	1.0f,	0.0f,	0.0f,
+						0.0f,	0.0f,	1.0f,	0.0f,
+						dX,		dY,		dZ,		1.0f };
 
 		return trans;
 	}
 
 	Mat44 translate(const vector3d disp) {
 		Mat44 trans{	1.0f,		0.0f,		0.0f,		0.0f,
-							0.0f,		1.0f,		0.0f,		0.0f,
-							0.0f,		0.0f,		1.0f,		0.0f,
-							disp.m_x,	disp.m_y,	disp.m_z,	1.0f };
+						0.0f,		1.0f,		0.0f,		0.0f,
+						0.0f,		0.0f,		1.0f,		0.0f,
+						disp.m_x,	disp.m_y,	disp.m_z,	1.0f };
 		return trans;
 	}
 
-	//All rotation functions assume Degree angles and by default converts to Radians unless specified
-
-	Mat44 rotateX(const float angle, bool convtorad) {
-		float radangle{ 0.0f };
-	
-		//Get Radian Angle if conversion specified to be true
-		if (convtorad) { radangle = toRad(angle); }
-		else { radangle = angle; }
+	Mat44 rotateX(const float angle) {
+		float radangle = toRad(angle); 
 		
 		//Matrix to rotate about X axis
-		Mat44 rotateaboutX{1.0f,   0.0f,           0.0f,           0.0f,
-                                0.0f,   cos(radangle),  sin(radangle),  0.0f,
-                                0.0f,  -sin(radangle),  cos(radangle),  0.0f, 
-                                0.0f,   0.0f,           0.0f,           1.0f};
-		
-		return rotateaboutX ;
+		return Mat44{	1.0f,   0.0f,           0.0f,           0.0f,
+						0.0f,   cos(radangle),  sin(radangle),  0.0f,
+						0.0f,  -sin(radangle),  cos(radangle),  0.0f,
+						0.0f,   0.0f,           0.0f,           1.0f };
+
 	}
 
-	Mat44 rotateY(const float angle, bool convtorad) {
-		float radangle{ 0.0f };
-
-		//Get Radian Angle if conversion specified to be true
-		if (convtorad) { radangle = toRad(angle); }
-		else { radangle = angle; }
+	Mat44 rotateY(const float angle) {
+		float radangle = toRad(angle);
 		
 		//Matrix to rotate about Y axis
-		Mat44 rotateaboutY{		cos(radangle), 0.0f,   -sin(radangle),    0.0f,
-                                0.0f,		   1.0f,	0.0f,			  0.0f,
-                                sin(radangle), 0.0f,    cos(radangle),    0.0f,
-                                0.0f,		   0.0f,   0.0f,			  1.0f};
-		
-		return rotateaboutY ;
+		return Mat44{	cos(radangle), 0.0f,   -sin(radangle),	0.0f,
+						0.0f,		   1.0f,	0.0f,			0.0f,
+						sin(radangle), 0.0f,	cos(radangle),	0.0f,
+						0.0f,		   0.0f,	0.0f,			1.0f};
+
 	}
 
-	Mat44 rotateZ(const float angle, bool convtorad) {
-		float radangle{ 0.0f };
-
-		//Get Radian Angle if conversion specified to be true
-		if (convtorad) { radangle = toRad(angle); }
-		else { radangle = angle; }
+	Mat44 rotateZ(const float angle) {
+		float radangle = toRad(angle);
 
 		//Matrix to rotate about Z axis
-		Mat44 rotateaboutZ{cos(radangle),    sin(radangle),	0.0f,	0.0f,
-                               -sin(radangle),    cos(radangle),	0.0f,	0.0f,
-                                0.0f,			  0.0f,				1.0f,	0.0f,
-                                0.0f,			  0.0f,				0.0f,	1.0f};
-		
-		return rotateaboutZ ;
+		return Mat44{	cos(radangle),	sin(radangle),	0.0f,	0.0f,
+						-sin(radangle),	cos(radangle),	0.0f,	0.0f,
+						0.0f,			0.0f,			1.0f,	0.0f,
+						0.0f,			0.0f,			0.0f,	1.0f};
+
+	}
+
+	Mat44 timeRotateX() {
+		float angle = getTime();
+
+		//Matrix to rotate about X axis
+		Mat44 rotateaboutX{ 1.0f,   0.0f,           0.0f,           0.0f,
+							0.0f,   cos(angle),		sin(angle),		0.0f,
+							0.0f,  -sin(angle),		cos(angle),		0.0f,
+							0.0f,   0.0f,			0.0f,			1.0f };
+
+		return rotateaboutX;
+	}
+
+	Mat44 timeRotateY() {
+		float angle = getTime();
+
+		//Matrix to rotate about Y axis
+		Mat44 rotateaboutY{ cos(angle),	0.0f,	-sin(angle),	0.0f,
+							0.0f,		1.0f,	0.0f,			0.0f,
+							sin(angle), 0.0f,	cos(angle),		0.0f,
+							0.0f,		0.0f,   0.0f,			1.0f };
+
+		return rotateaboutY;
+	}
+
+	Mat44 timeRotateZ() {
+		float angle = getTime();
+
+		//Matrix to rotate about Z axis
+		Mat44 rotateaboutZ{ cos(angle),		sin(angle),	0.0f,	0.0f,
+							-sin(angle),	cos(angle),	0.0f,	0.0f,
+							0.0f,			0.0f,		1.0f,	0.0f,
+							0.0f,			0.0f,		0.0f,	1.0f };
+
+		return rotateaboutZ;
 	}
 
 	vector3d qrotate(const float& angle, const vector3d& vec, const vector3d& axis, bool convtorad){
@@ -91,10 +110,10 @@ namespace Creyon{
 	Mat44 scale(const float scaleX, const float scaleY, const float scaleZ) {
 		
 		//Scaling matrix to scale along all axis
-		Mat44 scale{ scaleX,   0.0f,   0.0f,   0.0f,
-                          0.0f,     scaleY, 0.0f,   0.0f,
-                          0.0f,     0.0f,   scaleZ, 0.0f, 
-                          0.0f,     0.0f,   0.0f,   1.0f};
+		Mat44 scale{scaleX,   0.0f,   0.0f,   0.0f,
+					0.0f,     scaleY, 0.0f,   0.0f,
+					0.0f,     0.0f,   scaleZ, 0.0f, 
+					0.0f,     0.0f,   0.0f,   1.0f};
 
 		return scale;
 	}
@@ -102,10 +121,10 @@ namespace Creyon{
 	Mat44 scale(const float uni_scale) {
 		
 		//Scaling matrix for uniform scale
-		Mat44 scale{ uni_scale,    0.0f,       0.0f,      0.0f,
-                          0.0f,         uni_scale,  0.0f,      0.0f,
-                          0.0f,         0.0f,       uni_scale, 0.0f,
-                          0.0f,         0.0f,       0.0f,      1.0f };
+		Mat44 scale{uni_scale,    0.0f,       0.0f,      0.0f,
+					0.0f,         uni_scale,  0.0f,      0.0f,
+					0.0f,         0.0f,       uni_scale, 0.0f,
+					0.0f,         0.0f,       0.0f,      1.0f };
 
 		return scale;
 	}
