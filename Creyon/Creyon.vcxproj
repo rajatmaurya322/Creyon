@@ -45,13 +45,13 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
-    <OutDir>$(SolutionDir)bin\$(Platform)-$(Configuration)\$(ProjectName)</OutDir>
-    <IntDir>$(SolutionDir)bin\intermediates\$(Platform)-$(Configuration)\$(ProjectName)</IntDir>
+    <OutDir>$(SolutionDir)bin\$(Platform)-$(Configuration)\$(ProjectName)\</OutDir>
+    <IntDir>$(SolutionDir)bin\intermediates\$(Platform)-$(Configuration)\$(ProjectName)\</IntDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <LinkIncremental>false</LinkIncremental>
-    <OutDir>$(SolutionDir)bin\$(Platform)-$(Configuration)\$(ProjectName)</OutDir>
-    <IntDir>$(SolutionDir)bin\intermediates\$(Platform)-$(Configuration)\$(ProjectName)</IntDir>
+    <OutDir>$(SolutionDir)bin\$(Platform)-$(Configuration)\$(ProjectName)\</OutDir>
+    <IntDir>$(SolutionDir)bin\intermediates\$(Platform)-$(Configuration)\$(ProjectName)\</IntDir>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
@@ -110,11 +110,11 @@
     </ProjectReference>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="src\Render\Color.h" />
+    <ClInclude Include="src\Core\Entity.h" />
+    <ClInclude Include="src\Core\Input.h" />
     <ClInclude Include="src\Render\Camera.h" />
     <ClInclude Include="src\EngineApplication\CreyonEng.h" />
     <ClInclude Include="src\MathEngine\quaternion.h" />
-    <ClInclude Include="src\Render\Keyboard.h" />
     <ClInclude Include="src\Render\Shaderprogram.h" />
     <ClInclude Include="src\MathEngine\Constants\constants.h" />
     <ClInclude Include="src\MathEngine\matrix2x2.h" />
@@ -133,12 +133,11 @@
     <ClInclude Include="src\Render\VertexArray.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="src\Render\Color.cpp" />
+    <ClCompile Include="src\Core\Entity.cpp" />
     <ClCompile Include="src\Render\Camera.cpp" />
     <ClCompile Include="src\MathEngine\quaternion.cpp" />
     <ClCompile Include="src\MathEngine\vector2d.cpp" />
     <ClCompile Include="src\MathEngine\vector4d.cpp" />
-    <ClCompile Include="src\Render\Keyboard.cpp" />
     <ClCompile Include="src\Render\Shaderprogram.cpp" />
     <ClCompile Include="src\glad.c" />
     <ClCompile Include="src\MathEngine\matrix2x2.cpp" />
@@ -154,10 +153,10 @@
     <ClCompile Include="src\Render\VertexArray.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="src\Render\FragmentShader.glsl" />
-    <None Include="src\Render\lightSource.glsl" />
-    <None Include="src\Render\lightSourceFragment.glsl" />
-    <None Include="src\Render\VertexShader.glsl" />
+    <None Include="src\Render\Shaders\FragmentShader.glsl" />
+    <None Include="src\Render\Shaders\lightSource.glsl" />
+    <None Include="src\Render\Shaders\lightSourceFragment.glsl" />
+    <None Include="src\Render\Shaders\VertexShader.glsl" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

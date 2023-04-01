@@ -72,10 +72,10 @@
     <ClInclude Include="src\Render\VertexArray.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\Render\Color.h">
+    <ClInclude Include="src\Core\Entity.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\Render\Keyboard.h">
+    <ClInclude Include="src\Core\Input.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -131,17 +131,14 @@
     <ClCompile Include="src\Render\VertexArray.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\Render\Color.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Render\Keyboard.cpp">
+    <ClCompile Include="src\Core\Entity.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="src\Render\VertexShader.glsl" />
-    <None Include="src\Render\FragmentShader.glsl" />
-    <None Include="src\Render\lightSource.glsl" />
-    <None Include="src\Render\lightSourceFragment.glsl" />
+    <None Include="src\Render\Shaders\VertexShader.glsl" />
+    <None Include="src\Render\Shaders\FragmentShader.glsl" />
+    <None Include="src\Render\Shaders\lightSource.glsl" />
+    <None Include="src\Render\Shaders\lightSourceFragment.glsl" />
   </ItemGroup>
 </Project>
