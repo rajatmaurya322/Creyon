@@ -6,28 +6,21 @@ namespace Creyon {
 
 		CreyonWindow::Init();
 
-		CreyonWindow window{ 800,600, "Learnopengl" };
+		CreyonWindow window{ 800,600, "Use Mouse to look, WASD to move, ESC to exit" };
 
-		if (!gladLoadGLLoader((GLADloadproc)glfwGetProcAddress)) {
-			cout << "Failed to initialize GLAD\n";
-		}
-
-		glViewport(0, 0, 800, 600);
-
-		window.reg_ResizeCallback();
-		window.reg_MouseCallback();
-
+		window.reg_Callbacks();
+		
 		window.setInputMode(GLFW_CURSOR, GLFW_CURSOR_DISABLED);
 
 		Shaderprogram lightprog, lightcube;
 		
-		lightprog.addShader("Render\\VertexShader.glsl", GL_VERTEX_SHADER);
-		lightprog.addShader("Render\\FragmentShader.glsl",  GL_FRAGMENT_SHADER);
+		lightprog.addShader("Render\\Shaders\\VertexShader.glsl", GL_VERTEX_SHADER);
+		lightprog.addShader("Render\\Shaders\\FragmentShader.glsl",  GL_FRAGMENT_SHADER);
 		
 		lightprog.link();
 
-		lightcube.addShader("Render\\lightSource.glsl", GL_VERTEX_SHADER);
-		lightcube.addShader("Render\\lightSourceFragment.glsl", GL_FRAGMENT_SHADER);
+		lightcube.addShader("Render\\Shaders\\lightSource.glsl", GL_VERTEX_SHADER);
+		lightcube.addShader("Render\\Shaders\\lightSourceFragment.glsl", GL_FRAGMENT_SHADER);
 
 		lightcube.link();
 
@@ -78,17 +71,10 @@ namespace Creyon {
 
 		vector3d lightpos{ 1.2f, 1.0f, 2.0f };
 
-		//----------Camera Defined Here------------------------------
-		
-		Camera fpsCam;
-		window.activateCamera(fpsCam);
-		//-----------------------------------------------------------
-
 		VertexArray cubevao;
 
 		VertexBuffer vbo;
 		vbo.loadData(vertices, GL_STATIC_DRAW);
-
 		setVertexAttribPtr(0, 3, GL_FALSE, 5, 0);
 
 		VertexArray lightvao;
@@ -98,20 +84,18 @@ namespace Creyon {
 		Texture tex1;
 		
 		//sampling texture colors, filtering options
-		tex1.configTexWrap(GL_REPEAT, GL_REPEAT);
-		
-		tex1.configTexFilters(GL_TEXTURE_MIN_FILTER, GL_NEAREST);
-		tex1.configTexFilters(GL_TEXTURE_MAG_FILTER, GL_NEAREST);
+		tex1.TexWrap(GL_REPEAT, GL_REPEAT);
+		tex1.TexFilters(GL_TEXTURE_MIN_FILTER, GL_NEAREST);
+		tex1.TexFilters(GL_TEXTURE_MAG_FILTER, GL_NEAREST);
 		
 		tex1.loadImg("GOW.jpg", Texture::Format::JPG);
 
 		Texture tex2;
 		
 		//sampling texture colors, filtering options
-		tex2.configTexWrap(GL_REPEAT, GL_REPEAT);
-
-		tex2.configTexFilters(GL_TEXTURE_MIN_FILTER, GL_NEAREST);
-		tex2.configTexFilters(GL_TEXTURE_MAG_FILTER, GL_NEAREST);
+		tex2.TexWrap(GL_REPEAT, GL_REPEAT);
+		tex2.TexFilters(GL_TEXTURE_MIN_FILTER, GL_NEAREST);
+		tex2.TexFilters(GL_TEXTURE_MAG_FILTER, GL_NEAREST);
 
 		tex2.loadImg("awesomeface.png", Texture::Format::PNG);
 
@@ -119,27 +103,31 @@ namespace Creyon {
 		//---------------------------------------------------------------------------
 		glEnable(GL_DEPTH_TEST);
 		
-		Utility util = Utility::instance();
+		auto cam{ std::make_unique<Camera>() };
+		
 		//Render loop
 		while (!window.isWindowClosed()) {
+			
+			Entity::updateDelta();
 
-			//Processes all Input
-			window.processKeyboard();
+			cam->update();
+
+			Entity::resetMotion();
 
 			//Render commands here------------------------
 			glClearColor(0.2f, 0.3f, 0.3f, 1.0f);
 			glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
 			lightprog.useProgram();
-			Color objcolor{ 1.0f, 0.5f, 0.31f };
-			Color ligcolor{ 1.0f, 1.0f, 1.0f };
-			lightprog.setColor("lightColor", ligcolor);
-			lightprog.setColor("objectColor", objcolor);
+			vector3d objcolor{ 1.0f, 0.5f, 0.31f };
+			vector3d ligcolor{ 1.0f, 1.0f, 1.0f };
+			lightprog.setVec3("lightColor", ligcolor);
+			lightprog.setVec3("objectColor", objcolor);
 			
-			Mat44 view = fpsCam.lookAt();
+			Mat44 view = cam->lookAt() ;
 			lightprog.setMat44("view", view);
-			Mat44 model = rotateY(util.getTime(), false) ;
-			Mat44 proj = persp(800.0f / 600.0f, util.pi_u4, 100.0f, 0.1f);
+			Mat44 model = timeRotateY();
+			Mat44 proj = persp(800.0f / 600.0f, pi_u4, 100.0f, 0.1f);
 			lightprog.setMat44("model", model);
 			lightprog.setMat44("projection", proj);
 
@@ -161,6 +149,7 @@ namespace Creyon {
 			window.pollWindowEvents();
 			//---------------------------------------
 		}
-		CreyonWindow::Terminate(window);
+
+		CreyonWindow::Terminate();
 	}
 }
