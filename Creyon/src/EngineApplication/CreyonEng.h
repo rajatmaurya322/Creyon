@@ -11,6 +11,7 @@
 #include "MathEngine/transforms.h"
 #include "MathEngine/quaternion.h"
 #include "Utilities/Utility.h"
+#include "Core/Entity.h"
 #include "Render/CreyonWindow.h"
 #include "Render/Camera.h"
 #include "Render/Shaderprogram.h"
@@ -18,15 +19,5 @@
 #include "Render/Texture.h"
 #include "Render/VertexBuffer.h"
 #include "Render/VertexArray.h"
-#include "Render/Color.h"
-#include "Render/InputHandler.h"
-#include "glad/glad.h"
-#include "GLFW/glfw3.h"
+#include <memory>
 #include <iostream>
-
-using std::cout;
-using std::cin;
-using Creyon::CreyonWindow;
-using Creyon::vector3d;
-using Creyon::vector4d;
-using Creyon::Shaderprogram;
