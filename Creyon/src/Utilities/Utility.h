@@ -3,23 +3,18 @@
 #include <cmath>
 #include "glad/glad.h"
 #include "GLFW/glfw3.h"
+#include <iostream>
 #include <filesystem>
 
 //Contains Constants and Functions which can be used anywhere 
 namespace Creyon {
 
-	//Singleton class for accessing Utility functions and constants
-	class Utility {
-	private:
-		Utility();
+		const float pi = 3.141592653589793f;
+		const float pi_u2 = 1.570796326794896f;
+		const float pi_u4 = 0.785398163397448f;
+		const float	degtorad = 0.0174532925199f;
+		const float radtodeg = 57.295779513082f;
 
-	public:
-		const float pi, pi_u2, pi_u4, degtorad, radtodeg;
-		const std::filesystem::path EngineRootPath, CreyonSrcPath;
-
-		//Returns single instance of the Utility class
-		static Utility& instance();
-		
 		//Absolute epsilon comparison
 		bool absCompare(float a, float b, float abs_epsilon);
 
@@ -34,9 +29,10 @@ namespace Creyon {
 
 		//Search root directory
 		std::filesystem::path searchRootDir();
+		
+		const std::filesystem::path EngineRootPath{ searchRootDir() };
+		const std::filesystem::path CreyonSrcPath{ EngineRootPath / "Creyon\\src" };
 
 		//Returns elapsed Time from glfw initialisation
 		float getTime();
-		
-	};
 }
