@@ -2,35 +2,25 @@
 
 #include "glad/glad.h"
 #include "GLFW/glfw3.h"
-#include "Camera.h"
-#include "Utilities/Utility.h"
+#include "Core/Entity.h"
 #include <iostream>
 
 namespace Creyon {
 
-	//This class abstracts over GLFW Window creation for ease of use
+	//This class abstracts over GLFW Window creation
 	class CreyonWindow
 	{
-	private:
-		GLFWwindow* mp_window;	//prefix mp_ stands for member of class and is a pointer
-		const char* mp_title;
+	private:		//All class members begin with m_ prefix
+		GLFWwindow* mp_window;
+		std::string m_title;
 		int m_width, m_height;
-		float m_lastFrame, m_lastX, m_lastY;
+		float m_lastX, m_lastY, m_sensitivity;
 		bool m_firstMouse;
-		Camera* mp_cam;
 
 	public:
 
 		//creates a glfw window with given parameters
-		CreyonWindow(int width, int height, const char* title);
-
-		//Get methods
-		inline int getWidth() { return m_width; }
-		inline int getHeight(){ return m_height; }
-		
-		//Set methods
-		inline void setWidth(const int width) { m_width = width ;}
-		inline void setHeight(const int height) {m_height = height ;}
+		CreyonWindow(int width, int height, std::string title);
 		
 		//Properly initialises glfw
 		static void Init();
@@ -38,59 +28,37 @@ namespace Creyon {
 		//Sets context of the window object's window to current
 		void setContextCurrent();
 
-		//Activates the Camera
-		void activateCamera(Camera& pcam);
-
-		//Registers the given window for resizing callback(reg is short for register)
-		void reg_ResizeCallback();
-
-		//Registers the given window for mouse callback
-		void reg_MouseCallback();
-
 		//Closes a window
 		void closeWindow();
 
-		//Detect a KeyPress
-		bool keyPress(int key);
-
-		//Processes all keyboard based input
-		void processKeyboard();
-
-		//Processes all mouse based input
-		void processMouse(float offsetX, float offsetY);
-
-		//Returns DeltaTime
-		float deltaTime();
-
-		//Resizes the window to new height and width
-		void setSize(const int nwidth,const int nheight);
-
 		//Sets the input mode for a window
 		void setInputMode(int mode, int value);
+
+		//Registers the given window for mouse callback
+		void reg_Callbacks();
+
+		//Executes when cursor position changes 
+		static void mousepos_callback(GLFWwindow* window, double xpos, double ypos);
 		
-		//callback function which resizes the framebuffer as the window size changes
+		//Executes when window size changes
 		static void framebuffer_size_callback(GLFWwindow* window, int width, int height);
 
-		//callback function which calculates mouse offsets
-		static void mouse_callback(GLFWwindow* window, double xpos, double ypos);
+		//Executes when a key is pressed
+		static void key_callback(GLFWwindow* window, int key, int scancode, int action, int mods);
 		
-		// Properly terminates glfw window
-		static void Terminate(CreyonWindow& window);
+		~CreyonWindow();
+
+		// Properly terminates glfw
+		static void Terminate();
 
 		//Swap window buffers
-		inline void swapBuffers() {
-			glfwSwapBuffers(mp_window);
-		}
+		void swapBuffers() { glfwSwapBuffers(mp_window);}
 
 		//Poll events for processing
-		inline void pollWindowEvents() {
-			glfwPollEvents();
-		}
+		void pollWindowEvents() { glfwPollEvents();}
 
 		//Checks if the window is closed
-		bool isWindowClosed() {
-			return glfwWindowShouldClose(mp_window);
-		}
+		bool isWindowClosed() { return glfwWindowShouldClose(mp_window);}
 
 	};
 
