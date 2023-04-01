@@ -30,10 +30,10 @@ namespace Creyon {
 		}
 
 		//Configures texture wrapping modes
-		void configTexWrap(GLint mode_Xaxis, GLint mode_Yaxis);
+		void TexWrap(GLint mode_Xaxis, GLint mode_Yaxis);
 
 		//Configures texture filtering modes
-		void configTexFilters(GLenum filter, GLint mode);
+		void TexFilters(GLenum filter, GLint mode);
 
 		//Loads an image into the texture object
 		void loadImg(const char* pathtoimg, Format imgformat);

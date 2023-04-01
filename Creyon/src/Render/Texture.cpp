@@ -13,23 +13,21 @@ namespace Creyon {
 		glBindTexture(GL_TEXTURE_2D, texId); //Set current texture as target
 	}
 
-	void Texture::configTexWrap(GLint mode_Xaxis, GLint mode_Yaxis) {
+	void Texture::TexWrap(GLint mode_Xaxis, GLint mode_Yaxis) {
 		//Set texture wrap on X axis
 		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, mode_Xaxis);
 		//Set texture wrap on Y axis
 		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, mode_Yaxis);
 	}
 
-	void Texture::configTexFilters(GLenum filter, GLint mode) {
+	void Texture::TexFilters(GLenum filter, GLint mode) {
 		//Set texture filtering and its mode
 		glTexParameteri(GL_TEXTURE_2D, filter , mode);
 	}
 
 	void Texture::loadImg(const char* pathtoimg, Format imgformat) {
-		
-		//Compose the path to image
-		Utility util = Utility::instance();
-		std::filesystem::path abspath = util.CreyonSrcPath / pathtoimg;
+
+		std::filesystem::path abspath = CreyonSrcPath / pathtoimg;
 
 		int width, height, nrchannels;
 		
