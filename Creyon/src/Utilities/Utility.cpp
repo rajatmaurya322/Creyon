@@ -12,6 +12,13 @@ namespace Creyon {
 		return ( std::fabs(a - b) <= std::fmax( std::fabs(a), std::fabs(b) ) * rel_epsilon );
 	}
 
+	float DOP(float a, float b, float c, float d) {
+		float cd = c * d;
+		float err = std::fma(-c, d, cd);
+		float diffofproducts = std::fma(a, b, -cd);
+		return diffofproducts + err;
+	}
+
 	float toRad(const float angleInDeg) {
 		return angleInDeg * degtorad;
 	}

@@ -21,6 +21,11 @@ namespace Creyon {
 		//Relative epsilon comparison
 		bool relCompare(float a, float b, float rel_epsilon);
 
+		//Reference: https://pharr.org/matt/blog/2019/11/03/difference-of-floats
+		
+		//Calculates a * b - c * d (Difference of products) and avoids catastrophic cancellation
+		float DOP(float a, float b, float c, float d);
+
 		//Converts from degree to radian angles
 		float toRad(const float angleInDeg);
 
