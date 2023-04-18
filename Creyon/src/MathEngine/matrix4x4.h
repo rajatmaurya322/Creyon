@@ -16,19 +16,16 @@
 namespace Creyon {
 
     class Mat44 {
-
-    public:		//All data members begin with m_ prefix
-
+	private:
         float m_elems[16];     //4x4 matrix elements;
+    
+	public:		//All data members begin with m_ prefix
 
 		//creates a 4x4 identity matrix
         Mat44();
 
         //creates a 4x4 matrix with given values
         Mat44(float a0, float b0, float c0, float d0, float a1, float b1, float c1, float d1, float a2, float b2, float c2, float d2, float a3, float b3, float c3, float d3);
-
-		//creates a 4x4 matrix with given array
-        Mat44(const float *p_array);
 
 		//Copy constructor
         Mat44(const Mat44& mat4);
@@ -50,6 +47,20 @@ namespace Creyon {
 
 		//scalar division of 4x4 matrix: mat/f
         Mat44 operator/(float f)const;
+
+		//Read/Write access to a matrix element with []
+		float& operator[](int i) {
+			return m_elems[i];
+		}
+
+		//Read access to a matrix element with []
+		float operator[](int i)const {
+			return m_elems[i];
+		}
+
+		const float* operator&()const{
+			return m_elems;
+		}
 		
         //scalar multiplication of 4x4 matrix: f * mat
         friend Mat44 operator*(float f, Mat44& mat);
