@@ -1,8 +1,8 @@
-#include "CreyonWindow.h"
+#include "Window.h"
 
 namespace Creyon {
 
-	CreyonWindow::CreyonWindow(int width, int height, std::string title) 
+	Window::Window(int width, int height, std::string title) 
 	:m_width{ width }, 
 	 m_height{ height }, 
 	 m_title{ title },
@@ -32,34 +32,34 @@ namespace Creyon {
 		glfwSetWindowUserPointer(mp_window, reinterpret_cast<void*>(this));
 	}
 
-	void CreyonWindow::Init() {
+	void Window::Init() {
 		glfwInit();  //Initialise glfw
 		glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 4);  //Set Opengl version to 4.3 
 		glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
 		glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE); //Set to use core opengl profile
 	}
 	
-	void CreyonWindow::setContextCurrent() {
+	void Window::setContextCurrent() {
 		glfwMakeContextCurrent(mp_window);
 	}
 
-	void CreyonWindow::closeWindow() {
+	void Window::closeWindow() {
 		glfwSetWindowShouldClose(mp_window, true); //Sets flag to close the window
 	}
 
-	void CreyonWindow::setInputMode(int mode, int value) {
+	void Window::setInputMode(int mode, int value) {
 		glfwSetInputMode(mp_window, mode, value);
 	}
 
-	void CreyonWindow::reg_Callbacks(){
+	void Window::reg_Callbacks(){
 		glfwSetCursorPosCallback(mp_window, mousepos_callback);
 		glfwSetFramebufferSizeCallback(mp_window, framebuffer_size_callback);
 		glfwSetKeyCallback(mp_window, key_callback);
 	}
 
-	void CreyonWindow::mousepos_callback(GLFWwindow* window, double xpos, double ypos) {
+	void Window::mousepos_callback(GLFWwindow* window, double xpos, double ypos) {
 
-		CreyonWindow* self = reinterpret_cast<CreyonWindow*>(glfwGetWindowUserPointer(window));
+		Window* self = reinterpret_cast<Window*>(glfwGetWindowUserPointer(window));
 
 		float mouseX = static_cast<float>(xpos);
 		float mouseY = static_cast<float>(ypos);
@@ -82,10 +82,10 @@ namespace Creyon {
 		Entity::changeMousePosition(offsetX, offsetY);
 	}
 
-	void CreyonWindow::framebuffer_size_callback(GLFWwindow* window, int width, int height){
+	void Window::framebuffer_size_callback(GLFWwindow* window, int width, int height){
 		
 		//Get the user pointer of the window so as to get the class instance back
-		CreyonWindow* self = reinterpret_cast<CreyonWindow*>(glfwGetWindowUserPointer(window));
+		Window* self = reinterpret_cast<Window*>(glfwGetWindowUserPointer(window));
 		
 		//Set the members to new width and height
 		self->m_width = width;
@@ -94,9 +94,9 @@ namespace Creyon {
 		glViewport(0, 0, width, height); //Resize viewport to new width and height
 	}
 
-	void CreyonWindow::key_callback(GLFWwindow* window, int key, int scancode, int action, int mods) {
+	void Window::key_callback(GLFWwindow* window, int key, int scancode, int action, int mods) {
 		
-		CreyonWindow* self = reinterpret_cast<CreyonWindow*>(glfwGetWindowUserPointer(window));
+		Window* self = reinterpret_cast<Window*>(glfwGetWindowUserPointer(window));
 		
 		if (key == GLFW_KEY_ESCAPE && action == GLFW_PRESS)
 			self->closeWindow();
@@ -109,12 +109,12 @@ namespace Creyon {
 		
 	}
 
-	CreyonWindow::~CreyonWindow() {
+	Window::~Window() {
 		glfwDestroyWindow(mp_window); //Destroy the window
 		mp_window = nullptr;
 	}
 
-	void CreyonWindow::Terminate() {
+	void Window::Terminate() {
 		glfwTerminate(); //Terminate glfw
 	}
 

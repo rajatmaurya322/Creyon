@@ -8,7 +8,7 @@
 namespace Creyon {
 
 	//This class abstracts over GLFW Window creation
-	class CreyonWindow
+	class Window
 	{
 	private:		//All class members begin with m_ prefix
 		GLFWwindow* mp_window;
@@ -20,7 +20,7 @@ namespace Creyon {
 	public:
 
 		//creates a glfw window with given parameters
-		CreyonWindow(int width, int height, std::string title);
+		Window(int width, int height, std::string title);
 		
 		//Properly initialises glfw
 		static void Init();
@@ -46,7 +46,7 @@ namespace Creyon {
 		//Executes when a key is pressed
 		static void key_callback(GLFWwindow* window, int key, int scancode, int action, int mods);
 		
-		~CreyonWindow();
+		~Window();
 
 		// Properly terminates glfw
 		static void Terminate();
@@ -56,7 +56,7 @@ namespace Creyon {
 
 		//Poll events for processing
 		void pollWindowEvents() { glfwPollEvents();}
-
+		
 		//Checks if the window is closed
 		bool isWindowClosed() { return glfwWindowShouldClose(mp_window);}
 
