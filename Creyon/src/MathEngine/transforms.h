@@ -5,7 +5,6 @@
 #include "vector3d.h"
 #include "vector4d.h"
 #include "Utilities/Utility.h"
-#include <cmath>
 
 // Tranforms applied as : v * ABC where v is a vector 
 
@@ -15,7 +14,7 @@ namespace Creyon{
 	Mat44 translate(const float dX, const float dY, const float dZ);
 
 	//Translates the object by specified by given vector displacement
-	Mat44 translate(const vector3d disp);
+	Mat44 translate(const Vector3d& disp);
 
 	//All functions assume degree values for angles
 
@@ -38,7 +37,7 @@ namespace Creyon{
 	Mat44 timeRotateZ();
 
 	//Rotates about axis by given angle by using Quaternions 
-	vector3d qrotate(const float& angle, const vector3d& vec, const vector3d& axis, bool convtorad = true);
+	Vector3d qrotate(const float& angle, const Vector3d& vec, const Vector3d& axis);
 
 	//Scales along the axes by given scale factors
 	Mat44 scale(const float scaleX, const float scaleY, const float scaleZ);
@@ -47,11 +46,14 @@ namespace Creyon{
 	Mat44 scale(const float uni_scale);
 
 	//Reflection about the given axis
-	Mat44 reflectaboutaxis(const vector4d& vec4);
+	Mat44 reflectaboutaxis(const Vector4d& vec4);
 
 	//Orthographic(Parallel) projection
 	Mat44 ortho(const float left, const float top, const float right, const float bottom, const float far, const float near);
 
 	//Perspective projection
 	Mat44 persp(const float aspect, const float fieldofview, const float far, const float near);
+
+	//Returns the Normal Matrix
+	Mat33 NormalMatrix(const Mat44& mat);
 }
