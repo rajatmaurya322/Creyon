@@ -4,7 +4,7 @@ namespace Creyon {
 
 	Shaderprogram::Shaderprogram() {
 		//Create a Shader program
-		programId = glCreateProgram();
+		m_programId = glCreateProgram();
 	}
 
 	void Shaderprogram::addShader(const char* pathtoShader, GLenum Shadertype) {
@@ -48,27 +48,35 @@ namespace Creyon {
 			std::cout << "\nERROR! Shader Compilation failed\n" << infolog << "\n";
 		}
 		else {  //Attach shader to program
-			glAttachShader(programId, shaderID);
+			glAttachShader(m_programId, shaderID);
 			glDeleteShader(shaderID);  //Delete shader as already attached to program object
 		}
 	}
 
 	void Shaderprogram::link() {
 		//Links the created shader program
-		glLinkProgram(programId);
+		glLinkProgram(m_programId);
 
 		//Check for errors in linking
 		int success;
 		char infolog[512];
-		glGetProgramiv(programId, GL_LINK_STATUS, &success);
+		glGetProgramiv(m_programId, GL_LINK_STATUS, &success);
 		if (!success) {
-			glGetProgramInfoLog(programId, 512, nullptr, infolog);
+			glGetProgramInfoLog(m_programId, 512, nullptr, infolog);
 			std::cout << "\nError: Shader Program linking failed!\n" << infolog << "\n";
 		}
 	}
 
 	GLint Shaderprogram::locateUniform(const std::string &uniformName) {
-		return glGetUniformLocation(programId, uniformName.c_str());
+		try {
+			GLint location = glGetUniformLocation(m_programId, uniformName.c_str());
+			if (location == -1) { throw uniformName;}
+			return location;
+		}
+		catch (std::string e) {
+			std::cout << "\nUniform not found:" << e;
+			exit(EXIT_FAILURE);
+		}
 	}
 
 	void Shaderprogram::setInt(const std::string& uniformName, int value) {
@@ -79,11 +87,15 @@ namespace Creyon {
 		glUniform1f(locateUniform(uniformName), value);
 	}
 
-	void Shaderprogram::setVec3(const std::string& uniformName, vector3d& value) {
+	void Shaderprogram::setVec3(const std::string& uniformName, Vector3d& value) {
 		glUniform3f(locateUniform(uniformName), value.m_x, value.m_y, value.m_z);
 	}
 
-	void Shaderprogram::setMat44(const std::string& uniformName, Mat44& value) {
-		glUniformMatrix4fv(locateUniform(uniformName), 1, GL_TRUE, value.m_elems);
+	void Shaderprogram::setMat44(const std::string& uniformName, const Mat44& value) {
+		glUniformMatrix4fv(locateUniform(uniformName), 1, GL_TRUE, &value);
+	}
+
+	void Shaderprogram::setMat33(const std::string& uniformName, const Mat33& value) {
+		glUniformMatrix3fv(locateUniform(uniformName), 1, GL_TRUE, &value);
 	}
 }

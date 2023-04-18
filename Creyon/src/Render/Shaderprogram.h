@@ -12,7 +12,7 @@ namespace Creyon {
 	class Shaderprogram
 	{
 	private:
-		unsigned int programId;
+		unsigned int m_programId;
 	
 	public:
 		
@@ -21,12 +21,12 @@ namespace Creyon {
 		
 		//Gets the Shaderprogram ID
 		inline unsigned int getId() {
-			return programId;
+			return m_programId;
 		}
 
 		//Use the Shader Program
 		inline void useProgram() {
-			glUseProgram(programId);
+			glUseProgram(m_programId);
 		}
 		
 		// Add a Shader to program object
@@ -45,10 +45,13 @@ namespace Creyon {
 		void setFloat(const std::string& uniformName, float value);
 
 		//Locates and sets vec3 value to a uniform
-		void setVec3(const std::string& uniformName, vector3d& value);
+		void setVec3(const std::string& uniformName, Vector3d& value);
 
 		//Locates and sets Mat44 value to a uniform
-		void setMat44(const std::string& uniformName, Mat44& value);
+		void setMat44(const std::string& uniformName, const Mat44& value);
+
+		//Locates and sets Mat33 value to a uniform
+		void setMat33(const std::string& uniformName, const Mat33& value);
 	};
 }
 
