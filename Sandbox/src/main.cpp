@@ -1,8 +1,9 @@
-#include "EngineApp.h"
+#include "Game.h"
 
 int main() {
-	using Creyon::EngineApp;
-	EngineApp Game;
-	Game.Run();
+	
+	Creyon::Game game_name;
+	game_name.Run();
+	
 	return 0;
 }
