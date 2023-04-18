@@ -1,5 +1,5 @@
 # CreyonEngine
-CreyonEngine is an open-source 3D Game Engine developed in C++ geared towards development creation of RPG or Open World games. It is developed by an individual developer as a long-term fun project.
+CreyonEngine is an open-source 3D Game Engine developed in C++ geared towards creation of RPG or Open World games. It is developed by an individual developer as a long-term fun project.
 
 ## Current Development Plans?
 * Developing a Rendering System
