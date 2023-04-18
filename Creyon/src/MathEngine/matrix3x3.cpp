@@ -10,12 +10,6 @@ namespace Creyon {
                    a1,b1,c1,
                    a2,b2,c2}
     {}
-
-    Mat33::Mat33(const float *p_array)
-        : m_elems{p_array[0],  p_array[1],  p_array[2],
-                  p_array[3],  p_array[4],  p_array[5],
-                  p_array[6],  p_array[7],  p_array[8]}
-    {}
     
     Mat33::Mat33(const Mat33& mat3) {
         *this = mat3;
@@ -32,27 +26,26 @@ namespace Creyon {
 
     Mat33 Mat33::operator+(const Mat33& mat)const {
 
-        return Mat33(m_elems[0] + mat.m_elems[0], m_elems[1] + mat.m_elems[1], m_elems[2] + mat.m_elems[2],
-                          m_elems[3] + mat.m_elems[3], m_elems[4] + mat.m_elems[4], m_elems[5] + mat.m_elems[5],
-                          m_elems[6] + mat.m_elems[6], m_elems[7] + mat.m_elems[7], m_elems[8] + mat.m_elems[8]);
+        return Mat33(m_elems[0] + mat[0], m_elems[1] + mat[1], m_elems[2] + mat[2],
+					 m_elems[3] + mat[3], m_elems[4] + mat[4], m_elems[5] + mat[5],
+					 m_elems[6] + mat[6], m_elems[7] + mat[7], m_elems[8] + mat[8]);
     }
 
     Mat33 Mat33::operator-(const Mat33& mat)const {
 
-        return Mat33(m_elems[0] - mat.m_elems[0], m_elems[1] - mat.m_elems[1], m_elems[2] - mat.m_elems[2],
-                          m_elems[3] - mat.m_elems[3], m_elems[4] - mat.m_elems[4], m_elems[5] - mat.m_elems[5],
-                          m_elems[6] - mat.m_elems[6], m_elems[7] - mat.m_elems[7], m_elems[8] - mat.m_elems[8]);
+        return Mat33(m_elems[0] - mat[0], m_elems[1] - mat[1], m_elems[2] - mat[2],
+					 m_elems[3] - mat[3], m_elems[4] - mat[4], m_elems[5] - mat[5],
+					 m_elems[6] - mat[6], m_elems[7] - mat[7], m_elems[8] - mat[8]);
     }
 
     Mat33 Mat33::operator*(const Mat33& mat)const {
-
         Mat33 a;
 		
 		//Matrix multiplication
 		for (int i = 0; i < 9; i+=3) { //i represents row's first element
-			a.m_elems[i] = m_elems[i] * mat.m_elems[0] + m_elems[i + 1] * mat.m_elems[3] + m_elems[i + 2] * mat.m_elems[6];
-			a.m_elems[i+1] = m_elems[i] * mat.m_elems[1] + m_elems[i + 1] * mat.m_elems[4] + m_elems[i + 2] * mat.m_elems[7];
-			a.m_elems[i+2] = m_elems[i] * mat.m_elems[2] + m_elems[i + 1] * mat.m_elems[5] + m_elems[i + 2] * mat.m_elems[8];
+			a[i] =	 m_elems[i] * mat[0] + m_elems[i + 1] * mat[3] + m_elems[i + 2] * mat[6];
+			a[i+1] = m_elems[i] * mat[1] + m_elems[i + 1] * mat[4] + m_elems[i + 2] * mat[7];
+			a[i+2] = m_elems[i] * mat[2] + m_elems[i + 1] * mat[5] + m_elems[i + 2] * mat[8];
 		}
 
 		return a;
@@ -61,8 +54,8 @@ namespace Creyon {
     Mat33 Mat33::operator*(float f)const {
 		//Multiply each element by f
         return Mat33(m_elems[0] * f, m_elems[1] * f, m_elems[2] * f,
-                          m_elems[3] * f, m_elems[4] * f, m_elems[5] * f,
-                          m_elems[6] * f, m_elems[7] * f, m_elems[8] * f);
+					 m_elems[3] * f, m_elems[4] * f, m_elems[5] * f,
+					 m_elems[6] * f, m_elems[7] * f, m_elems[8] * f);
     }
 
     Mat33 Mat33::operator/(float f)const {
@@ -72,12 +65,11 @@ namespace Creyon {
             exit(EXIT_FAILURE);
         }
         return Mat33(m_elems[0] / f, m_elems[1] / f, m_elems[2] / f,
-                          m_elems[3] / f, m_elems[4] / f, m_elems[5] / f,
-                          m_elems[6] / f, m_elems[7] / f, m_elems[8] / f);
+					 m_elems[3] / f, m_elems[4] / f, m_elems[5] / f,
+					 m_elems[6] / f, m_elems[7] / f, m_elems[8] / f);
     }
 
     Mat33 operator*(float f, Mat33& mat) {
-
         return mat * f; //calls above overloaded mat*f
     }
 
@@ -92,8 +84,8 @@ namespace Creyon {
 	
     float det(const Mat33& mat) {
         //returns determinant of a 3x3 matrix
-        return mat.m_elems[0] * (mat.m_elems[4] * mat.m_elems[8] - mat.m_elems[5] * mat.m_elems[7])
-            - mat.m_elems[1] * (mat.m_elems[3] * mat.m_elems[8] - mat.m_elems[6] * mat.m_elems[5])
-            + mat.m_elems[2] * (mat.m_elems[3] * mat.m_elems[7] - mat.m_elems[6] * mat.m_elems[4]);
+        return mat[0] * (mat[4] * mat[8] - mat[5] * mat[7])
+            - mat[1] * (mat[3] * mat[8] - mat[6] * mat[5])
+            + mat[2] * (mat[3] * mat[7] - mat[6] * mat[4]);
     }
 }
