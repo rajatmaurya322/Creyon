@@ -14,21 +14,19 @@ namespace Creyon {
 
 	Mat44 Camera::lookAt(){
 		m_target = m_pos + m_front; //Updates the camera target
-		vector3d direction = normalize(m_pos - m_target);
-		vector3d right = normalize(cross(m_up, direction));
-		vector3d up = cross(direction, right);
+		Vector3d direction = normalize(m_pos - m_target);
+		Vector3d right = normalize(cross(m_up, direction));
+		Vector3d up = cross(direction, right);
 
 		//Constructing the lookAt matrix
-		Mat44 LookAt{	right.m_x,		up.m_x,		direction.m_x,		0.0f,
+		return Mat44{	right.m_x,		up.m_x,		direction.m_x,		0.0f,
 						right.m_y,		up.m_y,		direction.m_y,		0.0f,
 						right.m_z,		up.m_z,		direction.m_z,		0.0f,
-					  -(right*m_pos), -(up*m_pos), -(direction*m_pos),  1.0f };
-		
-		return LookAt;
+					  -(right*m_pos), -(up*m_pos), -(direction*m_pos),	1.0f };
 	}
 
-	void Camera::onKey() {
-		float camspeed = m_speed * getDelta() ;
+	void Camera::onKey(float delta) {
+		float camspeed = m_speed * delta ;
 
 		if (isPressed(GLFW_KEY_W)) {
 			m_pos = m_pos + camspeed * m_front;		//(Forward)
@@ -44,11 +42,11 @@ namespace Creyon {
 		}
 	}
 	
-	void Camera::onMouseMotion() {
+	void Camera::onMouseMotion(float offsetX, float offsetY) {
 	
 		//Increase camera's yaw and pitch angles on mouse movement
-		m_yaw += getOffsetX();
-		m_pitch += getOffsetY();
+		m_yaw += offsetX;
+		m_pitch += offsetY;
 
 		//Prevent camera from looking straight up or down(messes up the lookAt matrix)
 		if (m_pitch > 89.0f)
@@ -57,7 +55,7 @@ namespace Creyon {
 			m_pitch = -89.0f;
 
 		//Update camera's front
-		vector3d tempFront;
+		Vector3d tempFront;
 		tempFront.m_x = cos(toRad(m_yaw)) * cos(toRad(m_pitch));
 		tempFront.m_y = sin(toRad(m_pitch));
 		tempFront.m_z = sin(toRad(m_yaw)) * cos(toRad(m_pitch));

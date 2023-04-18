@@ -11,7 +11,7 @@ namespace Creyon {
 
 	class Camera:public Entity {
 	private:
-		vector3d m_pos, m_target, m_up, m_front;
+		Vector3d m_pos, m_target, m_up, m_front;
 		float m_speed, m_yaw, m_pitch;
 
 	public:
@@ -21,10 +21,10 @@ namespace Creyon {
 		Mat44 lookAt();
 
 		//Handles Keyboard Inputs
-		void onKey() override;
+		void onKey(float delta) override;
 
 		//Handles Mouse Inputs
-		void onMouseMotion() override;
+		void onMouseMotion(float offsetX , float offsetY) override;
 
 	};
 	//Reference: LearnOpengl.com
