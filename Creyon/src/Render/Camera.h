@@ -10,11 +10,10 @@
 namespace Creyon {
 
 	class Camera:public Entity {
-	private:
+	public:
 		Vector3d m_pos, m_target, m_up, m_front;
 		float m_speed, m_yaw, m_pitch;
-
-	public:
+		
 		Camera();
 
 		//Generates the lookAt matrix
