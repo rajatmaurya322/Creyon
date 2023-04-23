@@ -2,6 +2,7 @@
 
 #include <map>
 #include "Utilities/Utility.h"
+#include <iostream>
 #include "Input.h"
 
 namespace Creyon {
