@@ -15,7 +15,7 @@ namespace Creyon {
 	}
 
 	void VertexArray::unbind() {
-		//Unbinds the Vertex Array object
+		//Unbinds all the Vertex Array objects
 		glBindVertexArray(0);
 	}
 

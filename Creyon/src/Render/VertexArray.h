@@ -15,10 +15,10 @@ namespace Creyon {
 
 		//Binds a Vertex Array
 		void bind();
-
-		//Unbinds a Vertex Array
-		void unbind();
-
+		
+		//Unbinds all Vertex Arrays
+		static void unbind();
 	};
+
 
 }
