@@ -9,7 +9,6 @@
 //Namespace is Creyon
 namespace Creyon {
 	
-	//Class representing a texture object
 	class Texture{
 	private:
 		unsigned int texId;
