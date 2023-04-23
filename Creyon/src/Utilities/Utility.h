@@ -3,7 +3,6 @@
 #include <cmath>
 #include "glad/glad.h"
 #include "GLFW/glfw3.h"
-#include <iostream>
 #include <filesystem>
 
 //Contains Constants and Functions which can be used anywhere 
