@@ -87,7 +87,7 @@ namespace Creyon {
 		glUniform1f(locateUniform(uniformName), value);
 	}
 
-	void Shaderprogram::setVec3(const std::string& uniformName, Vector3d& value) {
+	void Shaderprogram::setVec3(const std::string& uniformName, const Vector3d& value) {
 		glUniform3f(locateUniform(uniformName), value.m_x, value.m_y, value.m_z);
 	}
 
@@ -97,5 +97,35 @@ namespace Creyon {
 
 	void Shaderprogram::setMat33(const std::string& uniformName, const Mat33& value) {
 		glUniformMatrix3fv(locateUniform(uniformName), 1, GL_TRUE, &value);
+	}
+
+	void Shaderprogram::setDirectionalLight(const std::string& uniformName, const DirectionalLight& value) {
+		setVec3(uniformName + ".direction", value.m_direction);
+		setVec3(uniformName + ".ambient", value.m_ambient);
+		setVec3(uniformName + ".diffuse", value.m_diffuse);
+		setVec3(uniformName + ".specular", value.m_specular);
+	}
+
+	void Shaderprogram::setPointLight(const std::string& uniformName, const PointLight& value) {
+		setVec3(uniformName + ".position", value.m_position);
+		setVec3(uniformName + ".ambient", value.m_ambient);
+		setVec3(uniformName + ".diffuse", value.m_diffuse);
+		setVec3(uniformName + ".specular", value.m_specular);
+		setFloat(uniformName + ".constant", value.m_constant);
+		setFloat(uniformName + ".linear", value.m_linear);
+		setFloat(uniformName + ".quadratic", value.m_quadratic);
+	}
+
+	void Shaderprogram::setSpotLight(const std::string& uniformName, const SpotLight& value) {
+		setVec3(uniformName + ".position", value.m_position);
+		setVec3(uniformName + ".direction", value.m_direction);
+		setVec3(uniformName + ".ambient", value.m_ambient);
+		setVec3(uniformName + ".diffuse", value.m_diffuse);
+		setVec3(uniformName + ".specular", value.m_specular);
+		setFloat(uniformName + ".constant", value.m_constant);
+		setFloat(uniformName + ".linear", value.m_linear);
+		setFloat(uniformName + ".quadratic", value.m_quadratic);
+		setFloat(uniformName + ".cutoff", value.m_cutoff);
+		setFloat(uniformName + ".outerCutoff", value.m_outerCutoff);
 	}
 }
