@@ -81,6 +81,15 @@
     <ClInclude Include="src\UIElements\Button.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="src\Lights\DirectionalLight.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Lights\PointLight.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Lights\SpotLight.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\MathEngine\matrix2x2.cpp">
@@ -140,11 +149,20 @@
     <ClCompile Include="src\UIElements\Button.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="src\Lights\DirectionalLight.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Lights\PointLight.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Lights\SpotLight.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="src\Render\Shaders\VertexShader.glsl" />
-    <None Include="src\Render\Shaders\FragmentShader.glsl" />
-    <None Include="src\Render\Shaders\lightSource.glsl" />
-    <None Include="src\Render\Shaders\lightSourceFragment.glsl" />
+    <None Include="src\Shaders\PhongLightingVS.glsl" />
+    <None Include="src\Shaders\PhongLightingFS.glsl" />
+    <None Include="src\Shaders\LightSourceVS.glsl" />
+    <None Include="src\Shaders\LightSourceFS.glsl" />
   </ItemGroup>
 </Project>
