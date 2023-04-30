@@ -1,9 +1,9 @@
 #pragma once
 
-#include <map>
 #include "Utilities/Utility.h"
-#include <iostream>
 #include "Input.h"
+#include <map>
+#include <iostream>
 
 namespace Creyon {
 
@@ -23,7 +23,7 @@ namespace Creyon {
 	public:
 
 		//Updates behaviours of the entity
-		virtual void update();
+		void update();
 
 		//Records Keyboard's state changes
 		static void changeKeyState(bool press, int key, int scancode, int mods);
