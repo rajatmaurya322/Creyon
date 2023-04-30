@@ -48,16 +48,16 @@
     <ClInclude Include="src\Render\Window.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\Render\Shaderprogram.h">
+    <ClInclude Include="src\Render\GL_Objects\Shaderprogram.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="src\Engine\CreyonEngine.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\Render\stb_image.h">
+    <ClInclude Include="src\thirdparty\include\stb_image\stb_image.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\Render\Texture.h">
+    <ClInclude Include="src\Render\GL_Objects\Texture.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="src\MathEngine\quaternion.h">
@@ -66,10 +66,10 @@
     <ClInclude Include="src\Render\Camera.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\Render\VertexBuffer.h">
+    <ClInclude Include="src\Render\GL_Objects\VertexBuffer.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\Render\VertexArray.h">
+    <ClInclude Include="src\Render\GL_Objects\VertexArray.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="src\Core\Entity.h">
@@ -88,6 +88,276 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="src\Lights\SpotLight.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Render\Model\Mesh.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Render\GL_Objects\ElementBuffer.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Render\Model\Model.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\thirdparty\include\assimp\Compiler\poppack1.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\thirdparty\include\assimp\Compiler\pstdint.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\thirdparty\include\assimp\Compiler\pushpack1.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\thirdparty\include\assimp\port\AndroidJNI\AndroidJNIIOSystem.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\thirdparty\include\assimp\port\AndroidJNI\BundledAssetIOSystem.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\thirdparty\include\assimp\aabb.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\thirdparty\include\assimp\ai_assert.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\thirdparty\include\assimp\anim.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\thirdparty\include\assimp\AssertHandler.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\thirdparty\include\assimp\Base64.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\thirdparty\include\assimp\BaseImporter.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\thirdparty\include\assimp\Bitmap.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\thirdparty\include\assimp\BlobIOSystem.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\thirdparty\include\assimp\ByteSwapper.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\thirdparty\include\assimp\camera.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\thirdparty\include\assimp\cexport.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\thirdparty\include\assimp\cfileio.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\thirdparty\include\assimp\cimport.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\thirdparty\include\assimp\ColladaMetaData.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\thirdparty\include\assimp\color4.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\thirdparty\include\assimp\commonMetaData.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\thirdparty\include\assimp\config.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\thirdparty\include\assimp\CreateAnimMesh.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\thirdparty\include\assimp\DefaultIOStream.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\thirdparty\include\assimp\DefaultIOSystem.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\thirdparty\include\assimp\DefaultLogger.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\thirdparty\include\assimp\defs.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\thirdparty\include\assimp\Exceptional.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\thirdparty\include\assimp\Exporter.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\thirdparty\include\assimp\fast_atof.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\thirdparty\include\assimp\GenericProperty.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\thirdparty\include\assimp\GltfMaterial.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\thirdparty\include\assimp\Hash.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\thirdparty\include\assimp\Importer.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\thirdparty\include\assimp\importerdesc.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\thirdparty\include\assimp\IOStream.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\thirdparty\include\assimp\IOStreamBuffer.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\thirdparty\include\assimp\IOSystem.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\thirdparty\include\assimp\light.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\thirdparty\include\assimp\LineSplitter.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\thirdparty\include\assimp\LogAux.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\thirdparty\include\assimp\Logger.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\thirdparty\include\assimp\LogStream.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\thirdparty\include\assimp\material.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\thirdparty\include\assimp\MathFunctions.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\thirdparty\include\assimp\matrix3x3.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\thirdparty\include\assimp\matrix4x4.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\thirdparty\include\assimp\MemoryIOWrapper.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\thirdparty\include\assimp\mesh.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\thirdparty\include\assimp\metadata.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\thirdparty\include\assimp\NullLogger.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\thirdparty\include\assimp\ObjMaterial.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\thirdparty\include\assimp\ParsingUtils.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\thirdparty\include\assimp\pbrmaterial.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\thirdparty\include\assimp\postprocess.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\thirdparty\include\assimp\Profiler.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\thirdparty\include\assimp\ProgressHandler.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\thirdparty\include\assimp\qnan.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\thirdparty\include\assimp\quaternion.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\thirdparty\include\assimp\RemoveComments.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\thirdparty\include\assimp\scene.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\thirdparty\include\assimp\SceneCombiner.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\thirdparty\include\assimp\SGSpatialSort.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\thirdparty\include\assimp\SkeletonMeshBuilder.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\thirdparty\include\assimp\SmallVector.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\thirdparty\include\assimp\SmoothingGroups.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\thirdparty\include\assimp\SpatialSort.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\thirdparty\include\assimp\StandardShapes.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\thirdparty\include\assimp\StreamReader.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\thirdparty\include\assimp\StreamWriter.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\thirdparty\include\assimp\StringComparison.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\thirdparty\include\assimp\StringUtils.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\thirdparty\include\assimp\Subdivision.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\thirdparty\include\assimp\texture.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\thirdparty\include\assimp\TinyFormatter.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\thirdparty\include\assimp\types.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\thirdparty\include\assimp\vector2.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\thirdparty\include\assimp\vector3.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\thirdparty\include\assimp\version.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\thirdparty\include\assimp\Vertex.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\thirdparty\include\assimp\XmlParser.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\thirdparty\include\assimp\XMLTools.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\thirdparty\include\assimp\ZipArchiveIOSystem.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\thirdparty\include\glad\glad.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\thirdparty\include\GLFW\glfw3.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\thirdparty\include\GLFW\glfw3native.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\thirdparty\include\KHR\khrplatform.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -116,10 +386,7 @@
     <ClCompile Include="src\Render\Window.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\Render\Shaderprogram.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Render\stb_image.cpp">
+    <ClCompile Include="src\Render\GL_Objects\Shaderprogram.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="src\MathEngine\vector2d.cpp">
@@ -128,7 +395,7 @@
     <ClCompile Include="src\MathEngine\vector4d.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\Render\Texture.cpp">
+    <ClCompile Include="src\Render\GL_Objects\Texture.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="src\MathEngine\quaternion.cpp">
@@ -137,10 +404,10 @@
     <ClCompile Include="src\Render\Camera.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\Render\VertexBuffer.cpp">
+    <ClCompile Include="src\Render\GL_Objects\VertexBuffer.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\Render\VertexArray.cpp">
+    <ClCompile Include="src\Render\GL_Objects\VertexArray.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="src\Core\Entity.cpp">
@@ -158,11 +425,59 @@
     <ClCompile Include="src\Lights\SpotLight.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="src\Render\Model\Mesh.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Render\GL_Objects\ElementBuffer.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\thirdparty\include\stb_image\stb_image.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Render\Model\Model.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="src\Shaders\PhongLightingVS.glsl" />
     <None Include="src\Shaders\PhongLightingFS.glsl" />
     <None Include="src\Shaders\LightSourceVS.glsl" />
     <None Include="src\Shaders\LightSourceFS.glsl" />
+    <None Include="src\thirdparty\include\assimp\color4.inl">
+      <Filter>Header Files</Filter>
+    </None>
+    <None Include="src\thirdparty\include\assimp\material.inl">
+      <Filter>Header Files</Filter>
+    </None>
+    <None Include="src\thirdparty\include\assimp\matrix3x3.inl">
+      <Filter>Header Files</Filter>
+    </None>
+    <None Include="src\thirdparty\include\assimp\matrix4x4.inl">
+      <Filter>Header Files</Filter>
+    </None>
+    <None Include="src\thirdparty\include\assimp\quaternion.inl">
+      <Filter>Header Files</Filter>
+    </None>
+    <None Include="src\thirdparty\include\assimp\SmoothingGroups.inl">
+      <Filter>Header Files</Filter>
+    </None>
+    <None Include="src\thirdparty\include\assimp\vector2.inl">
+      <Filter>Header Files</Filter>
+    </None>
+    <None Include="src\thirdparty\include\assimp\vector3.inl">
+      <Filter>Header Files</Filter>
+    </None>
+    <None Include="src\thirdparty\include\GLFW\LICENSE.md" />
+    <None Include="src\sponza\scene.bin">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="src\sponza\scene.gltf" />
+  </ItemGroup>
+  <ItemGroup>
+    <Library Include="src\thirdparty\lib\glfw3.lib" />
+    <Library Include="src\thirdparty\lib\assimp-vc142-mt.lib" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="src\sponza\license.txt" />
   </ItemGroup>
 </Project>
