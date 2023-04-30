@@ -10,7 +10,7 @@ namespace Creyon {
 	
 	public:
 
-		//Generates a single Vertex Array and binds it
+		//Generates a single Vertex Array
 		VertexArray();
 
 		//Binds a Vertex Array
