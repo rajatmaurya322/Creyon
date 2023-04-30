@@ -4,20 +4,18 @@
 namespace Creyon{
 	
 	Mat44 translate(const float dX, const float dY, const float dZ) {
-		Mat44 trans{	1.0f,	0.0f,	0.0f,	0.0f,
+		return Mat44{	1.0f,	0.0f,	0.0f,	0.0f,
 						0.0f,	1.0f,	0.0f,	0.0f,
 						0.0f,	0.0f,	1.0f,	0.0f,
 						dX,		dY,		dZ,		1.0f };
 
-		return trans;
 	}
 
 	Mat44 translate(const Vector3d& disp) {
-		Mat44 trans{	1.0f,		0.0f,		0.0f,		0.0f,
+		return Mat44{	1.0f,		0.0f,		0.0f,		0.0f,
 						0.0f,		1.0f,		0.0f,		0.0f,
 						0.0f,		0.0f,		1.0f,		0.0f,
 						disp.m_x,	disp.m_y,	disp.m_z,	1.0f };
-		return trans;
 	}
 
 	Mat44 rotateX(const float angle) {
@@ -83,7 +81,7 @@ namespace Creyon{
 						0.0f,			0.0f,		0.0f,	1.0f };
 	}
 
-	Vector3d qrotate(const float& angle, const Vector3d& vec, const Vector3d& axis){
+	Vector3d qrotate(const float angle, const Vector3d& vec, const Vector3d& axis){
 		float radangle = toRad(angle);
 
 		float sinRadAngle = sinf(radangle / 2.0f);
@@ -122,11 +120,10 @@ namespace Creyon{
 
 		return reflect;
 	}
-
-	//Resource: scratchapixel.com
 	
-	//Orthographic Projection converts 3D coordinates to 2D and does not consider depth 
+	
 	Mat44 ortho(const float left, const float top, const float right, const float bottom, const float far, const float near) {
+		//Orthographic Projection converts 3D coordinates to 2D and does not consider depth 
 		Mat44 orthographic;
 		
 		orthographic[0] = 2 / (right - left);
@@ -138,19 +135,18 @@ namespace Creyon{
 
 		return orthographic;
 	}
-
-	//Resource: scratchapixel.com
 	
-	//Perspective Projection: Converts 3D coordinates to project onto view frustum and considers depth
-	Mat44 persp(const float aspect, const float fieldofview, const float far, const float near) {
+	Mat44 persp(const float aspect, const float fieldofview, const float near, const float far) {
+		//Perspective Projection: Converts 3D coordinates to project onto view frustum and considers depth
 		
+		float cotHalfFov = 1.0f / tanf( toRad(fieldofview)/2.0f );
+		
+		//Default matrix is always identity matrix so diagonal values need to be changed
 		Mat44 perspective;
-		
-		float half_fov = fieldofview / 2.0f;
 
-		perspective[0] = 1.0f / ( aspect * tanf(half_fov) );
-		perspective[5] = 1.0f / tanf(half_fov);
-		perspective[10] = (far + near) / (near - far);
+		perspective[0] = cotHalfFov / aspect;
+		perspective[5] = cotHalfFov;
+		perspective[10] = (near + far) / (near - far);
 		perspective[11] = -1.0f;
 		perspective[14] = (2 * far * near) / (near - far);
 		perspective[15] = 0.0f;

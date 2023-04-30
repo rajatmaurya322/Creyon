@@ -37,7 +37,7 @@ namespace Creyon{
 	Mat44 timeRotateZ();
 
 	//Rotates about axis by given angle by using Quaternions 
-	Vector3d qrotate(const float& angle, const Vector3d& vec, const Vector3d& axis);
+	Vector3d qrotate(const float angle, const Vector3d& vec, const Vector3d& axis);
 
 	//Scales along the axes by given scale factors
 	Mat44 scale(const float scaleX, const float scaleY, const float scaleZ);
@@ -47,12 +47,16 @@ namespace Creyon{
 
 	//Reflection about the given axis
 	Mat44 reflectaboutaxis(const Vector4d& vec4);
-
+	
+	//Resource: scratchapixel.com
+	
 	//Orthographic(Parallel) projection
 	Mat44 ortho(const float left, const float top, const float right, const float bottom, const float far, const float near);
-
+	
+	//Reference: https://chaosinmotion.com/2010/09/06/goodbye-far-clipping-plane/
+	
 	//Perspective projection
-	Mat44 persp(const float aspect, const float fieldofview, const float far, const float near);
+	Mat44 persp(const float aspect, const float fieldofview, const float near, const float far);
 
 	//Returns the Normal Matrix
 	Mat33 NormalMatrix(const Mat44& mat);
