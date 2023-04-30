@@ -14,12 +14,9 @@
 #include "Core/Entity.h"
 #include "Render/Window.h"
 #include "Render/Camera.h"
-#include "Render/Shaderprogram.h"
-#include "Render/Texture.h"
-#include "Render/VertexBuffer.h"
-#include "Render/VertexArray.h"
 #include "Lights/DirectionalLight.h"
 #include "Lights/PointLight.h"
 #include "Lights/SpotLight.h"
+#include "Render/Model/Model.h"
 #include <memory>
 #include <iostream>
