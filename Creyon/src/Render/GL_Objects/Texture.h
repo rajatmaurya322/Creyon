@@ -1,32 +1,26 @@
 #pragma once
 
-#include "glad/glad.h"
-#include "stb_image.h"
+#include "stb_image/stb_image.h"
 #include "Utilities/Utility.h"
 #include <iostream>
-#include <string>
 
 //Namespace is Creyon
 namespace Creyon {
 	
 	class Texture{
 	private:
-		unsigned int texId;
-
+		unsigned int m_texId;
+	
 	public:
+		enum class Type{Diffuse, Specular};
+		Type m_texType;
+		std::string m_path;
 
-		enum class Format { JPG, PNG };
-		
 		//Generates a single texture and sets it as target
-		Texture();
+		Texture(Type Texturetype);
 
 		//Sets the calling texture object as target texture
 		void setTexAsTarget();
-
-		//Get the texture Id
-		inline unsigned int getTexId() {
-			return texId;
-		}
 
 		//Configures texture wrapping modes
 		void TexWrap(GLint mode_Xaxis, GLint mode_Yaxis);
@@ -35,7 +29,7 @@ namespace Creyon {
 		void TexFilters(GLenum filter, GLint mode);
 
 		//Loads an image into the texture object
-		void loadImg(const char* pathtoimg, Format imgformat);
+		void loadImg(const char* path, const std::string& directory, bool gamma = false);
 		
 		//Sets the texture unit location for texture object
 		void setTexUnit(GLenum TextureUnit);
