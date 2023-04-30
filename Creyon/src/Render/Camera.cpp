@@ -3,12 +3,12 @@
 namespace Creyon {
 
 	Camera::Camera()
-	:m_pos{ 0.0f,0.0f,3.0f },
+	:m_pos{ 0.0f,1.0f,4.0f },
 	 m_front{ 0.0f,0.0f,-1.0f },
 	 m_up{ 0.0f,1.0f,0.0f },
 	 m_yaw{ -90.0f },
 	 m_pitch{ 0.0f },
-	 m_speed{3.0f},
+	 m_speed{5.0f},
 	 m_target{ m_pos + m_front }
 	{}
 
