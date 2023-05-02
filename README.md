@@ -7,11 +7,9 @@ CreyonEngine is an open-source 3D Game Engine developed in C++ geared towards cr
 * User Interface
 
 ## Third-Party Libraries Used:
-Below is the list of libraries used with their name and link to their official site/github repository. Do check them out and support them.
+Below is the list of libraries used with their name and link to their official github repository. Do check them out and support them.
 
 * [GLFW](https://github.com/glfw/glfw)
-  
-  Website: https://www.glfw.org/
 
 * [glad](https://github.com/Dav1dde/glad)
 
