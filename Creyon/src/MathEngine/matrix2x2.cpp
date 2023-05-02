@@ -10,11 +10,6 @@ namespace Creyon {
                    a1,b1 }
     {}
 
-    Mat22::Mat22(const float *p_array)
-        :m_elems{p_array[0], p_array[1], 
-                 p_array[2], p_array[3]}
-    {}
-
     Mat22::Mat22(const Mat22& mat2) {
         *this = mat2;
     }

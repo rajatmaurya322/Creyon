@@ -26,9 +26,6 @@ namespace Creyon {
 		//creates a 2x2 matrix with given values
         Mat22(float a0, float b0, float a1, float b1);
 
-		//Creates 2x2 matrix with given array
-        Mat22(const float *p_array);
-
 		//Copy Constructor
         Mat22(const Mat22& mat2);
 
