@@ -4,24 +4,29 @@ namespace Creyon {
 	
 	//Initialise the KeyMap
 	std::map<int, KeyData> Entity::m_KeyMap{
-		{GLFW_KEY_W,{false,0,0}},
-		{GLFW_KEY_S,{false,0,0}},
-		{GLFW_KEY_A,{false,0,0}},
-		{GLFW_KEY_D,{false,0,0}}
+		{GLFW_KEY_W,		{false,0} },
+		{GLFW_KEY_S,		{false,0} },
+		{GLFW_KEY_A,		{false,0} },
+		{GLFW_KEY_D,		{false,0} },
+		{GLFW_KEY_ESCAPE,	{false,0} }
 	};
 
+	MousePos Entity::m_position{ false, 0.0f, 0.0f };
+	
+	float Entity::m_delta{ 0.0f };
+
 	void Entity::update() {
-		//Calls the defined behaviours
 		onKey(m_delta);
-		if (m_position.motion) {   //Checks if mouse has moved
+		
+		//Checks if mouse has moved
+		if (m_position.motion) {
 			onMouseMotion(m_position.offsetX, m_position.offsetY);
 		}
 	}
 
-	void Entity::changeKeyState(bool press, int key, int scancode, int mods) {
+	void Entity::changeKeyState(bool press, int key, int mods) {
 		if (m_KeyMap.find(key) != m_KeyMap.end()) {
 			m_KeyMap[key].pressed = press;
-			m_KeyMap[key].scancode = scancode;
 			m_KeyMap[key].mods = mods;
 		}
 		else {
@@ -36,12 +41,10 @@ namespace Creyon {
 	}
 
 	bool Entity::isPressed(int key) {
-		if (m_KeyMap.find(key) != m_KeyMap.end()) {
+		if (m_KeyMap.find(key) != m_KeyMap.end())
 			return m_KeyMap[key].pressed;
-		}
-		else {
+		else 
 			return false;
-		}
 	}
 
 	void Entity::updateDelta() {
