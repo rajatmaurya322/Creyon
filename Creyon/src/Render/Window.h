@@ -13,11 +13,11 @@ namespace Creyon {
 	private:		//All class members begin with m_ prefix
 		GLFWwindow* mp_window;
 		std::string m_title;
-		int m_width, m_height;
 		float m_lastX, m_lastY, m_sensitivity;
 		bool m_firstMouse;
 
 	public:
+		int m_width, m_height;
 
 		//creates a glfw window with given parameters
 		Window(int width, int height, std::string title);
