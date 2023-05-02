@@ -1,10 +1,10 @@
 #pragma once
 
 namespace Creyon {
-
+	
 	struct KeyData {
 		bool pressed;
-		int scancode, mods;
+		int mods;
 	};
 
 	struct MousePos {
