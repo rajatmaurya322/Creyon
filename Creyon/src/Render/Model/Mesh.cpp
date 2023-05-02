@@ -15,9 +15,8 @@ namespace Creyon {
 		EBO.loadData(m_indices, GL_STATIC_DRAW);
 
 		setVertexAttribPtr(0, 3, GL_FLOAT, GL_FALSE, sizeof(Vertex), 0);
-		setVertexAttribPtr(1, 3, GL_FLOAT, GL_FALSE, sizeof(Vertex), offsetof(Vertex, Normal));
-		setVertexAttribPtr(2, 2, GL_FLOAT, GL_FALSE, sizeof(Vertex), offsetof(Vertex, TexCoords));
-
+		setVertexAttribPtr(1, 3, GL_FLOAT, GL_FALSE, sizeof(Vertex), (void*)offsetof(Vertex, Normal));
+		setVertexAttribPtr(2, 2, GL_FLOAT, GL_FALSE, sizeof(Vertex), (void*)offsetof(Vertex, TexCoords));
 		VertexArray::unbind();
 	}
 
