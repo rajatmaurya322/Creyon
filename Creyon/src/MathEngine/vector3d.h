@@ -69,9 +69,6 @@ namespace Creyon {
     //Returns square of the magnitude of the vector
     float sq_magn(const Vector3d& v);
 
-    //Returns magnitude of the vector
-    float magn(const Vector3d& v);
-
 	//Normalize a vector
 	Vector3d normalize(const Vector3d& v);
 
