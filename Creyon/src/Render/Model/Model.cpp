@@ -45,8 +45,7 @@ namespace Creyon {
 			Vertex vertex;
 			
 			//Get the position
-			aiVector3D meshVertice = mesh->mVertices[i];
-			vertex.Position = Vector3d(meshVertice.x, meshVertice.y, meshVertice.z);
+			vertex.Position = Vector3d(mesh->mVertices[i].x, mesh->mVertices[i].y, mesh->mVertices[i].z);
 
 			//Get the normals
 			if (mesh->HasNormals()) {
@@ -55,7 +54,7 @@ namespace Creyon {
 			}
 
 			//Get the Texture Coordinates
-			if (mesh->mTextureCoords[0]) {
+			if (mesh->HasTextureCoords(0)) {
 				aiVector3D meshTexCoords = mesh->mTextureCoords[0][i];
 				vertex.TexCoords = Vector2d(meshTexCoords.x, meshTexCoords.y);
 			}
