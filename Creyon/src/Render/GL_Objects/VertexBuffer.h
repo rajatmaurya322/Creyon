@@ -34,7 +34,7 @@ namespace Creyon {
 	//Non-member functions
 
 	//Sets Vertex Attributes for the Shader and enables it
-	void setVertexAttribPtr(GLuint locationIndex, GLint size, GLenum type, GLboolean normalized, int stride, int offset);
+	void setVertexAttribPtr(GLuint locationIndex, GLint size, GLenum type, GLboolean normalized, int stride, const void* offset);
 
 }
 

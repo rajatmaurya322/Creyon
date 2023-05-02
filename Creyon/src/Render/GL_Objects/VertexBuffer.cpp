@@ -22,10 +22,9 @@ namespace Creyon {
 
 	//Non-member functions
 
-	void setVertexAttribPtr(GLuint locationIndex, GLint size, GLenum type , GLboolean normalized, int stride, int offset) {
+	void setVertexAttribPtr(GLuint locationIndex, GLint size, GLenum type , GLboolean normalized, int stride, const void* offset) {
 		//Sets location index, stride and offset of data
-		glVertexAttribPointer(locationIndex, size, type, normalized, stride, (void*)offset);
-		
+		glVertexAttribPointer(locationIndex, size, type, normalized, stride, offset);
 		//Enables Vertex Attribute
 		glEnableVertexAttribArray(locationIndex);
 	}
