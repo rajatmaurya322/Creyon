@@ -26,15 +26,13 @@ namespace Creyon {
 			std::cout << "Failed to initialize GLAD\n";
 		}
 
-		glViewport(0, 0, m_width , m_height);
-
 		//Sets the user pointer to be retrieved back in the callback function
 		glfwSetWindowUserPointer(mp_window, reinterpret_cast<void*>(this));
 	}
 
 	void Window::Init() {
 		glfwInit();  //Initialise glfw
-		glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 4);  //Set Opengl version to 4.5
+		glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 4);  //Set Opengl version to 4.3
 		glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
 		glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE); //Set to use core opengl profile
 	}
@@ -90,8 +88,6 @@ namespace Creyon {
 		//Set the members to new width and height
 		self->m_width = width;
 		self->m_height = height;
-		
-		glViewport(0, 0, width, height); //Resize viewport to new width and height
 	}
 
 	void Window::key_callback(GLFWwindow* window, int key, int scancode, int action, int mods) {
@@ -101,10 +97,10 @@ namespace Creyon {
 		if (key == GLFW_KEY_ESCAPE && action == GLFW_PRESS)
 			self->closeWindow();
 		else if (action == GLFW_PRESS) {
-			Entity::changeKeyState(true, key, scancode, mods);
+			Entity::changeKeyState(true, key, mods);
 		}
 		else if (action == GLFW_RELEASE) {
-			Entity::changeKeyState(false, key, scancode, mods);
+			Entity::changeKeyState(false, key, mods);
 		}
 		
 	}
