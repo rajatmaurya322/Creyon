@@ -1,8 +1,8 @@
 #pragma once
 
-#include "matrix4x4.h"
-#include "quaternion.h"
-#include "vector3d.h"
+#include "Matrix4x4.h"
+#include "Quaternion.h"
+#include "Vector3.h"
 #include "Utility/Utility.h"
 
 //Transforms applied as : v * ABC where v is a vector 

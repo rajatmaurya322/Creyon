@@ -17,12 +17,12 @@ namespace Creyon {
 		return diffOfProducts + err;
 	}
 
-	float toRadian(const float angleInDeg) {
-		return angleInDeg * degreeToRadian;
+	float toRadian(const float degreeAngle) {
+		return degreeAngle * degreeToRadian;
 	}
 
-	float toDegree(const float angleInRad) {
-		return angleInRad * radianToDegree;
+	float toDegree(const float radianAngle) {
+		return radianAngle * radianToDegree;
 	}
 
 	std::filesystem::path searchRootDirectory() {

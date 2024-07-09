@@ -6,14 +6,13 @@ namespace Creyon {
 		m_id = glCreateProgram();
 	}
 
-	void ShaderProgram::addShader(const char* shaderPath, GLenum shaderType) {
-
+	void ShaderProgram::addShader(std::filesystem::path shaderPath, GLenum shaderType) {
 		//read shader source
 		std::ifstream shaderFile;
 		std::string shaderCode;
 		shaderFile.exceptions(std::ios::failbit | std::ios::badbit);
 		try {
-			shaderFile.open(shaderPath);
+			shaderFile.open(shaderPath.string());
 			std::stringstream shaderStream;
 			shaderStream << shaderFile.rdbuf();
 			shaderFile.close();
@@ -27,25 +26,25 @@ namespace Creyon {
 		const char* shaderSource = shaderCode.c_str();
 
 		//create shader object
-		unsigned int shaderID;
-		shaderID = glCreateShader(shaderType);
-		glShaderSource(shaderID, 1, &shaderSource, nullptr);
+		unsigned int shaderId;
+		shaderId = glCreateShader(shaderType);
+		glShaderSource(shaderId, 1, &shaderSource, nullptr);
 		
 		//compile Shader
-		glCompileShader(shaderID);
+		glCompileShader(shaderId);
 
 		//check errors
 		int success;
 		char infoLog[512];
-		glGetShaderiv(shaderID, GL_COMPILE_STATUS, &success);
+		glGetShaderiv(shaderId, GL_COMPILE_STATUS, &success);
 		
 		if (!success) {
-			glGetShaderInfoLog(shaderID, 512, nullptr, infoLog);
+			glGetShaderInfoLog(shaderId, 512, nullptr, infoLog);
 			std::cout << "\nERROR! Shader Compilation failed\n" << infoLog << "\n";
 		}
 		else {
-			glAttachShader(m_id, shaderID);
-			glDeleteShader(shaderID);
+			glAttachShader(m_id, shaderId);
+			glDeleteShader(shaderId);
 		}
 	}
 
@@ -54,11 +53,11 @@ namespace Creyon {
 
 		//check for errors in linking
 		int success;
-		char infolog[512];
+		char infoLog[512];
 		glGetProgramiv(m_id, GL_LINK_STATUS, &success);
 		if (!success) {
-			glGetProgramInfoLog(m_id, 512, nullptr, infolog);
-			std::cout << "\nError: Shader Program linking failed!\n" << infolog << "\n";
+			glGetProgramInfoLog(m_id, 512, nullptr, infoLog);
+			std::cout << "\nError: Shader Program linking failed!\n" << infoLog << "\n";
 		}
 	}
 
