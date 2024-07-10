@@ -18,7 +18,7 @@ namespace Creyon {
 		
 		Mesh processMesh(aiMesh* mesh, const aiScene* scene);
 		
-		std::vector<Texture> loadMaterialTextures(aiMaterial* material, aiTextureType type, Texture::Type typeName);
+		//std::vector<Texture> loadMaterialTextures(aiMaterial* material, aiTextureType type, Texture::Type typeName);
 
 	public:
 		//Takes relative path to model from Creyon/src and loads it

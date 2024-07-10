@@ -24,7 +24,7 @@ namespace Creyon {
 			glUseProgram(m_id);
 		}
 		
-		void addShader(const char* shaderPath,GLenum shaderType);
+		void addShader(std::filesystem::path shaderPath, GLenum shaderType);
 		
 		//link the shader program
 		void link();
