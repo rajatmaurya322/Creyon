@@ -2,9 +2,11 @@
 
 namespace Creyon {
 
-	void mousePositionCallback(GLFWwindow* window, double x, double y) {
-		float mouseX = static_cast<float>(x);
-		float mouseY = static_cast<float>(y);
+	void cursorPositionCallback(GLFWwindow* window, double x, double y) {
+		float cursorX = static_cast<float>(x);
+		float cursorY = static_cast<float>(y);
+		EventPublisher* p_eventPublisher = reinterpret_cast<EventPublisher*>(glfwGetWindowUserPointer(window));
+		p_eventPublisher->notifyCursor(cursorX, cursorY);
 	}
 
 	void framebufferSizeCallback(GLFWwindow* window, int width, int height) {
@@ -12,8 +14,22 @@ namespace Creyon {
 	}
 
 	void keyboardCallback(GLFWwindow* window, int key, int scancode, int action, int mods) {
-		if (key == GLFW_KEY_ESCAPE && action == GLFW_PRESS)
+		EventPublisher* p_eventPublisher = reinterpret_cast<EventPublisher*>(glfwGetWindowUserPointer(window));
+		if (key == GLFW_KEY_ESCAPE && action == GLFW_PRESS) {
 			glfwSetWindowShouldClose(window, true);
+		}
+		else if(action == GLFW_PRESS){
+			p_eventPublisher->setKeyState(key, true);
+		}
+		else if (action == GLFW_RELEASE) {
+			p_eventPublisher->setKeyState(key, false);
+		}
+			
+	}
+
+	void scrollCallback(GLFWwindow* window, double x, double y) {
+		EventPublisher* p_eventPublisher = reinterpret_cast<EventPublisher*>(glfwGetWindowUserPointer(window));
+		p_eventPublisher->notifyMouseScroll(static_cast<float>(x), static_cast<float>(y));
 	}
 
 }

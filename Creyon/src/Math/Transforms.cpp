@@ -91,7 +91,7 @@ namespace Creyon{
 	
 	Mat44 perspective(const float aspect, const float fieldofview, const float near, const float far) {
 		float cotHalfFov = 1.0f / tanf( toRadian(fieldofview)/2.0f );
-
+	
 		Mat44 perspective;
 		perspective[0] = cotHalfFov / aspect;
 		perspective[5] = cotHalfFov;
