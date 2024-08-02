@@ -103,22 +103,18 @@ namespace Creyon{
 	}
 
 	Mat33 calculateNormalMatrix(const Mat44& mat) {
-		float cofactor0 =  differenceOfProduct(mat[5], mat[10], mat[9], mat[6]);
-		float cofactor1 = -differenceOfProduct(mat[4], mat[10], mat[8], mat[6]);
-		float cofactor2 =  differenceOfProduct(mat[4], mat[9],  mat[8], mat[5]);
-		float cofactor3 = -differenceOfProduct(mat[1], mat[10], mat[9], mat[2]);
-		float cofactor4 =  differenceOfProduct(mat[0], mat[10], mat[8], mat[2]);
-		float cofactor5 = -differenceOfProduct(mat[0], mat[9],  mat[8], mat[1]);
-		float cofactor6 =  differenceOfProduct(mat[1], mat[6],  mat[5], mat[2]);
-		float cofactor7 = -differenceOfProduct(mat[0], mat[6],  mat[4], mat[2]);
-		float cofactor8 =  differenceOfProduct(mat[0], mat[5],  mat[4], mat[1]);
+		Mat33 adjoint;
+		adjoint[0] =  differenceOfProduct(mat[5], mat[10], mat[9], mat[6]);
+		adjoint[1] = -differenceOfProduct(mat[4], mat[10], mat[8], mat[6]);
+		adjoint[2] =  differenceOfProduct(mat[4], mat[9],  mat[8], mat[5]);
+		adjoint[3] = -differenceOfProduct(mat[1], mat[10], mat[9], mat[2]);
+		adjoint[4] =  differenceOfProduct(mat[0], mat[10], mat[8], mat[2]);
+		adjoint[5] = -differenceOfProduct(mat[0], mat[9],  mat[8], mat[1]);
+		adjoint[6] =  differenceOfProduct(mat[1], mat[6],  mat[5], mat[2]);
+		adjoint[7] = -differenceOfProduct(mat[0], mat[6],  mat[4], mat[2]);
+		adjoint[8] =  differenceOfProduct(mat[0], mat[5],  mat[4], mat[1]);
 
-		float determinant = mat[0] * cofactor0 + mat[1] * cofactor1 + mat[2] * cofactor2;
-
-		Mat33 adjoint{ cofactor0, cofactor1, cofactor2,
-					   cofactor3, cofactor4, cofactor5,
-					   cofactor6, cofactor7, cofactor8 };
-
+		float determinant = mat[0] * adjoint[0] + mat[1] * adjoint[1] + mat[2] * adjoint[2];
 		return adjoint / determinant;
 	}
 
