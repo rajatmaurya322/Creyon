@@ -2,9 +2,8 @@
 
 namespace Creyon {
 
-	EventPublisher::EventPublisher()
-		:m_deltaTime{ 0.0f }, 
-		m_firstMouse{true},
+	EventPublisher::EventPublisher() 
+		:m_firstMouse{true},
 		m_lastCursorX{0.0f},
 		m_lastCursorY{0.0f},
 		m_sensitivity{0.1f},
@@ -15,9 +14,9 @@ namespace Creyon {
 		m_subscriberList.push_back(subscriber);
 	}
 
-	void EventPublisher::notifyKeyboard() {
+	void EventPublisher::notifyKeyboard(float deltaTime) {
 		for (std::shared_ptr<Subscriber>& subscriber : m_subscriberList) {
-			subscriber->updateKeyboard(m_keyStates, m_deltaTime);
+			subscriber->updateKeyboard(m_keyStates, deltaTime);
 		}
 	}
 

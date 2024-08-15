@@ -14,7 +14,6 @@ namespace Creyon {
 		float m_lastCursorX, m_lastCursorY, m_firstMouse, m_sensitivity;
 
 	public:
-		float m_deltaTime;
 
 		EventPublisher();
 
@@ -24,7 +23,7 @@ namespace Creyon {
 
 		void addSubscriber(const std::shared_ptr<Subscriber>& subscriber);
 
-		void notifyKeyboard();
+		void notifyKeyboard(float deltaTime);
 
 		void notifyCursor(float cursorX, float cursorY);
 
