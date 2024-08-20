@@ -18,10 +18,12 @@ namespace Creyon {
 	}
 
 	float toRadian(const float degreeAngle) {
+		const float	degreeToRadian = 0.0174532925199f;
 		return degreeAngle * degreeToRadian;
 	}
 
 	float toDegree(const float radianAngle) {
+		const float radianToDegree = 57.295779513082f;
 		return radianAngle * radianToDegree;
 	}
 
