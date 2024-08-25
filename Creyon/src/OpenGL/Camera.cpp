@@ -4,16 +4,16 @@ namespace Creyon {
 
 	void Camera::updateKeyboard(const std::unordered_map<int, bool>& keyStates, float deltaTime) {
 		if (isKeyPressed(keyStates,GLFW_KEY_W)) {
-			m_position = m_position + m_speed * deltaTime * m_front;
+			m_position += m_speed * deltaTime * m_front;
 		}
 		if (isKeyPressed(keyStates, GLFW_KEY_S)) {
-			m_position = m_position - m_speed * deltaTime * m_front;
+			m_position -= m_speed * deltaTime * m_front;
 		}
 		if (isKeyPressed(keyStates, GLFW_KEY_A)) {
-			m_position = m_position - m_speed * deltaTime * normalize(m_right);
+			m_position -= m_speed * deltaTime * normalize(m_right);
 		}
 		if (isKeyPressed(keyStates, GLFW_KEY_D)) {
-			m_position = m_position + m_speed * deltaTime * normalize(m_right);
+			m_position += m_speed * deltaTime * normalize(m_right);
 		}
 		
 	}
