@@ -43,6 +43,12 @@ namespace Creyon {
 		//scalar division of vector with s : v / s
         Vector3 operator/(float s)const;
 
+		//shorthand addition: a+=b
+		void operator+=(const Vector3& v);
+
+		//shorthand subtraction: a-=b
+		void operator-=(const Vector3& v);
+
 		//checks if two vectors are equal
         bool operator==(const Vector3& v)const {
             return m_x == v.m_x && m_y == v.m_y && m_z == v.m_z;

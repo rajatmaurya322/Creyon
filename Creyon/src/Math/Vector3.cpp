@@ -29,6 +29,18 @@ namespace Creyon {
 		return Vector3(m_x / s, m_y / s, m_z / s);
     }
 
+	void Vector3::operator+=(const Vector3& v) {
+		m_x += v.m_x;
+		m_y += v.m_y;
+		m_z += v.m_z;
+	}
+
+	void Vector3::operator-=(const Vector3& v) {
+		m_x -= v.m_x;
+		m_y -= v.m_y;
+		m_z -= v.m_z;
+	}
+
     Vector3 Vector3::operator*(const Creyon::Mat33 &mat)const{
 		return Vector3(m_x * mat[0] + m_y * mat[3] + m_z * mat[6],
 						m_x * mat[1] + m_y * mat[4] + m_z * mat[7],
