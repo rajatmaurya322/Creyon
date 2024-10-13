@@ -321,10 +321,13 @@
     <ClInclude Include="src\Window\EventPublisher.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\Window\Subscriber.h">
+    <ClInclude Include="src\Component\Input.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="src\OpenGL\Camera.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Entity\Entity.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

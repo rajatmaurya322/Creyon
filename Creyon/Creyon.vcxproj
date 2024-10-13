@@ -110,6 +110,7 @@
     </ProjectReference>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="src\Entity\Entity.h" />
     <ClInclude Include="src\Math\Quaternion.h" />
     <ClInclude Include="src\Middleware\include\assimp\aabb.h" />
     <ClInclude Include="src\Middleware\include\assimp\ai_assert.h" />
@@ -206,7 +207,7 @@
     <ClInclude Include="src\Math\Matrix4x4.h" />
     <ClInclude Include="src\Model\Model.h" />
     <ClInclude Include="src\Window\EventPublisher.h" />
-    <ClInclude Include="src\Window\Subscriber.h" />
+    <ClInclude Include="src\Component\Input.h" />
     <ClInclude Include="src\Window\WindowCallback.h" />
     <ClInclude Include="src\thirdparty\include\assimp\AssertHandler.h" />
     <ClInclude Include="src\Utility\Utility.h" />
