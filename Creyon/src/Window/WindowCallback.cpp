@@ -3,10 +3,8 @@
 namespace Creyon {
 
 	void cursorPositionCallback(GLFWwindow* window, double x, double y) {
-		float cursorX = static_cast<float>(x);
-		float cursorY = static_cast<float>(y);
 		EventPublisher* p_eventPublisher = reinterpret_cast<EventPublisher*>(glfwGetWindowUserPointer(window));
-		p_eventPublisher->notifyCursor(cursorX, cursorY);
+		p_eventPublisher->notifyCursor(static_cast<float>(x), static_cast<float>(y));
 	}
 
 	void framebufferSizeCallback(GLFWwindow* window, int width, int height) {
