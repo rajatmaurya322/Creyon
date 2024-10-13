@@ -3,7 +3,7 @@
 #include <GLFW/glfw3.h>
 #include "Math/Vector3.h"
 #include "Math/Matrix4x4.h"
-#include "Window/Subscriber.h"
+#include "Component/Input.h"
 #include "Math/Transforms.h"
 
 namespace Creyon {
