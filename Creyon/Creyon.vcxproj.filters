@@ -48,259 +48,10 @@
     <ClInclude Include="src\Model\Mesh.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\Model\Model.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="src\thirdparty\include\assimp\AssertHandler.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="src\Window\WindowCallback.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Middleware\include\assimp\Compiler\poppack1.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Middleware\include\assimp\Compiler\pstdint.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Middleware\include\assimp\Compiler\pushpack1.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Middleware\include\assimp\port\AndroidJNI\AndroidJNIIOSystem.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Middleware\include\assimp\port\AndroidJNI\BundledAssetIOSystem.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Middleware\include\assimp\aabb.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Middleware\include\assimp\ai_assert.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Middleware\include\assimp\anim.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Middleware\include\assimp\Base64.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Middleware\include\assimp\BaseImporter.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Middleware\include\assimp\Bitmap.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Middleware\include\assimp\BlobIOSystem.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Middleware\include\assimp\ByteSwapper.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Middleware\include\assimp\camera.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Middleware\include\assimp\cexport.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Middleware\include\assimp\cfileio.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Middleware\include\assimp\cimport.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Middleware\include\assimp\ColladaMetaData.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Middleware\include\assimp\color4.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Middleware\include\assimp\commonMetaData.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Middleware\include\assimp\config.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Middleware\include\assimp\CreateAnimMesh.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Middleware\include\assimp\DefaultIOStream.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Middleware\include\assimp\DefaultIOSystem.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Middleware\include\assimp\DefaultLogger.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Middleware\include\assimp\defs.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Middleware\include\assimp\Exceptional.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Middleware\include\assimp\Exporter.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Middleware\include\assimp\fast_atof.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Middleware\include\assimp\GenericProperty.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Middleware\include\assimp\GltfMaterial.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Middleware\include\assimp\Hash.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Middleware\include\assimp\Importer.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Middleware\include\assimp\importerdesc.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Middleware\include\assimp\IOStream.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Middleware\include\assimp\IOStreamBuffer.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Middleware\include\assimp\IOSystem.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Middleware\include\assimp\light.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Middleware\include\assimp\LineSplitter.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Middleware\include\assimp\LogAux.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Middleware\include\assimp\Logger.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Middleware\include\assimp\LogStream.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Middleware\include\assimp\material.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Middleware\include\assimp\MathFunctions.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Middleware\include\assimp\matrix3x3.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Middleware\include\assimp\matrix4x4.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Middleware\include\assimp\MemoryIOWrapper.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Middleware\include\assimp\mesh.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Middleware\include\assimp\metadata.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Middleware\include\assimp\NullLogger.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Middleware\include\assimp\ObjMaterial.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Middleware\include\assimp\ParsingUtils.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Middleware\include\assimp\pbrmaterial.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Middleware\include\assimp\postprocess.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Middleware\include\assimp\Profiler.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Middleware\include\assimp\ProgressHandler.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Middleware\include\assimp\qnan.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Middleware\include\assimp\quaternion.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Middleware\include\assimp\RemoveComments.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Middleware\include\assimp\scene.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Middleware\include\assimp\SceneCombiner.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Middleware\include\assimp\SGSpatialSort.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Middleware\include\assimp\SkeletonMeshBuilder.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Middleware\include\assimp\SmallVector.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Middleware\include\assimp\SmoothingGroups.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Middleware\include\assimp\SpatialSort.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Middleware\include\assimp\StandardShapes.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Middleware\include\assimp\StreamReader.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Middleware\include\assimp\StreamWriter.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Middleware\include\assimp\StringComparison.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Middleware\include\assimp\StringUtils.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Middleware\include\assimp\Subdivision.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Middleware\include\assimp\texture.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Middleware\include\assimp\TinyFormatter.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Middleware\include\assimp\types.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Middleware\include\assimp\vector2.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Middleware\include\assimp\vector3.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Middleware\include\assimp\version.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Middleware\include\assimp\Vertex.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Middleware\include\assimp\XmlParser.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Middleware\include\assimp\XMLTools.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Middleware\include\assimp\ZipArchiveIOSystem.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="src\Middleware\include\glad\glad.h">
@@ -328,6 +79,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="src\Entity\Entity.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Model\Model.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -387,37 +141,14 @@
       <Filter>Resource Files</Filter>
     </None>
     <None Include="src\sponza\scene.gltf" />
-    <None Include="src\Middleware\include\assimp\color4.inl">
-      <Filter>Header Files</Filter>
-    </None>
-    <None Include="src\Middleware\include\assimp\material.inl">
-      <Filter>Header Files</Filter>
-    </None>
-    <None Include="src\Middleware\include\assimp\matrix3x3.inl">
-      <Filter>Header Files</Filter>
-    </None>
-    <None Include="src\Middleware\include\assimp\matrix4x4.inl">
-      <Filter>Header Files</Filter>
-    </None>
-    <None Include="src\Middleware\include\assimp\quaternion.inl">
-      <Filter>Header Files</Filter>
-    </None>
-    <None Include="src\Middleware\include\assimp\SmoothingGroups.inl">
-      <Filter>Header Files</Filter>
-    </None>
-    <None Include="src\Middleware\include\assimp\vector2.inl">
-      <Filter>Header Files</Filter>
-    </None>
-    <None Include="src\Middleware\include\assimp\vector3.inl">
-      <Filter>Header Files</Filter>
-    </None>
     <None Include="src\Middleware\include\GLFW\LICENSE.md" />
+    <None Include="src\Shaders\PhongMaterialsVS.glsl" />
+    <None Include="src\Shaders\PhongMaterialsFS.glsl" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="src\sponza\license.txt" />
   </ItemGroup>
   <ItemGroup>
-    <Library Include="src\Middleware\lib\assimp-vc142-mt.lib" />
     <Library Include="src\Middleware\lib\glfw3.lib" />
   </ItemGroup>
 </Project>

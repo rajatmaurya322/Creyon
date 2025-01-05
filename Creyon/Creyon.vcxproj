@@ -69,7 +69,7 @@
       <AdditionalDependencies>SDL2.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <Lib>
-      <AdditionalDependencies>glfw3.lib;assimp-vc142-mt.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>glfw3.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Lib>
     <Lib>
       <AdditionalLibraryDirectories>$(SolutionDir)Creyon\src\Middleware\lib</AdditionalLibraryDirectories>
@@ -99,7 +99,7 @@
       <AdditionalDependencies>SDL2.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <Lib>
-      <AdditionalDependencies>glfw3.lib;assimp-vc142-mt.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>glfw3.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Lib>
     <Lib>
       <AdditionalLibraryDirectories>$(SolutionDir)Creyon\src\Middleware\lib</AdditionalLibraryDirectories>
@@ -112,100 +112,18 @@
   <ItemGroup>
     <ClInclude Include="src\Entity\Entity.h" />
     <ClInclude Include="src\Math\Quaternion.h" />
-    <ClInclude Include="src\Middleware\include\assimp\aabb.h" />
-    <ClInclude Include="src\Middleware\include\assimp\ai_assert.h" />
-    <ClInclude Include="src\Middleware\include\assimp\anim.h" />
-    <ClInclude Include="src\Middleware\include\assimp\Base64.hpp" />
-    <ClInclude Include="src\Middleware\include\assimp\BaseImporter.h" />
-    <ClInclude Include="src\Middleware\include\assimp\Bitmap.h" />
-    <ClInclude Include="src\Middleware\include\assimp\BlobIOSystem.h" />
-    <ClInclude Include="src\Middleware\include\assimp\ByteSwapper.h" />
-    <ClInclude Include="src\Middleware\include\assimp\camera.h" />
-    <ClInclude Include="src\Middleware\include\assimp\cexport.h" />
-    <ClInclude Include="src\Middleware\include\assimp\cfileio.h" />
-    <ClInclude Include="src\Middleware\include\assimp\cimport.h" />
-    <ClInclude Include="src\Middleware\include\assimp\ColladaMetaData.h" />
-    <ClInclude Include="src\Middleware\include\assimp\color4.h" />
-    <ClInclude Include="src\Middleware\include\assimp\commonMetaData.h" />
-    <ClInclude Include="src\Middleware\include\assimp\Compiler\poppack1.h" />
-    <ClInclude Include="src\Middleware\include\assimp\Compiler\pstdint.h" />
-    <ClInclude Include="src\Middleware\include\assimp\Compiler\pushpack1.h" />
-    <ClInclude Include="src\Middleware\include\assimp\config.h" />
-    <ClInclude Include="src\Middleware\include\assimp\CreateAnimMesh.h" />
-    <ClInclude Include="src\Middleware\include\assimp\DefaultIOStream.h" />
-    <ClInclude Include="src\Middleware\include\assimp\DefaultIOSystem.h" />
-    <ClInclude Include="src\Middleware\include\assimp\DefaultLogger.hpp" />
-    <ClInclude Include="src\Middleware\include\assimp\defs.h" />
-    <ClInclude Include="src\Middleware\include\assimp\Exceptional.h" />
-    <ClInclude Include="src\Middleware\include\assimp\Exporter.hpp" />
-    <ClInclude Include="src\Middleware\include\assimp\fast_atof.h" />
-    <ClInclude Include="src\Middleware\include\assimp\GenericProperty.h" />
-    <ClInclude Include="src\Middleware\include\assimp\GltfMaterial.h" />
-    <ClInclude Include="src\Middleware\include\assimp\Hash.h" />
-    <ClInclude Include="src\Middleware\include\assimp\Importer.hpp" />
-    <ClInclude Include="src\Middleware\include\assimp\importerdesc.h" />
-    <ClInclude Include="src\Middleware\include\assimp\IOStream.hpp" />
-    <ClInclude Include="src\Middleware\include\assimp\IOStreamBuffer.h" />
-    <ClInclude Include="src\Middleware\include\assimp\IOSystem.hpp" />
-    <ClInclude Include="src\Middleware\include\assimp\light.h" />
-    <ClInclude Include="src\Middleware\include\assimp\LineSplitter.h" />
-    <ClInclude Include="src\Middleware\include\assimp\LogAux.h" />
-    <ClInclude Include="src\Middleware\include\assimp\Logger.hpp" />
-    <ClInclude Include="src\Middleware\include\assimp\LogStream.hpp" />
-    <ClInclude Include="src\Middleware\include\assimp\material.h" />
-    <ClInclude Include="src\Middleware\include\assimp\MathFunctions.h" />
-    <ClInclude Include="src\Middleware\include\assimp\matrix3x3.h" />
-    <ClInclude Include="src\Middleware\include\assimp\matrix4x4.h" />
-    <ClInclude Include="src\Middleware\include\assimp\MemoryIOWrapper.h" />
-    <ClInclude Include="src\Middleware\include\assimp\mesh.h" />
-    <ClInclude Include="src\Middleware\include\assimp\metadata.h" />
-    <ClInclude Include="src\Middleware\include\assimp\NullLogger.hpp" />
-    <ClInclude Include="src\Middleware\include\assimp\ObjMaterial.h" />
-    <ClInclude Include="src\Middleware\include\assimp\ParsingUtils.h" />
-    <ClInclude Include="src\Middleware\include\assimp\pbrmaterial.h" />
-    <ClInclude Include="src\Middleware\include\assimp\port\AndroidJNI\AndroidJNIIOSystem.h" />
-    <ClInclude Include="src\Middleware\include\assimp\port\AndroidJNI\BundledAssetIOSystem.h" />
-    <ClInclude Include="src\Middleware\include\assimp\postprocess.h" />
-    <ClInclude Include="src\Middleware\include\assimp\Profiler.h" />
-    <ClInclude Include="src\Middleware\include\assimp\ProgressHandler.hpp" />
-    <ClInclude Include="src\Middleware\include\assimp\qnan.h" />
-    <ClInclude Include="src\Middleware\include\assimp\quaternion.h" />
-    <ClInclude Include="src\Middleware\include\assimp\RemoveComments.h" />
-    <ClInclude Include="src\Middleware\include\assimp\scene.h" />
-    <ClInclude Include="src\Middleware\include\assimp\SceneCombiner.h" />
-    <ClInclude Include="src\Middleware\include\assimp\SGSpatialSort.h" />
-    <ClInclude Include="src\Middleware\include\assimp\SkeletonMeshBuilder.h" />
-    <ClInclude Include="src\Middleware\include\assimp\SmallVector.h" />
-    <ClInclude Include="src\Middleware\include\assimp\SmoothingGroups.h" />
-    <ClInclude Include="src\Middleware\include\assimp\SpatialSort.h" />
-    <ClInclude Include="src\Middleware\include\assimp\StandardShapes.h" />
-    <ClInclude Include="src\Middleware\include\assimp\StreamReader.h" />
-    <ClInclude Include="src\Middleware\include\assimp\StreamWriter.h" />
-    <ClInclude Include="src\Middleware\include\assimp\StringComparison.h" />
-    <ClInclude Include="src\Middleware\include\assimp\StringUtils.h" />
-    <ClInclude Include="src\Middleware\include\assimp\Subdivision.h" />
-    <ClInclude Include="src\Middleware\include\assimp\texture.h" />
-    <ClInclude Include="src\Middleware\include\assimp\TinyFormatter.h" />
-    <ClInclude Include="src\Middleware\include\assimp\types.h" />
-    <ClInclude Include="src\Middleware\include\assimp\vector2.h" />
-    <ClInclude Include="src\Middleware\include\assimp\vector3.h" />
-    <ClInclude Include="src\Middleware\include\assimp\version.h" />
-    <ClInclude Include="src\Middleware\include\assimp\Vertex.h" />
-    <ClInclude Include="src\Middleware\include\assimp\XmlParser.h" />
-    <ClInclude Include="src\Middleware\include\assimp\XMLTools.h" />
-    <ClInclude Include="src\Middleware\include\assimp\ZipArchiveIOSystem.h" />
     <ClInclude Include="src\Middleware\include\glad\glad.h" />
     <ClInclude Include="src\Middleware\include\GLFW\glfw3.h" />
     <ClInclude Include="src\Middleware\include\GLFW\glfw3native.h" />
     <ClInclude Include="src\Middleware\include\KHR\khrplatform.h" />
     <ClInclude Include="src\Middleware\include\stb_image\stb_image.h" />
     <ClInclude Include="src\Model\Mesh.h" />
+    <ClInclude Include="src\Model\Model.h" />
     <ClInclude Include="src\OpenGL\Camera.h" />
     <ClInclude Include="src\OpenGL\ShaderProgram.h" />
     <ClInclude Include="src\MathEngine\Constants\constants.h" />
     <ClInclude Include="src\Math\Matrix3x3.h" />
     <ClInclude Include="src\Math\Matrix4x4.h" />
-    <ClInclude Include="src\Model\Model.h" />
     <ClInclude Include="src\Window\EventPublisher.h" />
     <ClInclude Include="src\Component\Input.h" />
     <ClInclude Include="src\Window\WindowCallback.h" />
@@ -234,19 +152,13 @@
     <ClCompile Include="src\OpenGL\Texture.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="src\Middleware\include\assimp\color4.inl" />
-    <None Include="src\Middleware\include\assimp\material.inl" />
-    <None Include="src\Middleware\include\assimp\matrix3x3.inl" />
-    <None Include="src\Middleware\include\assimp\matrix4x4.inl" />
-    <None Include="src\Middleware\include\assimp\quaternion.inl" />
-    <None Include="src\Middleware\include\assimp\SmoothingGroups.inl" />
-    <None Include="src\Middleware\include\assimp\vector2.inl" />
-    <None Include="src\Middleware\include\assimp\vector3.inl" />
     <None Include="src\Middleware\include\GLFW\LICENSE.md" />
     <None Include="src\Shaders\PhongLightingFS.glsl" />
     <None Include="src\Shaders\LightSourceVS.glsl" />
     <None Include="src\Shaders\LightSourceFS.glsl" />
     <None Include="src\Shaders\PhongLightingVS.glsl" />
+    <None Include="src\Shaders\PhongMaterialsFS.glsl" />
+    <None Include="src\Shaders\PhongMaterialsVS.glsl" />
     <None Include="src\sponza\scene.bin" />
     <None Include="src\sponza\scene.gltf" />
   </ItemGroup>
@@ -254,7 +166,6 @@
     <Text Include="src\sponza\license.txt" />
   </ItemGroup>
   <ItemGroup>
-    <Library Include="src\Middleware\lib\assimp-vc142-mt.lib" />
     <Library Include="src\Middleware\lib\glfw3.lib" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
