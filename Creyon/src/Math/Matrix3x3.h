@@ -8,17 +8,13 @@
 namespace Creyon {
     
     class Mat33 {
-	private: 
-		float m_array[9];
-    
+	private:
+		float m_array[3][3];
+
     public:
      
 		//creates a 3x3 identity matrix
         Mat33();
-
-        Mat33(float array0, float array1, float array2, 
-			  float array3, float array4, float array5, 
-			  float array6, float array7, float array8);
 
 		//copy constructor
         Mat33(const Mat33& mat3);
@@ -41,18 +37,16 @@ namespace Creyon {
 		//scalar division of 3x3 matrix: mat/f
         Mat33 operator/(float f)const;
 
-		//write access to a matrix element with []
-		float& operator[](int i) {
-			return m_array[i];
+		float& operator()(int i, int j) {
+			return m_array[i][j];
 		}
-		
-		//read access to a matrix element with []
-		float operator[](int i)const {
-			return m_array[i];
+
+		float operator()(int i, int j)const {
+			return m_array[i][j];
 		}
 
 		const float* operator&()const {
-			return m_array;
+			return m_array[0];
 		}
 		
         //scalar multiplication of 3x3 matrix: f * mat
