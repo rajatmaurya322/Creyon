@@ -38,8 +38,8 @@ namespace Creyon {
 
 	Mat44 Camera::lookAt() {
 		Mat44 cameralookAt = translate(-m_position) * rotateY(m_yaw) * rotateX(-m_pitch);
-		m_right = Vector3{ cameralookAt[0], cameralookAt[4], cameralookAt[8] };
-		m_front = -Vector3{ cameralookAt[2], cameralookAt[6], cameralookAt[10] };
+		m_right = Vector3{ cameralookAt(0,0), cameralookAt(1,0), cameralookAt(2,0) };
+		m_front = -Vector3{ cameralookAt(0,2), cameralookAt(1,2), cameralookAt(2,2) };
 		return cameralookAt;
 	}
 }

@@ -4,17 +4,17 @@ namespace Creyon{
 	
 	Mat44 translate(const float x, const float y, const float z) {
 		Mat44 translation;
-		translation[12] = x;
-		translation[13] = y;
-		translation[14] = z;
+		translation(3,0) = x;
+		translation(3,1) = y;
+		translation(3,2) = z;
 		return translation;
 	}
 
 	Mat44 translate(const Vector3& displacement) {
 		Mat44 translation;
-		translation[12] = displacement.m_x;
-		translation[13] = displacement.m_y;
-		translation[14] = displacement.m_z;
+		translation(3,0) = displacement.m_x;
+		translation(3,1) = displacement.m_y;
+		translation(3,2) = displacement.m_z;
 		return translation;
 	}
 
@@ -23,9 +23,9 @@ namespace Creyon{
 		float sinValue = sinf(radianAngle);
 		
 		Mat44 rotationX;
-		rotationX[5] = rotationX[10] = cosf(radianAngle);
-		rotationX[6] = sinValue;
-		rotationX[9] = -sinValue;
+		rotationX(1,1) = rotationX(2,2) = cosf(radianAngle);
+		rotationX(1,2) = sinValue;
+		rotationX(2,1) = -sinValue;
 		return rotationX;
 	}
 
@@ -34,9 +34,9 @@ namespace Creyon{
 		float sinValue = sinf(radianAngle);
 		
 		Mat44 rotationY;
-		rotationY[0] = rotationY[10] = cosf(radianAngle);
-		rotationY[2] = -sinValue;
-		rotationY[8] = sinValue;
+		rotationY(0,0)= rotationY(2,2) = cosf(radianAngle);
+		rotationY(0,2)= -sinValue;
+		rotationY(2,0)= sinValue;
 		return rotationY;
 	}
 
@@ -45,9 +45,9 @@ namespace Creyon{
 		float sinValue = sinf(radianAngle);
 		
 		Mat44 rotationZ;
-		rotationZ[0] = rotationZ[5] = cosf(radianAngle);
-		rotationZ[1] = sinValue;
-		rotationZ[4] = -sinValue;
+		rotationZ(0,0) = rotationZ(1,1) = cosf(radianAngle);
+		rotationZ(0,1) = sinValue;
+		rotationZ(1,0) = -sinValue;
 		return rotationZ;
 	}
 
@@ -64,15 +64,15 @@ namespace Creyon{
 
 	Mat44 scale(const float scaleX, const float scaleY, const float scaleZ) {
 		Mat44 scaling;
-		scaling[0] = scaleX;
-		scaling[5] = scaleY;
-		scaling[10] = scaleZ;
+		scaling(0,0) = scaleX;
+		scaling(1,1) = scaleY;
+		scaling(2,2) = scaleZ;
 		return scaling;
 	}
 
 	Mat44 scale(const float scale) {
 		Mat44 scaling;
-		scaling[0] = scaling[5] = scaling[10] = scale;
+		scaling(0,0) = scaling(1,1) = scaling(2,2) = scale;
 		return scaling;
 	}
 	
@@ -80,12 +80,12 @@ namespace Creyon{
 	Mat44 orthographic(const float left, const float top, const float right, 
 					   const float bottom, const float far, const float near) { 
 		Mat44 orthographic;
-		orthographic[0] = 2 / (right - left);
-		orthographic[5] = 2 / (top - bottom);
-		orthographic[10] = 2 / (near - far);
-		orthographic[12] = (right + left) / (left - right);
-		orthographic[13] = (top + bottom) / (bottom - top);
-		orthographic[14] = (far + near) / (near - far);
+		orthographic(0,0) = 2 / (right - left);
+		orthographic(1,1) = 2 / (top - bottom);
+		orthographic(2,2) = 2 / (near - far);
+		orthographic(3,0) = (right + left) / (left - right);
+		orthographic(3,1) = (top + bottom) / (bottom - top);
+		orthographic(3,2) = (far + near) / (near - far);
 		return orthographic;
 	}
 	
@@ -93,28 +93,28 @@ namespace Creyon{
 		float cotHalfFov = 1.0f / tanf( toRadian(fieldofview)/2.0f );
 	
 		Mat44 perspective;
-		perspective[0] = cotHalfFov / aspect;
-		perspective[5] = cotHalfFov;
-		perspective[10] = (near + far) / (near - far);
-		perspective[11] = -1.0f;
-		perspective[14] = (2 * far * near) / (near - far);
-		perspective[15] = 0.0f;
+		perspective(0,0) = cotHalfFov / aspect;
+		perspective(1,1) = cotHalfFov;
+		perspective(2,2) = (near + far) / (near - far);
+		perspective(2,3) = -1.0f;
+		perspective(3,2) = (2 * far * near) / (near - far);
+		perspective(3,3) = 0.0f;
 		return perspective;
 	}
 
 	Mat33 calculateNormalMatrix(const Mat44& mat) {
 		Mat33 adjoint;
-		adjoint[0] =  differenceOfProduct(mat[5], mat[10], mat[9], mat[6]);
-		adjoint[1] = -differenceOfProduct(mat[4], mat[10], mat[8], mat[6]);
-		adjoint[2] =  differenceOfProduct(mat[4], mat[9],  mat[8], mat[5]);
-		adjoint[3] = -differenceOfProduct(mat[1], mat[10], mat[9], mat[2]);
-		adjoint[4] =  differenceOfProduct(mat[0], mat[10], mat[8], mat[2]);
-		adjoint[5] = -differenceOfProduct(mat[0], mat[9],  mat[8], mat[1]);
-		adjoint[6] =  differenceOfProduct(mat[1], mat[6],  mat[5], mat[2]);
-		adjoint[7] = -differenceOfProduct(mat[0], mat[6],  mat[4], mat[2]);
-		adjoint[8] =  differenceOfProduct(mat[0], mat[5],  mat[4], mat[1]);
+		adjoint(0,0) =  differenceOfProduct(mat(1,1), mat(2,2), mat(2,1), mat(1,2));
+		adjoint(0,1) = -differenceOfProduct(mat(1,0), mat(2,2), mat(2,0), mat(1,2));
+		adjoint(0,2) =  differenceOfProduct(mat(1,0), mat(2,1), mat(2,0), mat(1,1));
+		adjoint(1,0) = -differenceOfProduct(mat(0,1), mat(2,2), mat(2,1), mat(0,2));
+		adjoint(1,1) =  differenceOfProduct(mat(0,0), mat(2,2), mat(2,0), mat(0,2));
+		adjoint(1,2) = -differenceOfProduct(mat(0,0), mat(2,1), mat(2,0), mat(0,1));
+		adjoint(2,0) =  differenceOfProduct(mat(0,1), mat(1,2), mat(1,1), mat(0,2));
+		adjoint(2,1) = -differenceOfProduct(mat(0,0), mat(1,2), mat(1,0), mat(0,2));
+		adjoint(2,2) =  differenceOfProduct(mat(0,0), mat(1,1), mat(1,0), mat(0,1));
 
-		float determinant = mat[0] * adjoint[0] + mat[1] * adjoint[1] + mat[2] * adjoint[2];
+		float determinant = mat(0,0) * adjoint(0,0) + mat(0,1) * adjoint(0,1) + mat(0,2) * adjoint(0,2);
 		return adjoint / determinant;
 	}
 
